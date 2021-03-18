@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Tesla</title>
+</head>
+
+<body>
+    <!-- Time Out message-->
+    <section id="timeOut5m" class="popup displayNone">
+        <div class="timeOutMessage">Maximum limit for session time exceeded.</div>
+        <button class="okButton">Ok</button>
+    </section>
+    <section id="timeOut60s" class="popup displayNone">
+        <div class="timeOutMessage"><span id="minutesLeft">5</span> minutes left to complete the form. <br><b>Hurry
+                Up!</b></div>
+    </section>
+    <!--Header-->
+    <header>
+        <div class="header-item" id="navBar">
+            <a href="index.html">
+                <svg id='logo' xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 342 35"
+                    preserveAspectRatio="xMidYMid Meet" width="200" height="35">
+                    <path class="tds-icon-fill--primary"
+                        d="M0 .1a9.7 9.7 0 007 6.93h10.93l.56.22v27.58h6.82V7.29l.62-.22h10.94a9.82 9.82 0 007-6.93V.07H0V.1zM238.61.06h-6.8v34.85h31.14a9.68 9.68 0 005.94-6.86h-30.3l.02-27.99zm-52.33 6.86c3.62-1 6.66-3.82 7.39-6.88l-38.1.06v20.55h31.17v7.23h-24.46a13.6 13.6 0 00-8.71 7h39.89V13.81H162.3V6.92h23.98zm116.17 27.97h6.76V20.87h24.58v14.02h6.75V13.87l-38.09-.04zM85.35 7h26a9.57 9.57 0 007.05-7H78.3a9.61 9.61 0 007.05 7zm0 13.77h26a9.59 9.59 0 007.05-7H78.3a9.63 9.63 0 007.05 7zm0 14.14h26a9.59 9.59 0 007.05-7H78.3a9.62 9.62 0 007.05 7zM308.46 7.02h26a9.58 9.58 0 007.06-7h-40.11a9.59 9.59 0 007.05 7z"
+                        fill="#000" /></svg></a>
+            <!--<img src="https://toppng.com/uploads/preview/tesla-logo-vector-1157397072102hh1tqeqn.jpg" alt="" class="logo">-->
+            <div class="topnav" id="modelsNav">
+                <button class="navButton clickable" id="model-s-nav" value="model-s">Model S</button>
+                <button class="navButton clickable" id="model-3-nav" value="model-3">Model 3</button>
+                <button class="navButton clickable" id="model-x-nav" value="model-x">Model X</button>
+                <button class="navButton clickable" id="model-y-nav" value="model-y">Model Y</button>
+                <button id="icon-button" href="javascript:void(0);" class="icon navButton clickable">
+                    <i id="icon" class="fa fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <section class='progressBarContainer' id='progressBarContainer'>
+        <div class="progressBar" id="progressBar"></div>
+    </section>
+    <main class="main">
+        <!--Home page-->
+        <section class="page pageActive" id="step1">
+            <div class="home">
+                <!-- Main picture-->
+                <div class=main-picture>
+                    <div class='hover-column' id='hover-column'>
+                        <img class="clickable"
+                            src="https://static-assets.tesla.com/configurator/compositor?&options=$MT320,$PPSW,$W40B,$IBB0&view=STUD_FRONT34&model=m3&size=1920&bkba_opt=1&version=v0028d202011130359&crop=0,0,0,0&version=v0028d202011130359" />
+                        <img class="clickable"
+                            src="https://static-assets.tesla.com/configurator/compositor?&options=$IBB0,$PPSW,$MT320&view=STUD_INTERIOR&model=m3&size=1441&bkba_opt=1&version=v0028d202011130359&crop=0,0,0,0&version=v0028d202011130359" />
+                        <img class="clickable"
+                            src="https://static-assets.tesla.com/configurator/compositor?&options=$IBW0,$PPSW,$MT320&view=STUD_INTERIOR&model=m3&size=1441&bkba_opt=1&version=v0028d202011130359&crop=0,0,0,0&version=v0028d202011130359" />
+                        <img class="clickable"
+                            src="https://www.adslzone.net/app/uploads-adslzone.net/2020/07/tesla-model-3-blanco.jpg" />
+                    </div>
+                    <div class="main-picture-img">
+                        <img id="mainImage"
+                            src="https://static-assets.tesla.com/configurator/compositor?&options=$MT320,$PPSW,$W40B,$IBB0&view=STUD_FRONT34&model=m3&size=1920&bkba_opt=1&version=v0028d202011130359&crop=0,0,0,0&version=v0028d202011130359" />
+                    </div>
+                    <div class="main-picture-models" id="modelContainer">
+                        <button class="carModel clickable" id="model-s">
+                            <p>S</p>
+                        </button>
+                        <button class="carModel clickable" id="model-3">
+                            <p>3</p>
+                        </button>
+                        <button class="carModel clickable" id="model-x">
+                            <p>X</p>
+                        </button>
+                        <button class="carModel clickable" id="model-y">
+                            <p>Y</p>
+                        </button>
+                    </div>
+                </div>
+                <!-- Main details column-->
+                <div class=details-column>
+                    <div>
+                        <h1 id="carName">Model 3</h1>
+                        <p id='carPrice' class="specValue">49000€</p>
+                    </div>
+                    <div id='colorContainer'>
+                        <button id="white" class="colorButton clickable" value='0'
+                            style="background-color:#f2f2f2"></button>
+                        <button id="black" class="colorButton clickable" value='1'
+                            style="background-color:#1d1d1d"></button>
+                        <button id="grey" class="colorButton clickable" value='2'
+                            style="background-color:#5e626e"></button>
+                        <button id="blue" class="colorButton clickable" value='3'
+                            style="background-color:#1d3189"></button>
+                        <button id="red" class="colorButton clickable" value='4'
+                            style="background-color:#b3141c"></button>
+                    </div>
+                    <div id='carSpecs'>
+                        <h3>Autonomy</h3>
+                        <p class="specValue">430km</p>
+                        <h3>Maximum speed</h3>
+                        <p class="specValue">225km/h</p>
+                        <h3>0-100 km/h</h3>
+                        <p class="specValue">5,6s</p>
+                    </div>
+                    <div class="extras" id="carExtras">
+                        <input type="checkbox" class="clickable" id="Autopilot" name="Autopilot" value="0">
+                        <label for="Autopilot"><strong>Autopilot</strong> 7500€</label><br>
+                        <input type="checkbox" class="clickable" id="Performance" name="Performance" value="1">
+                        <label for="Performance"> <strong>Performance</strong> 16990€</label>
+                    </div>
+                    <div>
+                        <button class="buy-button clickable" id="next">BUY</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--User page-->
+        <section class="page " id="step2">
+            <form class="formUser step2" action="">
+                <div class="formUser__field">
+                    <label for="username" class="userLabel">Username</label>
+                    <input type="text" name="username" id="username" class="formUser__input" value="" required
+                        oninvalid="this.setCustomValidity('Please Enter valid User name')">
+                </div>
+                <div class="formUser__field">
+                    <label for="email" class="userLabel">E-Mail</label>
+                    <input type="email" name="email" id="email" class="formUser__input" value="" required
+                        oninvalid="this.setCustomValidity('Please Enter a correct email address')">
+                </div>
+                <div class="formUser__field">
+                    <label for="pass" class="userLabel">Password</label>
+                    <input type="password" name="pass" id="pass" class="formUser__input" value="" required
+                        oninvalid="this.setCustomValidity('Please Enter a valid password')">
+                </div>
+                <div class="formUser__field" id="password-field">
+                    <label for="confPass" class="userLabel">Confirm Password</label>
+                    <input type="password" name="confPass" id="confPass" class="formUser__input" value=""
+                        oninvalid="this.setCustomValidity('Please use the same password as bellow')">
+                </div>
+                <p class="errorMessage" id="errorAddress">Missing fields</p>
+                <div class="bottom-btn">
+                    <button class="footer-button" id="clear2">CLEAR</button>
+                    <button class="footer-button" id="next2">NEXT</button>
+                </div>
+            </form>
+        </section>
+        <!--Address page-->
+        <section class="page" id="step3">
+            <form class="formUser" action="">
+                <div class="formAddress__field" id="firstFormAddress__field">
+                    <label for="firstName" class="addressLabel">First name</label>
+                    <input type="text" name="firstName" id="firstName" class="formAddress__input" required
+                        oninvalid="this.setCustomValidity('Please Enter your First Name')">
+                </div>
+                <div class="formAddress__field">
+                    <label for="lastName" class="addressLabel">Last name</label>
+                    <input type="text" name="lastName" id="lastName" class="formAddress__input" required
+                        oninvalid="this.setCustomValidity('Please Enter you Last Name')">
+                </div>
+                <div class="formAddress__field">
+                    <label for="birthday" class="addressLabel">Birthday</label>
+                    <input type="date" name="birthday" id="birthday" class="formAddress__input" required
+                        oninvalid="this.setCustomValidity('Please Enter your birthday')">
+                </div>
+                <div class="formAddress__field">
+                    <label for="address-1" class="addressLabel">Address 1</label>
+                    <input type="text" name="address-1" id="address-1" class="formAddress__input" required
+                        oninvalid="this.setCustomValidity('Please Enter an Address')">
+                </div>
+                <div class="formAddress__field">
+                    <label for="address-2" class="addressLabel">Address 2</label>
+                    <input type="text" name="address-2" id="address-2" class="formAddress__input"
+                        oninvalid="this.setCustomValidity('Please Enter an Alternative Address')">
+                </div>
+                <div class="formAddress__field">
+                    <label for="postalCode" class="addressLabel">Postal code</label>
+                    <input type="number" name="postalCode" id="postalCode" class="formAddress__input" required
+                        oninvalid="this.setCustomValidity('Please Enter a valid Post Code')">
+                </div>
+                <div class="formAddress__field">
+                    <label for="country" class="addressLabel">Country</label>
+                    <select name="country" id="country" class="formAddress__input" required>
+                        <option value="unselected"> </option>
+                        <option value="andorra">Andorra</option>
+                        <option value="spain">Spain</option>
+                        <option value="france">France</option>
+                        <option value="germany">Germany</option>
+                        <option value="greece">Greece</option>
+                    </select>
+                </div>
+                <div class="formAddress__field">
+                    <label for="phoneCode" class="addressLabel">Phone code</label>
+                    <select name="phoneCode" id="phoneCode" class="formAddress__input" required>
+                        <option value="unselected"> </option>
+                        <option value="376and">376 - AND</option>
+                        <option value="34esp">34 - ESP</option>
+                        <option value="33fra">33 - FRA</option>
+                        <option value="49deu">49 - DEU</option>
+                        <option value="30grc">30 - GRC</option>
+                    </select>
+                </div>
+                <div class="formAddress__field">
+                    <label for="phone" class="addressLabel">Phone</label>
+                    <input type="tel" name="phone" id="phone" class="formAddress__input" required>
+                </div>
+                <div class="formAddress__field">
+
+                    <input type="checkbox" name="regularAddress" class="formAddress__input" id="regularAddress"
+                        required><label>Is this your regular address?</label><br>
+                </div>
+                <p class="errorMessage errorAddressMessage" id="errorAddress">Missing fields</p>
+                <div class="bottom-btn">
+                    <button class="footer-button" id="clear3">CLEAR</button>
+                    <button class="footer-button" id="next3">NEXT</button>
+                </div>
+            </form>
+        </section>
+        <!--shipping page-->
+        <section class="page" id="step4">
+            <form class="formUser formShipping step4" action="">
+                <div>
+                    <input type="radio" name="Shipping" id="freeShipping" class="formShipping__input" required>
+                    <label for="freeShipping">Free shipment (72h) <b id="noCost">Free</b></label><br>
+                    <input type="radio" name="Shipping" id="extraShipping" class="formShipping__input" required>
+                    <label for="extraShipping">Extra shipping (48h)<b id="extraCost"> 99.99€</b><label><br>
+                            <input type="radio" name="Shipping" id="premiumShipping" class="formShipping__input"
+                                required>
+                            <label for="premiumShipping">Premium (24h) <b id="premiumCost"> 199.99€</b><label><br>
+                </div>
+                <div class="formShipping__input">
+                    <!-- This information will appear when you choose the shipping option -->
+                    <!-- Free Shipping -->
+                    <div id="free">
+                        <p><b>ESTIMATE DELIVERY DATE:</b></p><br>
+                        <p>Between <span id="deliveryExcepted">...</span></p>
+                    </div>
+                </div>
+                <div class="formShippingInfo">
+                    <label><input type="checkbox" name="formShippingAddress" class="formShipping__input"
+                            id="input__gift"> Gift
+                        vinyl wrapped?</label>
+                    <div id="carTitle"></div>
+                    <div id="inputMessage">
+                        <label id="giftTextBoxTitle">Gift message</label><br>
+                        <textarea id="gift" name="gift" rows="8" cols="40"></textarea>
+                    </div>
+                    <div id="inputImage">
+                        <div>Gift wrapper image</div>
+                        <button class="selectImageBtn"><input type="file" id="imgGift" name="imgGift"
+                                accept="image/png,image/jpeg">Select image </button><br>
+                    </div>
+                </div>
+                <p class="errorMessage errorShippingMessage" id="errorAddress">Missing fields</p>
+                <div class="bottom-btn">
+                    <button class="footer-button" id="clear4">CLEAR</button>
+                    <button class="footer-button" id="next4">NEXT</button>
+                </div>
+            </form>
+        </section>
+        <!--termsAndConditions page-->
+        <section class="page" id="step5">
+            <div class="finalPage">
+                <!--YOUR PURCHASE. PRODUCT, MODEL, COLOR, ETA + BUTTON-->
+                <div class="termsAndConditions">
+                    <div class="purchaseTitle">
+                        <h2 class="purchaseFinal"> Your Purchase</h2>
+                    </div>
+                    <div class="purchaseProductDetails">
+                        <div class="purchaseProductDetailsImg">
+                            <img class="finalProductImage"
+                                src="https://static-assets.tesla.com/configurator/compositor?&options=$MT320,$PPSW,$W40B,$IBB0&view=STUD_FRONT34&model=m3&size=1920&bkba_opt=1&version=v0028d202011130359&crop=0,0,0,0&version=v0028d202011130359" />
+                        </div>
+                        <div class="purchaseProductDetailsTxt">
+                            <div class="disFlex">
+                                <span>Name: </span>
+                                <div id="productModel"></div>
+                            </div>
+                            <div class="disFlex">
+                                <span>Color: </span>
+                                <div id="productColor"></div>
+                            </div>
+                            <div class="disFlex">
+                                <span id="etaTxt">ESTIMATED DELIVERY DATE:</span>
+                                <div id="productDeliveryTime"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="purchaseCheckbox" class="purchaseCheckbox">
+                        <label><input type="checkbox" name="termsAndConditions" class="termsAndConditions"  id="termsCheck" required>
+                            Check here to indicate that you have read and agree to the terms and conditions.</label>
+                    </div>
+                    <button class="purchaseButton pButtonColorDark" id="next5" disabled>Buy Now</button>
+                </div>
+                <!--YOUR ORDER. PRICE CAR, SHIPPING PRICE AND TOTAL-->
+                <div class="yourOrder">
+                    <div id="yourOrderTitle">
+                        <h2 class="purchaseFinal">Your Order</h2> <br>
+                    </div>
+                    <span>Base model cost: </span>
+                    <div id="yourOrderCost"></div>
+                    <span>Shipping cost: </span>
+                    <div id="yourOrderShippingCost"></div>
+                    <span>Total cost: </span>
+                    <div id="yourOrderTotalCost"></div>
+                </div>
+                <!--<button class="footer-button" id="next5">NEXT</button>-->
+            </div>
+        </section>
+    </main>
+    <!--Footer-->
+    <script src="termsCheck.js"></script>
+    <script src="javascript.js"></script>
+    <script src="homeButtons.js"></script>
+    <script src="data.js"></script>
+    <script src="menu.js"></script>
+</body>
+
+</html>

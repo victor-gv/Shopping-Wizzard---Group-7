@@ -1,0 +1,105 @@
+header {
+  height:100px;
+  position: fixed;
+  z-index:1;
+  top: 0;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0));
+  max-height: 100px;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-basis: 15%;
+}
+.logo {
+  position: absolute;
+  left:0px;
+  max-height: 20px;
+  margin:30px 25px;
+}
+header>div>#modelsNav>button{
+  background-color:rgba(255,255,255,0);
+  border:none;
+  font-size: x-large;
+  font-weight: 200;
+  margin: 1em 2em ;
+}
+header>div>#modelsNav>button:hover{
+  text-decoration:underline;
+}
+header>div>#modelsNav>button:focus{
+  border:none;
+  text-decoration:underline;
+  outline:none;
+}
+header>div>#modelsNav>button:active{
+  border:none;
+  text-decoration:underline;
+  outline:none;
+}
+.topnav {
+  overflow: hidden;
+}
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .topnav button {display: none;}
+  .topnav button.icon {
+    float: right;
+    display: block;
+  }
+  header{
+      justify-content: flex-end;
+  }
+  .responsive{
+      background-color:rgba(255,255,255,0.9);
+      border-radius: 25px;
+      
+  }
+  .responsive>button:first-child{
+      padding-top: 50px;
+  }
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive button {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  header>div>#modelsNav>button{
+      font-size: xx-large;
+      font-weight: 100;
+  }
+}
+@media screen and (max-width: 970px) {
+  .responsive{
+      background-color:rgba(255,255,255,0.8);
+  }
+  header>div>#modelsNav>button{
+      font-size: x-large;
+      font-weight: 200;
+  }
+}
+@media screen and (max-width: 700px) { 
+  .logo {
+      position: absolute;
+      left:0px;
+      max-height: 15px;
+      margin:30px 0;
+  }
+}
+@media screen and (max-width: 500px) { 
+  .logo {
+      max-height: 12px;
+      margin:30px 0px;
+  }
+}

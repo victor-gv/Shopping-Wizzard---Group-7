@@ -1,0 +1,872 @@
+/*GLOBAL PROPERTIES*/
+
+* {
+    margin: 0;
+	padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+
+}
+.page{
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+/* MODIFIED 24TH NOV 19 TASK 1 LUIS */
+.errorMessage{
+    visibility: hidden;
+    border: none;
+    color: #b3141c;
+    font-weight: 100;
+    padding: 10px 10px;
+    border: 1px solid #b3141c;
+    margin-bottom: 40px;
+
+/* MODIFIED 24TH NOV 19  TASK 1 LUIS */
+}
+.errorMessageActive{
+    visibility:visible;
+}
+label, p, div {
+    font-size: 21px;
+}
+.main {
+    flex-basis: 70%;
+    height:100%;
+}
+/* MODIFIED 24TH NOV 19 TASK 1 LUIS */
+.error__input{
+    border-color: #b3141c;
+    background-color: rgb(255, 255, 255);
+    color: #b3141c;;
+}
+/* MODIFIED 24TH NOV 19 TASK 1 LUIS */
+
+.pageActive{
+    display: block;
+}
+
+
+
+/*BOTTOM BUTTON FORMS TAGS */
+.bottom-btn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-items: space-evenly;
+}
+.footer-button {
+    margin: 20px;
+    padding: 20px;
+    background-color: rgb(58, 56, 56);
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    outline: none;
+    transition: all 200ms ease-in-out;
+    border: none;
+    width: 10em;
+    display: inline;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3), 0 4px 10px 0 rgba(100, 100, 100, 0.3);
+    margin:0 auto;
+}
+.footer-button:hover{
+    cursor: pointer;
+    box-shadow: 0 0.8rem 1.8rem 0 white;
+    transform: scale(1.1);
+}
+
+/*MAIN PAGE */
+/*DETAILS COLUMN HOME PAGE */
+.home {
+    display: flex;
+    min-height: 400px;
+    width: 100%;
+    align-items: stretch;
+}
+.colorButton{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    margin:0.1em;
+    background-image:radial-gradient(transparent,rgba(0,0,0,0.5));
+}
+.colorButton:hover{
+    opacity:0.8;
+}
+#carExtras label {
+    font-size: 1.1em;
+}
+#carExtras input {
+    margin-right: 1em;
+}
+.clickable:hover{
+    cursor: pointer
+}
+#modelContainer {
+    z-index: 2;
+}
+/*MAIN PAGE. HOVER COLUMN PROPERTIES*/
+.hover-column {
+    position: absolute;
+    left:10px;
+    height: 100%;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.hover-column:hover>img{
+    visibility: visible;
+    opacity:80%;
+    overflow: visible;
+}
+.hover-column>img{
+    position: relative;
+    width:90%;
+    opacity:0%;
+    transition: opacity 0.5s linear;
+    margin: 2% 0;
+}
+.hover-column>img:hover{
+    width:89%;
+    opacity:100%;
+    transition: opacity 0.5s linear;
+    border:solid  #aaaaaaaa;
+    overflow: visible;
+}
+/* VISIBILITY */
+#hover-column {
+    z-index: 2;
+}
+
+/*HOME PAGE BOTTOM MODELS DISPLAY*/
+#model-3:hover{
+    transition: linear 1s;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://www.autopista.es/uploads/s1/77/57/82/7/el-tesla-model-3-aumenta-su-autonomia-pero-no-su-precio.jpeg");
+}
+#model-s:hover{
+    transition: linear 1s;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://tesla-cdn.thron.com/delivery/public/image/tesla/35d15221-0a5f-4dce-b484-a4db67b81dd2/bvlatuR/std/0x0/model-s@2x");
+}
+#model-x:hover{
+    transition: linear 1s;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://tesla-cdn.thron.com/delivery/public/image/tesla/efbb6471-e1b8-4533-b41a-6df9d50c0a42/bvlatuR/std/0x0/performance-hero@2");
+}
+#model-y:hover{
+    transition: linear 1s;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-tesla-model-y-long-range-102-1592842278.jpg?crop=0.612xw:0.459xh;0.146xw,0.454xh&resize=640:*");
+}
+.carModel{
+    width:5%;
+    height: 50px;
+    border:0.5px solid;
+    border-bottom:none;
+    border-radius: 10px 10px 0px 0px;
+    margin-top: 100px;
+    margin-right: 5px;
+    transition: linear 0.8s;
+    background-color:#FFFFFFAA;
+    
+}
+
+.carModel>p{
+    font-weight: 700;
+    color:black;
+    font-size: x-large;
+    margin-block-start: 0.5em;
+}
+.carModel:hover>p{
+    opacity:0%;
+}
+.carModel:hover{
+    width:25%;
+    height: 150px;
+    margin-top: 0px;
+    border:none;
+    border: 1px solid;
+    border-bottom:none;
+}
+
+/* HOME PAGE. MAIN PICTURE*/
+.main-picture>img{
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+}
+.main-picture {
+    position: relative;;
+    flex-basis: 80%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    overflow: hidden;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* FLEX-DIV MAIN IMG + MODELS */
+.main-picture-img{
+    flex-basis: 100%;
+    overflow:hidden;
+}
+.main-picture-img>img{
+    object-fit:cover;
+    height:100vh;
+    margin:auto;
+}
+.main-picture-models{
+    position: absolute;
+    bottom:0px;
+    display: flex;
+    flex-direction: row;
+    align-content:center;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto;
+}
+
+/* MAIN PAGE. DETAILS COLUMN */
+.details-column {
+    flex-basis: 20%;
+    flex-direction: column;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    text-align: center;
+}
+.details-column>div>h1{
+    font-size: 60px;
+    margin-block-start: 0.3em;
+    margin-block-end: 0.3em;
+}
+.buy-button{
+    background-color: #428c59;
+    padding: 15px 70px;
+    color:#eee;
+    border-radius:25px;
+    letter-spacing: 0.05em;
+    border:none;
+    font-size:1.1em;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3), 0 4px 10px 0 rgba(100, 100, 100, 0.3);
+}
+.buy-button:hover{
+    background-color: #337246;
+}
+.specValue{
+    font-size: xx-large;
+    font-weight: 200;
+    margin-block-start: 0.3em;
+    margin-block-end: 0.3em;
+}
+.extras{
+    text-align: left;
+    margin-left: 15%;
+}
+
+/* MODIFIED LUIS 11.24 */
+input[type=checkbox] {
+    position: RELATIVE;
+    cursor: pointer;
+    border-radius: 50%;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+
+}
+
+/* BEFORE BUTTON */
+input[type=checkbox]:before {
+    border-radius: 50%;
+    content: "";
+    display: block;
+    position: relative;
+    width: 12px;
+    height: 12px;
+    top: 0px;
+    left: 0px;
+    border: 2px solid #282828;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    z-index: 2;
+}
+input[type=checkbox]:checked:before {
+    background-color: #52996d;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    /*font-size:20px;
+    content: '✔️';
+    width: auto;
+    height: auto;*/
+}
+
+#regularAddress{
+    top: 1.3em;
+    text-indent: 0px;
+    vertical-align: bottom;
+}
+/* BEFORE BUTTON * END/
+
+/*
+.purchaseCheckbox {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+.purchaseCheckbox input {
+    justify-content: left;
+}
+
+input[type=checkbox]{
+    text-align: center;
+    display: inline-block;
+}*/
+
+/* USER PAGE PROPERTIES */
+
+.formUser{
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-around;
+    height: 100%;
+    min-width: 320px;
+    max-width: 500px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.formUser__field{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 50px 10px;
+    height: 30px;
+}
+.formUser__input{
+    font-size: 1rem;
+    border-radius: 4px;
+    padding: 0.5em 0;
+    text-align: center;
+    height: 55px;
+    border: solid 1px;
+}
+.step2 {
+    /*padding-top: 5%;*/
+}
+
+/* ADDRESS PAGE PROPERTIES */
+.formAddress{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-weight: bold;
+    align-items: space-around;
+    height: 100%;
+    min-width: 300px;
+}
+.formAddress__field{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 20px 10px;
+}
+.formAddress__input{
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 4px;
+    padding:0.5em 0;
+    height: 50px;
+    border: solid 1px; /* border de prueba */
+    /*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(100, 100, 100, 0.19);*/
+}
+#password-field{
+    margin-bottom: 100px;
+}
+.userLabel, .addressLabel {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+#regularAddress {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* SHIPPING PAGE PROPERTIES */
+.formShipping {
+    font: 1rem;
+}
+#first-div-shipping{
+    margin-top: 100px;
+    font-size: 10px;
+}
+#shippingTitle{
+    font-size: 25px;
+}
+.strong-text {
+    font-weight: bold;
+}
+.formShipping__input, #inputMessage, #inputImage {
+    margin-left: 10px;
+    margin: 1.5rem 0;
+    font-size: 15px;
+}
+#inputImage {
+    margin-bottom: 20px;
+}
+#inputMessage {
+    margin-top: 20px;
+}
+#gift {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: solid 1px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3), 0 4px 10px 0 rgba(100, 100, 100, 0.3);
+}
+input[type="file"]{
+    opacity: 0;
+    position:absolute;
+}
+.selectImageBtn, .SubmitBtn{
+width: 200px;
+border-radius: 10px;
+box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3), 0 4px 10px 0 rgba(100, 100, 100, 0.3);
+border: solid 1px lightgray;
+font-weight: bold;
+color: white;
+background-color:rgba(100, 100, 100, 0.9);
+height: 30px;
+margin: 10px 0;
+cursor: pointer;
+}
+.selectImageBtn:hover, .SubmitBtn:hover{
+    cursor: pointer;
+    box-shadow: 0 0.8rem 1.8rem 0 white;
+    transform: scale(1.05);
+    }
+
+    /*Progress Bar*/
+.progressBar{
+    width:100%;
+    height:0%;
+    margin-top:100%;
+    background-image:url("https://storage.googleapis.com/webdesignledger.pub.network/WDL/12f213e1-t1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    background-position:center bottom;
+    transition: all 1s  ease-out;
+}
+.progressBarContainer{
+    overflow: hidden;
+    padding:0;
+    width:100px;
+    height:100px;
+    vertical-align: bottom;
+    border-radius: 50%;
+    margin:100px auto 0 auto;
+    display:none;
+}
+
+
+/*Time-out*/
+
+.popup {
+    position: fixed;
+}
+#timeOut5m {
+    background-color: rgba(250, 250, 250, 0.89);
+    border: 2px solid grey;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 5;
+}
+#timeOut60s {
+    background-color: rgba(250, 250, 250, 100);
+    border: 2px solid grey;
+    padding: 0em 2em;
+    text-align: center;
+    top: 5%;
+    right: 2%;
+    z-index: 5;
+    /* bring your own prefixes */
+}
+
+.timeOutMessage {
+    padding:1.5rem 0;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+.okButton {
+    font-size: 1.4rem;
+    font-weight: 600;
+    border: 1px solid black;
+    padding: 0.2rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.4rem;
+    outline: none;
+}
+.okButton:hover {
+    opacity: 0.8;
+}
+.okButton:active {
+    transform: translateY(2.5px);
+}
+
+
+/* TERMS AND CONDITIONS */
+
+.finalPage{
+    display: flex;
+    margin-top:50px;
+    }
+
+.termsAndConditions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-basis: 60%;
+}
+
+
+
+/* TERMS AND CONDITIONS DETAILS MIDDLE DIV */
+
+.finalPage {
+    background-color: rgb(185, 182, 182);
+    display: flex;
+    justify-content: space-around;
+}
+.purchaseProductDetails {
+    display: flex;
+    flex-direction: row;
+}
+.purchaseProductDetailsImg {
+    flex-basis: 50%;
+}
+.purchaseProductDetailsTxt {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.purchaseFinal{
+    text-align:left;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.finalProductImage{
+    min-width: 320px;
+    max-width: 100%;
+}
+
+#etaTxt{
+    font-size: 16px;
+    color: #282828;
+}
+.purchaseButton{
+    margin: 20px;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    outline: none;
+    transition: all 200ms ease-in-out;
+    border: none;
+    width: 8em;
+    display: inline;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3), 0 4px 10px 0 rgba(100, 100, 100, 0.3);
+    margin:0 auto;
+    text-align: center;
+}
+.pButtonColorDark {
+    background-color: rgb(58, 56, 56);
+}
+.pButtonColorGreen {
+    background-color: rgb(66, 140, 89);
+}
+
+
+.purchaseButton:hover{
+    cursor: pointer;
+    box-shadow: 0 0.8rem 1.8rem 0 white;
+    transform: scale(1.1);
+}
+.yourOrder, .termsAndConditions  {
+    margin: 20px;
+    background-color: white;
+    padding: 20px;
+
+}
+
+.yourOrder {
+    min-width: 15em;
+}
+.yourOrder div {
+    text-align: right;
+    font-weight: bold;
+    margin: 0.3rem 0;
+}
+#productModel, #productColor {
+    font-weight: bold;
+}
+#productDeliveryTime {
+    font-size: 18px;
+    font-weight: bold;
+}
+.disFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.purchaseCheckbox {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+.purchaseCheckbox input {
+    justify-content: left;
+}
+
+input[type=checkbox]{
+    text-align: center;
+    display: inline-block;
+}
+
+/*media queries*/
+
+/*split last page between two rows*/
+@media screen and (max-width: 1200px) {
+    .finalPage {
+        flex-direction: column;
+    }
+    .purchaseProductDetailsImg img {
+        padding: 0.5em;
+    }
+    .purchaseProductDetails {
+        flex-direction: column;
+    }
+    .disFlex {
+        margin: 0.5rem 0;
+    }
+}
+
+
+/*making navibar elements get closer */
+@media screen and (max-width: 1200px) { 
+    #carExtras label {
+        font-size:15px;
+    }
+    .carSpecs>h3{
+        font-size: 30px;
+    }
+    .specValue{
+        font-size:x-large;
+    }
+    .details-column{
+        margin-top:50px;
+    }
+    .details-column>div>h1 {
+        font-size: 40px;
+        margin-block-start: 0.3em;
+        margin-block-end: 0.3em;
+    }
+    .main-picture-models{
+        display:none;
+    }
+    .hover-column>img:hover {
+        width:auto;
+        opacity: 100%;
+        border: none;
+        overflow: visible;
+    }
+    .hover-column>img{
+        position: relative;
+        opacity:100%;
+        height: 90%;
+        width:auto;
+        transition: opacity 0.5s linear;
+        margin: 2% 0;
+    }
+    .hover-column{
+        order:2;
+        opacity:100%;
+        flex-direction: row;
+        position:absolute;
+        margin:0;
+        height: 10vh;
+        width: auto;
+        margin-top:10px;
+        bottom: 15px;
+
+    }
+}
+
+/* hidding navbar and making bigger bottom model buttons*/
+@media screen and (max-width: 970px) { 
+    #hover-column {
+        z-index: 0;
+    }
+    .colorButton{
+        width:70px;
+        height:70px;
+    }
+    #carExtras label {
+        font-size:25px;
+    }
+    .specValue {
+        font-size: 40px;
+    }
+    .carSpecs>h3{
+        font-size: 70px;
+    }
+    .details-column>div>h1 {
+        font-size: 80px;
+        margin-block-start: 0.3em;
+        margin-block-end: 0.3em;
+    }
+    .main-picture-models {
+        left: 5%;
+    }
+    .carModel {
+        width: 20%;
+    }
+    .buy-button {
+        padding: 10px 40px;
+        margin: 2rem 0.5rem;
+    }
+    .hover-column{
+        order:2;
+        opacity:100%;
+        flex-direction: row;
+        position:relative;
+        margin:0;
+        height: 10vh;
+        width: auto;
+        margin-top:10px
+    }
+    .hover-column>img{
+        position: relative;
+        opacity:100%;
+        height: 90%;
+        width:auto;
+        transition: opacity 0.5s linear;
+        margin: 2% 0;
+    }
+    
+    .hover-column>img:hover {
+        width:auto;
+        opacity: 100%;
+        border: none;
+        overflow: visible;
+    }
+    .home {
+        display: flex;
+        min-height: 400px;
+        width: 100%;
+        align-items: stretch;
+        flex-direction:column;
+    }
+    .main-picture-img{
+        order:1;
+        margin-top: 75px;
+        overflow:hidden;
+    }
+    .main-picture-img>img{
+        width:100%;
+        height:auto;
+        margin:auto;
+        margin:0;
+    }
+    .main-picture {
+        flex-basis:auto;
+        align-items: center;
+        align-content: center;
+        height: auto;
+        flex-direction: column;
+    }
+    .main-picture-models{
+        display:none;
+    }
+    .details-column {
+        flex-basis:auto;
+        height:900px;
+    }
+    .extras{
+        text-align: left;
+        margin-left: 30%;
+    }
+
+}
+
+/* smaller main images for phone*/
+@media screen and (max-width: 700px) { 
+    .hover-column{
+        height: 7vh;
+    }
+    .details-column>div>h1 {
+        font-size: 60px;
+    }
+}
+
+/* mobile */
+@media screen and (max-width: 500px) { 
+    
+    .colorButton{
+        width:50px;
+        height:50px;
+    }
+    #timeOut60s {
+        bottom: none;
+        right: none;
+        padding: none;
+        width: 80%;
+        height: 20%;
+    }
+    .hover-column{
+        height: 5vh;
+    }
+    .extras{
+        text-align: left;
+        margin-left: 20%;
+    }
+}
+
+
+.displayNone {
+    display: none;
+}
