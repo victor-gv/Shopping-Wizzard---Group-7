@@ -451,7 +451,10 @@ function homePageButtons() {
     personCar.price = carPrice.textContent
     hoverImageContainer.removeEventListener('click', changeMainImage);
     colorContainer.removeEventListener('click', changeColor);
-    modelContainer.removeEventListener('click', changeCar);
+
+    /* modelContainer was deleted */
+    //modelContainer.removeEventListener('click', changeCar);
+    
     navBar.removeEventListener('click', navBarFunctions);
     menuIcon.removeEventListener('click', togleMenu);
 }
