@@ -261,7 +261,7 @@ function clearReset() {
 }
 /* START OF VALIDATION FORMS */
 function validateAllForms(event) {
-    const usernameRegex = /^\S{5,20}$/
+    const usernameRegex = /^[a-zA-Z0-9]{3,20}$/
     const emailRegex = /^(([^<>()\[\]\\.,:\s@"]+(\.[^<>()\[\]\\.,:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const passwordRegex = /(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,20}/;
     const firstLastNameRegex = /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,20}$/;
@@ -276,7 +276,7 @@ function validateAllForms(event) {
             } else {
                 document.getElementById(event.target.id).classList.add("error__input")
                 event.target.value = "";
-                document.getElementById(event.target.id).setAttribute("placeholder", "Minimum 3 letters")
+                document.getElementById(event.target.id).setAttribute("placeholder", "Minimum 3 letters, only numbers and letters")
             }
             break;
         case "email":
