@@ -130,21 +130,25 @@
                     <label for="username" class="userLabel">Username</label>
                     <input type="text" name="username" id="username" class="formUser__input" value="" required
                         oninvalid="this.setCustomValidity('Please Enter valid User name')">
+                    <span class="errorValidation"></span>
                 </div>
                 <div class="formUser__field">
                     <label for="email" class="userLabel">E-Mail</label>
                     <input type="email" name="email" id="email" class="formUser__input" value="" required
                         oninvalid="this.setCustomValidity('Please Enter a correct email address')">
+                    <span class="errorValidation"></span>
                 </div>
                 <div class="formUser__field">
                     <label for="pass" class="userLabel">Password</label>
                     <input type="password" name="pass" id="pass" class="formUser__input" value="" required
                         oninvalid="this.setCustomValidity('Please Enter a valid password')">
+                    <span class="errorValidation"></span>
                 </div>
                 <div class="formUser__field" id="password-field">
                     <label for="confPass" class="userLabel">Confirm Password</label>
                     <input type="password" name="confPass" id="confPass" class="formUser__input" value=""
                         oninvalid="this.setCustomValidity('Please use the same password as bellow')">
+                    <span class="errorValidation"></span>
                 </div>
                 <p class="errorMessage" id="errorAddress">Missing fields</p>
                 <div class="bottom-btn">

@@ -271,12 +271,14 @@ function validateAllForms(event) {
         case "username":
             if (usernameRegex.test(event.target.value)) {
                 document.getElementById(event.target.id).classList.remove("error__input") /// set erase attribute in case that does not remove by itself.
+                document.querySelector('#'+event.target.id+'+span').innerHTML=""; // Remove content in error span
                 person.username = event.target.value;
                 userFormIsValid.username = true;
             } else {
                 document.getElementById(event.target.id).classList.add("error__input")
                 event.target.value = "";
-                document.getElementById(event.target.id).setAttribute("placeholder", "Minimum 3 characters, only numbers and letters")
+                document.querySelector('#'+event.target.id+'+span').innerHTML="Minimum 3 characters, only numbers and letters";
+                //document.getElementById(event.target.id).setAttribute("placeholder", "Minimum 3 characters, only numbers and letters")
             }
             break;
         case "email":
