@@ -276,7 +276,7 @@ function validateAllForms(event) {
             } else {
                 document.getElementById(event.target.id).classList.add("error__input")
                 event.target.value = "";
-                document.getElementById(event.target.id).setAttribute("placeholder", "Minimum 3 letters, only numbers and letters")
+                document.getElementById(event.target.id).setAttribute("placeholder", "Minimum 3 characters, only numbers and letters")
             }
             break;
         case "email":
