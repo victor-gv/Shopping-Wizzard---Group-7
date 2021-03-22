@@ -28,6 +28,11 @@ body{
 
 /* MODIFIED 24TH NOV 19  TASK 1 LUIS */
 }
+
+.errorValidation{
+    color: #b3141c;
+}
+
 .errorMessageActive{
     visibility:visible;
 }
