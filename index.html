@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/menu.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
                         d="M0 .1a9.7 9.7 0 007 6.93h10.93l.56.22v27.58h6.82V7.29l.62-.22h10.94a9.82 9.82 0 007-6.93V.07H0V.1zM238.61.06h-6.8v34.85h31.14a9.68 9.68 0 005.94-6.86h-30.3l.02-27.99zm-52.33 6.86c3.62-1 6.66-3.82 7.39-6.88l-38.1.06v20.55h31.17v7.23h-24.46a13.6 13.6 0 00-8.71 7h39.89V13.81H162.3V6.92h23.98zm116.17 27.97h6.76V20.87h24.58v14.02h6.75V13.87l-38.09-.04zM85.35 7h26a9.57 9.57 0 007.05-7H78.3a9.61 9.61 0 007.05 7zm0 13.77h26a9.59 9.59 0 007.05-7H78.3a9.63 9.63 0 007.05 7zm0 14.14h26a9.59 9.59 0 007.05-7H78.3a9.62 9.62 0 007.05 7zM308.46 7.02h26a9.58 9.58 0 007.06-7h-40.11a9.59 9.59 0 007.05 7z"
                         fill="#000" /></svg></a>
             <!--<img src="https://toppng.com/uploads/preview/tesla-logo-vector-1157397072102hh1tqeqn.jpg" alt="" class="logo">-->
-            <div class="topnav" id="modelsNav">
+            <div class="topNav" id="modelsNav">
                 <button class="navButton clickable" id="model-s-nav" value="model-s">Model S</button>
                 <button class="navButton clickable" id="model-3-nav" value="model-3">Model 3</button>
                 <button class="navButton clickable" id="model-x-nav" value="model-x">Model X</button>
@@ -55,19 +55,19 @@
                 <div class=main-picture>
                     <div class='hover-column' id='hover-column'>
                         <img class="clickable"
-                            src="https://static-assets.tesla.com/configurator/compositor?&options=$MT320,$PPSW,$W40B,$IBB0&view=STUD_FRONT34&model=m3&size=1920&bkba_opt=1&version=v0028d202011130359&crop=0,0,0,0&version=v0028d202011130359" />
+                            src="assets/img/1-model-s/1-white/model-s-white-1.png" />
                         <img class="clickable"
-                            src="https://static-assets.tesla.com/configurator/compositor?&options=$IBB0,$PPSW,$MT320&view=STUD_INTERIOR&model=m3&size=1441&bkba_opt=1&version=v0028d202011130359&crop=0,0,0,0&version=v0028d202011130359" />
+                            src="assets/img/1-model-s/1-white/model-s-white-2.jpg" />
                         <img class="clickable"
-                            src="https://static-assets.tesla.com/configurator/compositor?&options=$IBW0,$PPSW,$MT320&view=STUD_INTERIOR&model=m3&size=1441&bkba_opt=1&version=v0028d202011130359&crop=0,0,0,0&version=v0028d202011130359" />
+                            src="assets/img/1-model-s/1-white/model-s-white-3.jpg" />
                         <img class="clickable"
-                            src="https://www.adslzone.net/app/uploads-adslzone.net/2020/07/tesla-model-3-blanco.jpg" />
+                            src="assets/img/1-model-s/1-white/model-s-white-4.jpg" />
                     </div>
                     <div class="main-picture-img">
                         <img id="mainImage"
                             src="https://static-assets.tesla.com/configurator/compositor?&options=$MT320,$PPSW,$W40B,$IBB0&view=STUD_FRONT34&model=m3&size=1920&bkba_opt=1&version=v0028d202011130359&crop=0,0,0,0&version=v0028d202011130359" />
                     </div>
-                    <!--
+<!--                     
                     <div class="main-picture-models" id="modelContainer">
                         <button class="carModel clickable" id="model-s">
                             <p>S</p>
@@ -85,10 +85,10 @@
                     -->
                 </div>
                 <!-- Main details column-->
-                <div class=details-column>
+                <div class="details-column">
                     <div>
-                        <h1 id="carName">Model 3</h1>
-                        <p id='carPrice' class="specValue">49000€</p>
+                        <h1 id="carName"></h1>
+                        <p id='carPrice' class="specValue"></p>
                     </div>
                     <div id='colorContainer'>
                         <button id="white" class="colorButton clickable" value='0'
@@ -104,17 +104,17 @@
                     </div>
                     <div id='carSpecs'>
                         <h3>Autonomy</h3>
-                        <p class="specValue">430km</p>
+                        <p class="specValue"></p>
                         <h3>Maximum speed</h3>
-                        <p class="specValue">225km/h</p>
+                        <p class="specValue"></p>
                         <h3>0-100 km/h</h3>
-                        <p class="specValue">5,6s</p>
+                        <p class="specValue"></p>
                     </div>
                     <div class="extras" id="carExtras">
                         <input type="checkbox" class="clickable" id="Autopilot" name="Autopilot" value="0">
                         <label for="Autopilot"><strong>Autopilot</strong> 7500€</label><br>
                         <input type="checkbox" class="clickable" id="Performance" name="Performance" value="1">
-                        <label for="Performance"> <strong>Performance</strong> 16990€</label>
+                        <label for="Performance"> <strong>Performance</strong></label>
                     </div>
                     <div>
                         <button class="buy-button clickable" id="next">BUY</button>
@@ -317,11 +317,11 @@
         </section>
     </main>
     <!--Footer-->
-    <script src="termsCheck.js"></script>
-    <script src="javascript.js"></script>
-    <script src="homeButtons.js"></script>
-    <script src="data.js"></script>
-    <script src="menu.js"></script>
+    <script src="assets/js/termsCheck.js"></script>
+    <script src="assets/js/javascript.js"></script>
+    <script src="assets/js/homeButtons.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/menu.js"></script>
 </body>
 
 </html>
