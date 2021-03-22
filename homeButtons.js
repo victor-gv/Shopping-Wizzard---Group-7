@@ -38,16 +38,19 @@ function changeColor(e) {
     }
 }
 
-var modelContainer = document.getElementById('modelContainer');
-modelContainer.addEventListener('click', changeCar);
+/* modelContainer was deleted */
+//var modelContainer = document.getElementById('modelContainer');
+//modelContainer.addEventListener('click', changeCar);
 
 function changeCar(e) {
     if(e.target.nodeName=='P'){
         console.log(e.target.parentNode)
         carId=e.target.parentNode.id;
-    }else if (e.target.id != 'modelContainer') {
-        console.log(e.target)
     }
+    
+    /*else if (e.target.id != 'modelContainer') {
+        console.log(e.target)
+    }*/
     changeCarInfo();
 }
 
