@@ -261,6 +261,31 @@ function clearReset() {
 }
 /* START OF VALIDATION FORMS */
 function validateAllForms(event) {
+    if (event.target.name == "confPass") {
+        if (event.target.validity.valid && event.target.value === person.pass) {
+            document.getElementById(event.target.id).classList.remove("error__input") // set erase attribute in case that does not remove by itself.
+            document.querySelector('#'+event.target.id+'+span').innerHTML=""; // Remove content in error span
+            person[event.target.name] = event.target.value;
+            userFormIsValid.confPass = true;
+        } else {
+            document.getElementById(event.target.id).classList.add("error__input");
+            if(innerHTML=event.target.title)document.querySelector('#'+event.target.id+'+span').innerHTML=event.target.title;
+            else innerHTML=event.target.validationMessage;
+        }
+        return;
+    }
+    
+    if (event.target.validity.valid) {
+        document.getElementById(event.target.id).classList.remove("error__input") // set erase attribute in case that does not remove by itself.
+        document.querySelector('#'+event.target.id+'+span').innerHTML=""; // Remove content in error span
+        person[event.target.name] = event.target.value;
+        userFormIsValid[event.target.name] = true;
+    } else {
+        document.getElementById(event.target.id).classList.add("error__input");
+        if(innerHTML=event.target.title)document.querySelector('#'+event.target.id+'+span').innerHTML=event.target.title;
+        else innerHTML=event.target.validationMessage;
+    }
+    /*
     const usernameRegex = /^[a-zA-Z0-9]{3,20}$/
     const emailRegex = /^(([^<>()\[\]\\.,:\s@"]+(\.[^<>()\[\]\\.,:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const passwordRegex = /(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,20}/;
@@ -271,35 +296,41 @@ function validateAllForms(event) {
         case "username":
             if (usernameRegex.test(event.target.value)) {
                 document.getElementById(event.target.id).classList.remove("error__input") /// set erase attribute in case that does not remove by itself.
+                document.querySelector('#'+event.target.id+'+span').innerHTML=""; // Remove content in error span
                 person.username = event.target.value;
                 userFormIsValid.username = true;
             } else {
-                document.getElementById(event.target.id).classList.add("error__input")
-                event.target.value = "";
-                document.getElementById(event.target.id).setAttribute("placeholder", "Minimum 3 characters, only numbers and letters")
+                document.getElementById(event.target.id).classList.add("error__input");
+                document.querySelector('#'+event.target.id+'+span').innerHTML=event.target.validationMessage;
+                //event.target.value = "";
+                //document.getElementById(event.target.id).setAttribute("placeholder", "Minimum 3 characters, only numbers and letters")
             }
             break;
         case "email":
             //email
             if (emailRegex.test(event.target.value)) {
                 document.getElementById(event.target.id).classList.remove("error__input") /// set erase attribute in case that does not remove by itself.
+                document.querySelector('#'+event.target.id+'+span').innerHTML=""; // Remove content in error span
                 person.email = event.target.value;
                 userFormIsValid.email = true;
             } else {
-                document.getElementById(event.target.id).classList.add("error__input")
-                event.target.value = "";
-                document.getElementById(event.target.id).setAttribute("placeholder", "Missing email")
+                document.getElementById(event.target.id).classList.add("error__input");
+                document.querySelector('#'+event.target.id+'+span').innerHTML="Missing email";
+                //event.target.value = "";
+                //document.getElementById(event.target.id).setAttribute("placeholder", "Missing email")
             };
             break;
         case "pass":
             if (passwordRegex.test(event.target.value)) {
                 document.getElementById(event.target.id).classList.remove("error__input") /// set erase attribute in case that does not remove by itself.
+                document.querySelector('#'+event.target.id+'+span').innerHTML=""; // Remove content in error span
                 person.pass = event.target.value
                 userFormIsValid.pass = true;
             } else {
-                document.getElementById(event.target.id).classList.add("error__input")
-                event.target.value = "";
-                document.getElementById(event.target.id).setAttribute("placeholder", "Not enough secure")
+                document.getElementById(event.target.id).classList.add("error__input");
+                document.querySelector('#'+event.target.id+'+span').innerHTML="Not enough secure";
+                //event.target.value = "";
+                //document.getElementById(event.target.id).setAttribute("placeholder", "Not enough secure")
             }
             break;
         case "confPass":
@@ -420,15 +451,17 @@ function validateAllForms(event) {
             person.regularAddress = event.target.checked
             addressFormIsValid.regularAddress = true;
             break;
-    }
+        
+    }*/
 }
+
 function changePhonecode(event){
     let phoneCodeop=document.getElementById("phoneCode")
     phoneCodeop.options.selectedIndex=event.target.options.selectedIndex
     person.phoneCode = phoneCodeop.value
     addressFormIsValid.phoneCode = true;
 }
-/END * VALIDATION FORMS */
+/* END OF VALIDATION FORMS */
 
 function validateUserForm() {
     return Object.values(userFormIsValid).filter((value) => (value === false)).length == 0
