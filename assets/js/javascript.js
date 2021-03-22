@@ -1,41 +1,44 @@
 function activateCount() {
-    navibar.classList.add('displayNone')
-    // Pop up message every minute
-    let timer60s = setInterval(() => {
-        let minutesLeft = document.getElementById('minutesLeft')
-        timeOutPop1m.classList.toggle('displayNone');
-        countDown--;
-        minutesLeft.innerHTML = countDown;
-        if (countDown < 2) {clearInterval(timer60s)}; // Doesn't show the message after 1 minute left
-        let timer5s2 = setTimeout(() => { // hides it in 5 seconds
-            timeOutPop1m.classList.toggle('displayNone');
-        }, 5000) // 5s
-    }, 60000); // 60s;
-    let timer5m = setTimeout(() => { // 5 minuts countdown from step 1
-        timeOutPop.classList.toggle('displayNone')
-        let timer5s = setTimeout(() => { // resets to main page in 5 seconds
-            timeOutPop.classList.toggle('displayNone');
-            clearAll();
-             // reloads the page
-        }, 5000) //5s
-    }, 300000) // 5m
+  navibar.classList.add("displayNone");
+  // Pop up message every minute
+  let timer60s = setInterval(() => {
+    let minutesLeft = document.getElementById("minutesLeft");
+    timeOutPop1m.classList.toggle("displayNone");
+    countDown--;
+    minutesLeft.innerHTML = countDown;
+    if (countDown < 2) {
+      clearInterval(timer60s);
+    } // Doesn't show the message after 1 minute left
+    let timer5s2 = setTimeout(() => {
+      // hides it in 5 seconds
+      timeOutPop1m.classList.toggle("displayNone");
+    }, 5000); // 5s
+  }, 60000); // 60s;
+  let timer5m = setTimeout(() => {
+    // 5 minuts countdown from step 1
+    timeOutPop.classList.toggle("displayNone");
+    let timer5s = setTimeout(() => {
+      // resets to main page in 5 seconds
+      timeOutPop.classList.toggle("displayNone");
+      clearAll();
+      // reloads the page
+    }, 5000); //5s
+  }, 300000); // 5m
 }
 
 function clearAll() {
-    history.go()
+  history.go();
 }
 
-let allInputs = document.querySelectorAll('input')
-allInputs.forEach(e => {
-    e.addEventListener('keyup', function (event) {
-        if (event.key == 'Enter') {
-            event.preventDefault();
-            document.getElementById(e.id).click();
-        };
-    });
+let allInputs = document.querySelectorAll("input");
+allInputs.forEach((e) => {
+  e.addEventListener("keyup", function (event) {
+    if (event.key == "Enter") {
+      event.preventDefault();
+      document.getElementById(e.id).click();
+    }
+  });
 });
-
-
 
 let currentPage = 1;
 let countDown = 5;
@@ -46,246 +49,299 @@ let formAddress = document.getElementById("step3");
 let shipping = document.getElementById("step4");
 let thanksPage = document.getElementById("step5");
 // display: none; class
-let current = document.querySelector('.pageActive')
+let current = document.querySelector(".pageActive");
 //Progress bar
-let progressContainer = document.getElementById('progressBarContainer');
-let progressBar = document.getElementById('progressBar');
+let progressContainer = document.getElementById("progressBarContainer");
+let progressBar = document.getElementById("progressBar");
 // next buttons
 let btnNext = document.getElementById("next");
 let btnUser = document.getElementById("next2");
 let btnForm = document.getElementById("next3");
 let btnShipping = document.getElementById("next4");
 let btnFinish = document.getElementById("next5");
-let okButton = document.querySelector('.okButton');
-let navibar = document.getElementById('modelsNav');
+let okButton = document.querySelector(".okButton");
+let navibar = document.getElementById("modelsNav");
 let termsDisabled = document.getElementById("termsCheck");
 // reset btn
 let btnResetUser = document.getElementById("clear2");
 let btnResetAddress = document.getElementById("clear3");
 let btnResetShipping = document.getElementById("clear4");
 // timeOutPop
-let timeOutPop = document.getElementById('timeOut5m');
-let timeOutPop1m = document.getElementById('timeOut60s');
+let timeOutPop = document.getElementById("timeOut5m");
+let timeOutPop1m = document.getElementById("timeOut60s");
 // terms and conditions
-let termsCheck = document.getElementById('termsCheck');
+let termsCheck = document.getElementById("termsCheck");
 
 let inputUserForm = document.querySelectorAll(".formUser__input");
 let inputAddressForm = document.querySelectorAll(".formAddress__input");
-let purchaseFinal = document.getElementById('purchaseCheckbox')
-
+let purchaseFinal = document.getElementById("purchaseCheckbox");
 
 // shippingType
-let deliveryExcepted = document.getElementById('deliveryExcepted');
-let freeShipping = document.getElementById('freeShipping');
-let extraShipping = document.getElementById('extraShipping');
-let premiumShipping = document.getElementById('premiumShipping');
-let premiumCost = document.getElementById('premiumCost');
-let extraCost = document.getElementById('extraCost');
-let noCost = document.getElementById('noCost');
+let deliveryExcepted = document.getElementById("deliveryExcepted");
+let freeShipping = document.getElementById("freeShipping");
+let extraShipping = document.getElementById("extraShipping");
+let premiumShipping = document.getElementById("premiumShipping");
+let premiumCost = document.getElementById("premiumCost");
+let extraCost = document.getElementById("extraCost");
+let noCost = document.getElementById("noCost");
 
 // premium shipping
 let date = new Date();
-let todayPlus24h = new Date(date.setDate(date.getDate() + 1)).toString().slice(4, 21);
-let todayPlus30h = new Date(date.setTime(date.getTime() + (6 * 60 * 60 * 1000))).toString().slice(4, 21)
+let todayPlus24h = new Date(date.setDate(date.getDate() + 1))
+  .toString()
+  .slice(4, 21);
+let todayPlus30h = new Date(date.setTime(date.getTime() + 6 * 60 * 60 * 1000))
+  .toString()
+  .slice(4, 21);
 // extra shipping
 date = new Date();
-let todayPlus48h = new Date(date.setDate(date.getDate() + 2)).toString().slice(4, 21);
-let todayPlus54h = new Date(date.setTime(date.getTime() + (6 * 60 * 60 * 1000))).toString().slice(4, 21);
+let todayPlus48h = new Date(date.setDate(date.getDate() + 2))
+  .toString()
+  .slice(4, 21);
+let todayPlus54h = new Date(date.setTime(date.getTime() + 6 * 60 * 60 * 1000))
+  .toString()
+  .slice(4, 21);
 // free shipping
 date = new Date();
-let todayPlus72h = new Date(date.setDate(date.getDate() + 3)).toString().slice(4, 21);
-let todayPlus78h = new Date(date.setTime(date.getTime() + (6 * 60 * 60 * 1000))).toString().slice(4, 21);
+let todayPlus72h = new Date(date.setDate(date.getDate() + 3))
+  .toString()
+  .slice(4, 21);
+let todayPlus78h = new Date(date.setTime(date.getTime() + 6 * 60 * 60 * 1000))
+  .toString()
+  .slice(4, 21);
 
 // Free Shipping
-freeShipping.addEventListener('click', freeF)
+freeShipping.addEventListener("click", freeF);
 function freeF() {
-    deliveryExcepted.innerHTML = todayPlus72h + ' and ' + todayPlus78h + '.'
-    personCar.shipping = noCost.innerHTML;
+  deliveryExcepted.innerHTML = todayPlus72h + " and " + todayPlus78h + ".";
+  personCar.shipping = noCost.innerHTML;
 }
 // Extra Shipping
-extraShipping.addEventListener('click', extraF)
+extraShipping.addEventListener("click", extraF);
 function extraF() {
-    deliveryExcepted.innerHTML = todayPlus48h + ' and ' + todayPlus54h + '.'
-    personCar.shipping = extraCost.innerHTML;
+  deliveryExcepted.innerHTML = todayPlus48h + " and " + todayPlus54h + ".";
+  personCar.shipping = extraCost.innerHTML;
 }
 // Premium Shipping
-premiumShipping.addEventListener('click', premiumF);
+premiumShipping.addEventListener("click", premiumF);
 //() => {    deliveryExcepted.innerHTML = todayPlus24h + ' and ' + todayPlus30h + '.'}
 function premiumF() {
-    deliveryExcepted.innerHTML = todayPlus24h + ' and ' + todayPlus30h + '.'
-    personCar.shipping = premiumCost.innerHTML;
+  deliveryExcepted.innerHTML = todayPlus24h + " and " + todayPlus30h + ".";
+  personCar.shipping = premiumCost.innerHTML;
 }
 
 // OK button from pop up message
-okButton.addEventListener('click', () => history.go());
+okButton.addEventListener("click", () => history.go());
 
 btnNext.addEventListener("click", callControl, true);
 inputUserForm.forEach((input) => {
-    input.addEventListener('blur', validateAllForms);
+  input.addEventListener("blur", validateAllForms);
 });
 inputAddressForm.forEach((input) => {
-    input.addEventListener('blur', validateAllForms);
+  input.addEventListener("blur", validateAllForms);
 });
-btnResetUser.addEventListener("click", callClear)
+btnResetUser.addEventListener("click", callClear);
 function callClear(e) {
-    e.preventDefault();
-    clearReset()
+  e.preventDefault();
+  clearReset();
 }
 function callControl(e) {
-    e.preventDefault();
-    controlPage();
+  e.preventDefault();
+  controlPage();
 }
 function controlPage() {
-    if (currentPage === 1) {activateCount()};
-    switch (currentPage) {
-        case 1:
-            homePageButtons()
-            btnNext.removeEventListener("click", callControl, true);
-            btnUser.addEventListener("click", callControl, true);
-            homePage.classList.toggle("pageActive");
-            formUser.classList.toggle("pageActive");
-            progressContainer.style.display = 'block';
-            progressBar.style.height = '10%';
-            progressBar.style.marginTop = '90%';
-            currentPage++;
-            break;
-        case 2:
-            if (validateUserForm()) {
-                removeCase2();
-                formUser.classList.toggle("pageActive");
-                formAddress.classList.toggle("pageActive");
-                progressContainer.style.display = 'block';
-                progressBar.style.height = '38%';
-                progressBar.style.marginTop = '62%';
-                currentPage++;
-                break;
-            } else {
-                document.querySelector(".formUser p").classList.toggle("errorMessageActive")
-                setTimeout(() => document.querySelector(".formUser p").classList.toggle("errorMessageActive"), 3000)
-                break;
-            }
-        case 3:
-            if (validateFormAddress()) {
-                removeCase3();
-                formAddress.classList.toggle("pageActive");
-                shipping.classList.toggle("pageActive");
-                progressContainer.style.display = 'block';
-                progressBar.style.height = '67%';
-                progressBar.style.marginTop = '33%';
-                currentPage++;
-            } else {
-                document.querySelector(".errorAddressMessage").classList.toggle("errorMessageActive")
-                setTimeout(() => document.querySelector(".errorAddressMessage").classList.toggle("errorMessageActive"), 3000)
-                break;
-            }
-            break;
-        case 4:
-            if (validateShipping()) {
-                removeCase4();
-                shipping.classList.toggle("pageActive");
-                thanksPage.classList.toggle("pageActive");
-                progressContainer.style.display = 'block';
-                progressBar.style.height = '100%';
-                progressBar.style.marginTop = '0%';
-                showPurchaseInfo();
-                currentPage++;
-                break;
-            } else {
-                document.querySelector(".errorShippingMessage").classList.toggle("errorMessageActive")
-                setTimeout(() => document.querySelector(".errorShippingMessage").classList.toggle("errorMessageActive"), 3000)
-                break;
-            }
-        case 5:
-            let thankYou = document.createElement('p')
-            thankYou.className = 'thankYou'
-            thankYou.innerHTML = "Thank you for your purchase :)"
-            purchaseFinal.innerHTML = ''
-            purchaseFinal.appendChild(thankYou)
-            btnFinish.classList.add('displayNone')
-            setTimeout(() => clearAll(), 5000)
-            break;
-    }
+  if (currentPage === 1) {
+    activateCount();
+  }
+  switch (currentPage) {
+    case 1:
+      homePageButtons();
+      btnNext.removeEventListener("click", callControl, true);
+      btnUser.addEventListener("click", callControl, true);
+      homePage.classList.toggle("pageActive");
+      formUser.classList.toggle("pageActive");
+      progressContainer.style.display = "block";
+      progressBar.style.height = "10%";
+      progressBar.style.marginTop = "90%";
+      currentPage++;
+      break;
+    case 2:
+      if (validateUserForm()) {
+        removeCase2();
+        formUser.classList.toggle("pageActive");
+        formAddress.classList.toggle("pageActive");
+        progressContainer.style.display = "block";
+        progressBar.style.height = "38%";
+        progressBar.style.marginTop = "62%";
+        currentPage++;
+        break;
+      } else {
+        document
+          .querySelector(".formUser p")
+          .classList.toggle("errorMessageActive");
+        setTimeout(
+          () =>
+            document
+              .querySelector(".formUser p")
+              .classList.toggle("errorMessageActive"),
+          3000
+        );
+        break;
+      }
+    case 3:
+      if (validateFormAddress()) {
+        removeCase3();
+        formAddress.classList.toggle("pageActive");
+        shipping.classList.toggle("pageActive");
+        progressContainer.style.display = "block";
+        progressBar.style.height = "67%";
+        progressBar.style.marginTop = "33%";
+        currentPage++;
+      } else {
+        document
+          .querySelector(".errorAddressMessage")
+          .classList.toggle("errorMessageActive");
+        setTimeout(
+          () =>
+            document
+              .querySelector(".errorAddressMessage")
+              .classList.toggle("errorMessageActive"),
+          3000
+        );
+        break;
+      }
+      break;
+    case 4:
+      if (validateShipping()) {
+        removeCase4();
+        shipping.classList.toggle("pageActive");
+        thanksPage.classList.toggle("pageActive");
+        progressContainer.style.display = "block";
+        progressBar.style.height = "100%";
+        progressBar.style.marginTop = "0%";
+        showPurchaseInfo();
+        currentPage++;
+        break;
+      } else {
+        document
+          .querySelector(".errorShippingMessage")
+          .classList.toggle("errorMessageActive");
+        setTimeout(
+          () =>
+            document
+              .querySelector(".errorShippingMessage")
+              .classList.toggle("errorMessageActive"),
+          3000
+        );
+        break;
+      }
+    case 5:
+      let thankYou = document.createElement("p");
+      thankYou.className = "thankYou";
+      thankYou.innerHTML = "Thank you for your purchase :)";
+      purchaseFinal.innerHTML = "";
+      purchaseFinal.appendChild(thankYou);
+      btnFinish.classList.add("displayNone");
+      setTimeout(() => clearAll(), 5000);
+      break;
+  }
 }
 function removeCase2() {
-    btnUser.removeEventListener("click", callControl, true)
-    btnForm.addEventListener("click", callControl, true);
-    btnResetUser.removeEventListener("click", callClear);
-    btnResetAddress.addEventListener("click", callClear);
-    inputUserForm.forEach((input) => {
-        input.removeEventListener('blur', validateAllForms);
-    });
+  btnUser.removeEventListener("click", callControl, true);
+  btnForm.addEventListener("click", callControl, true);
+  btnResetUser.removeEventListener("click", callClear);
+  btnResetAddress.addEventListener("click", callClear);
+  inputUserForm.forEach((input) => {
+    input.removeEventListener("blur", validateAllForms);
+  });
 }
 
 function btnDisabled() {
-    (termsDisabled.checked) ? btnFinish.disabled = false : btnFinish.disabled = true
+  termsDisabled.checked
+    ? (btnFinish.disabled = false)
+    : (btnFinish.disabled = true);
 }
 
 function removeCase3() {
-    btnForm.removeEventListener("click", callControl, true);
-    btnShipping.addEventListener("click", callControl, true);
-    btnResetAddress.removeEventListener("click", callClear);
-    btnResetShipping.addEventListener("click", callClear);
-    inputAddressForm.forEach((input) => {
-        input.removeEventListener('blur', validateAllForms);
-    });
+  btnForm.removeEventListener("click", callControl, true);
+  btnShipping.addEventListener("click", callControl, true);
+  btnResetAddress.removeEventListener("click", callClear);
+  btnResetShipping.addEventListener("click", callClear);
+  inputAddressForm.forEach((input) => {
+    input.removeEventListener("blur", validateAllForms);
+  });
 }
 
 function removeCase4() {
-    btnShipping.removeEventListener("click", callControl, true)
-    btnFinish.addEventListener("click", callControl, true);
-    btnResetShipping.removeEventListener("click", callClear);
-    freeShipping.removeEventListener('click', freeF);
-    extraShipping.removeEventListener('click', extraF);
-    premiumShipping.removeEventListener('click', premiumF);
-    termsDisabled.addEventListener("change", btnDisabled);
-    termsDisabled.addEventListener("change", () => {
-        btnFinish.classList.toggle('pButtonColorGreen')
-    })
+  btnShipping.removeEventListener("click", callControl, true);
+  btnFinish.addEventListener("click", callControl, true);
+  btnResetShipping.removeEventListener("click", callClear);
+  freeShipping.removeEventListener("click", freeF);
+  extraShipping.removeEventListener("click", extraF);
+  premiumShipping.removeEventListener("click", premiumF);
+  termsDisabled.addEventListener("change", btnDisabled);
+  termsDisabled.addEventListener("change", () => {
+    btnFinish.classList.toggle("pButtonColorGreen");
+  });
 }
 
 function clearReset() {
-    switch (currentPage) {
-        case 2:
-            document.querySelectorAll(".formUser__field input").forEach(e => e.value = "")
-            break;
-        case 3:
-            document.querySelectorAll(".formAddress__field input").forEach(e => e.value = "")
-            document.querySelectorAll(".formAddress__field input").forEach(e => e.checked = false)
-            break;
-        case 4:
-            document.querySelectorAll(".formShipping__input input").forEach(e => e.checked = false)
-            document.querySelectorAll("#inputMessage textarea")[0].value = ""
-            document.querySelectorAll(".formShippingInfo label input")[0].checked = false
-            break;
-    }
+  switch (currentPage) {
+    case 2:
+      document
+        .querySelectorAll(".formUser__field input")
+        .forEach((e) => (e.value = ""));
+      break;
+    case 3:
+      document
+        .querySelectorAll(".formAddress__field input")
+        .forEach((e) => (e.value = ""));
+      document
+        .querySelectorAll(".formAddress__field input")
+        .forEach((e) => (e.checked = false));
+      break;
+    case 4:
+      document
+        .querySelectorAll(".formShipping__input input")
+        .forEach((e) => (e.checked = false));
+      document.querySelectorAll("#inputMessage textarea")[0].value = "";
+      document.querySelectorAll(
+        ".formShippingInfo label input"
+      )[0].checked = false;
+      break;
+  }
 }
 /* START OF VALIDATION FORMS */
 function validateAllForms(event) {
-    if (event.target.name == "confPass") {
-        if (event.target.validity.valid && event.target.value === person.pass) {
-            document.getElementById(event.target.id).classList.remove("error__input") // set erase attribute in case that does not remove by itself.
-            document.querySelector('#'+event.target.id+'+span').innerHTML=""; // Remove content in error span
-            person[event.target.name] = event.target.value;
-            userFormIsValid.confPass = true;
-        } else {
-            document.getElementById(event.target.id).classList.add("error__input");
-            if(innerHTML=event.target.title)document.querySelector('#'+event.target.id+'+span').innerHTML=event.target.title;
-            else innerHTML=event.target.validationMessage;
-        }
-        return;
-    }
-    
-    if (event.target.validity.valid) {
-        document.getElementById(event.target.id).classList.remove("error__input") // set erase attribute in case that does not remove by itself.
-        document.querySelector('#'+event.target.id+'+span').innerHTML=""; // Remove content in error span
-        person[event.target.name] = event.target.value;
-        userFormIsValid[event.target.name] = true;
+  if (event.target.name == "confPass") {
+    if (event.target.validity.valid && event.target.value === person.pass) {
+      document.getElementById(event.target.id).classList.remove("error__input"); // set erase attribute in case that does not remove by itself.
+      document.querySelector("#" + event.target.id + "+span").innerHTML = ""; // Remove content in error span
+      person[event.target.name] = event.target.value;
+      userFormIsValid.confPass = true;
     } else {
-        document.getElementById(event.target.id).classList.add("error__input");
-        if(innerHTML=event.target.title)document.querySelector('#'+event.target.id+'+span').innerHTML=event.target.title;
-        else innerHTML=event.target.validationMessage;
+      document.getElementById(event.target.id).classList.add("error__input");
+      if ((innerHTML = event.target.title))
+        document.querySelector("#" + event.target.id + "+span").innerHTML =
+          event.target.title;
+      else innerHTML = event.target.validationMessage;
     }
-    /*
+    return;
+  }
+
+  if (event.target.validity.valid) {
+    document.getElementById(event.target.id).classList.remove("error__input"); // set erase attribute in case that does not remove by itself.
+    document.querySelector("#" + event.target.id + "+span").innerHTML = ""; // Remove content in error span
+    person[event.target.name] = event.target.value;
+    userFormIsValid[event.target.name] = true;
+  } else {
+    document.getElementById(event.target.id).classList.add("error__input");
+    if ((innerHTML = event.target.title))
+      document.querySelector("#" + event.target.id + "+span").innerHTML =
+        event.target.title;
+    else innerHTML = event.target.validationMessage;
+  }
+  /*
     const usernameRegex = /^[a-zA-Z0-9]{3,20}$/
     const emailRegex = /^(([^<>()\[\]\\.,:\s@"]+(\.[^<>()\[\]\\.,:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const passwordRegex = /(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,20}/;
@@ -455,78 +511,86 @@ function validateAllForms(event) {
     }*/
 }
 
-function changePhonecode(event){
-    let phoneCodeop=document.getElementById("phoneCode")
-    phoneCodeop.options.selectedIndex=event.target.options.selectedIndex
-    person.phoneCode = phoneCodeop.value
-    addressFormIsValid.phoneCode = true;
+function changePhonecode(event) {
+  let phoneCodeop = document.getElementById("phoneCode");
+  phoneCodeop.options.selectedIndex = event.target.options.selectedIndex;
+  person.phoneCode = phoneCodeop.value;
+  addressFormIsValid.phoneCode = true;
 }
 /* END OF VALIDATION FORMS */
 
 function validateUserForm() {
-    return Object.values(userFormIsValid).filter((value) => (value === false)).length == 0
+  return (
+    Object.values(userFormIsValid).filter((value) => value === false).length ==
+    0
+  );
 }
 
 function validateFormAddress() {
-    return Object.values(addressFormIsValid).filter((value) => (value === false)).length == 0
-
+  return (
+    Object.values(addressFormIsValid).filter((value) => value === false)
+      .length == 0
+  );
 }
 
 function homePageButtons() {
-    personCar.productId = carId;
-    if (document.querySelector("#Autopilot").checked) {
-        personCar.extras.push("Autopilot")
-    }
-    if (document.querySelector("#Performance").checked) {
-        personCar.extras.push("Performance")
-    }
-    personCar.color = colorValue;
-    personCar.price = carPrice.textContent
-    hoverImageContainer.removeEventListener('click', changeMainImage);
-    colorContainer.removeEventListener('click', changeColor);
+  personCar.productId = carId;
+  if (document.querySelector("#Autopilot").checked) {
+    personCar.extras.push("Autopilot");
+  }
+  if (document.querySelector("#Performance").checked) {
+    personCar.extras.push("Performance");
+  }
+  personCar.color = colorValue;
+  personCar.price = carPrice.textContent;
+  hoverImageContainer.removeEventListener("click", changeMainImage);
+  colorContainer.removeEventListener("click", changeColor);
 
-    /* modelContainer was deleted */
-    //modelContainer.removeEventListener('click', changeCar);
-    
-    navBar.removeEventListener('click', navBarFunctions);
-    menuIcon.removeEventListener('click', togleMenu);
+  /* modelContainer was deleted */
+  //modelContainer.removeEventListener('click', changeCar);
+
+  navBar.removeEventListener("click", navBarFunctions);
+  menuIcon.removeEventListener("click", toggleMenu);
 }
 
 function validateShipping() {
-    let validate = false
-    if (freeShipping.checked) {
-        personCar.type = freeShipping.id
-        validate = true
-    } else if (extraShipping.checked) {
-        personCar.type = extraShipping.id
-        validate = true
-    } else if (premiumShipping.checked) {
-        personCar.type = premiumShipping.id
-        validate = true
-    }
-    personCar.date = deliveryExcepted.textContent;
-    if (document.getElementById("input__gift").checked) {
-        personCar.gift = true;
-        personCar.giftMessage = document.getElementById("gift").textContent;
-    }
-    return validate;
+  let validate = false;
+  if (freeShipping.checked) {
+    personCar.type = freeShipping.id;
+    validate = true;
+  } else if (extraShipping.checked) {
+    personCar.type = extraShipping.id;
+    validate = true;
+  } else if (premiumShipping.checked) {
+    personCar.type = premiumShipping.id;
+    validate = true;
+  }
+  personCar.date = deliveryExcepted.textContent;
+  if (document.getElementById("input__gift").checked) {
+    personCar.gift = true;
+    personCar.giftMessage = document.getElementById("gift").textContent;
+  }
+  return validate;
 }
 
 function totalCost() {
-    let extrasC = 0.0;
-    if (personCar.extras.length === 2) {
-        extrasC += 24490;
-    } else if (personCar.extras[0] === 'Autopilot') {
-        extrasC += 7500;
-    } else if (personCar.extras[0] === 'Performance') {
-        extrasC += 16990;
-    }
-    if (personCar.shipping === 'Free') {
-        let total = parseFloat(personCar.price) + extrasC;
-        return total;
-    } else {
-        let total = parseFloat(personCar.price.slice(0, -1)) + extrasC + parseFloat(personCar.shipping.slice(0, -1))
-        total = total.toLocaleString()
-        return total;
-    }
+  let extrasC = 0.0;
+  if (personCar.extras.length === 2) {
+    extrasC += 24490;
+  } else if (personCar.extras[0] === "Autopilot") {
+    extrasC += 7500;
+  } else if (personCar.extras[0] === "Performance") {
+    extrasC += 16990;
+  }
+  if (personCar.shipping === "Free") {
+    let total = parseFloat(personCar.price) + extrasC;
+    return total;
+  } else {
+    let total =
+      parseFloat(personCar.price.slice(0, -1)) +
+      extrasC +
+      parseFloat(personCar.shipping.slice(0, -1));
+    total = total.toLocaleString();
+    return total;
+  }
 }

@@ -17,12 +17,14 @@ header {
   justify-content: center;
   flex-basis: 15%;
 }
+
 .logo {
   position: absolute;
   left: 0px;
   max-height: 20px;
   margin: 30px 25px;
 }
+
 header > div > #modelsNav > button {
   background-color: rgba(255, 255, 255, 0);
   border: none;
@@ -30,22 +32,27 @@ header > div > #modelsNav > button {
   font-weight: 200;
   margin: 1em 2em;
 }
+
 header > div > #modelsNav > button:hover {
   text-decoration: underline;
 }
+
 header > div > #modelsNav > button:focus {
   border: none;
   text-decoration: underline;
   outline: none;
 }
+
 header > div > #modelsNav > button:active {
   border: none;
   text-decoration: underline;
   outline: none;
 }
+
 .topNav {
   overflow: hidden;
 }
+
 .topNav .icon {
   display: none;
 }
@@ -86,6 +93,7 @@ header > div > #modelsNav > button:active {
     font-weight: 100;
   }
 }
+
 @media screen and (max-width: 970px) {
   .responsive {
     background-color: rgba(255, 255, 255, 0.8);
@@ -95,6 +103,7 @@ header > div > #modelsNav > button:active {
     font-weight: 200;
   }
 }
+
 @media screen and (max-width: 700px) {
   .logo {
     position: absolute;
@@ -103,6 +112,7 @@ header > div > #modelsNav > button:active {
     margin: 30px 0;
   }
 }
+
 @media screen and (max-width: 500px) {
   .logo {
     max-height: 12px;
