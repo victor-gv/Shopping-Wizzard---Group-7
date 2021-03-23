@@ -233,8 +233,7 @@ const cars = [
           "assets/img/3-model-x/4-blue/model-x-blue-1.png",
           "assets/img/3-model-x/4-blue/model-x-blue-2.jpg",
           "assets/img/3-model-x/4-blue/model-x-blue-3.jpg",
-          "assets/img/3-model-x/4-blue/model-x-blue-4.jpg",
-          "assets/img/3-model-x/4-blue/model-x-blue-5.jpg",
+          "assets/img/3-model-x/4-blue/model-x-blue-4-v2.jpg",
         ],
       },
       {
@@ -279,8 +278,8 @@ const cars = [
         hex: "#1d1d1d",
         img: [
           "assets/img/4-model-y/2-black/model-y-black-1.png",
-          "assets/img/4-model-y/2-black/model-y-black-2.jpg",
-          "assets/img/4-model-y/2-black/model-y-black-3.jpg",
+          "assets/img/4-model-y/2-black/model-y-black-2.png",
+          "assets/img/4-model-y/2-black/model-y-black-3.png",
           "assets/img/4-model-y/2-black/model-y-black-4.jpg",
         ],
       },
@@ -289,8 +288,8 @@ const cars = [
         hex: "#5e626e",
         img: [
           "assets/img/4-model-y/3-grey/model-y-grey-1.png",
-          "assets/img/4-model-y/3-grey/model-y-grey-2.jpg",
-          "assets/img/4-model-y/3-grey/model-y-grey-3.jpg",
+          "assets/img/4-model-y/3-grey/model-y-grey-2.png",
+          "assets/img/4-model-y/3-grey/model-y-grey-3.png",
           "assets/img/4-model-y/3-grey/model-y-grey-4.jpg",
         ],
       },
@@ -299,8 +298,8 @@ const cars = [
         hex: "#1d3189",
         img: [
           "assets/img/4-model-y/4-blue/model-y-blue-1.png",
-          "assets/img/4-model-y/4-blue/model-y-blue-2.jpg",
-          "assets/img/4-model-y/4-blue/model-y-blue-3.jpg",
+          "assets/img/4-model-y/4-blue/model-y-blue-2.png",
+          "assets/img/4-model-y/4-blue/model-y-blue-3.png",
           "assets/img/4-model-y/4-blue/model-y-blue-4.jpg",
         ],
       },
@@ -309,8 +308,8 @@ const cars = [
         hex: "#b3141c",
         img: [
           "assets/img/4-model-y/5-red/model-y-red-1.png",
-          "assets/img/4-model-y/5-red/model-y-red-2.jpg",
-          "assets/img/4-model-y/5-red/model-y-red-3.jpg",
+          "assets/img/4-model-y/5-red/model-y-red-2.png",
+          "assets/img/4-model-y/5-red/model-y-red-3.png",
           "assets/img/4-model-y/5-red/model-y-red-4.jpg",
         ],
       },
