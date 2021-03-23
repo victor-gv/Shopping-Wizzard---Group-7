@@ -134,17 +134,21 @@ function premiumF() {
 okButton.addEventListener("click", () => history.go());
 
 btnNext.addEventListener("click", callControl, true);
+
 inputUserForm.forEach((input) => {
   input.addEventListener("blur", validateAllForms);
 });
+
 inputAddressForm.forEach((input) => {
   input.addEventListener("blur", validateAllForms);
 });
+
 btnResetUser.addEventListener("click", callClear);
+
 function callClear(e) {
-  e.preventDefault();
-  clearReset();
+  e.target.form.reset();
 }
+
 function callControl(e) {
   e.preventDefault();
   controlPage();
@@ -166,7 +170,7 @@ function controlPage() {
       currentPage++;
       break;
     case 2:
-      if (validateUserForm()) {
+      if (validateUserForm('formStep2')) {
         removeCase2();
         formUser.classList.toggle("pageActive");
         formAddress.classList.toggle("pageActive");
@@ -189,7 +193,7 @@ function controlPage() {
         break;
       }
     case 3:
-      if (validateFormAddress()) {
+      if (validateUserForm('formStep3')) {
         removeCase3();
         formAddress.classList.toggle("pageActive");
         shipping.classList.toggle("pageActive");
@@ -212,7 +216,7 @@ function controlPage() {
       }
       break;
     case 4:
-      if (validateShipping()) {
+      if (validateUserForm('formStep4')) {
         removeCase4();
         shipping.classList.toggle("pageActive");
         thanksPage.classList.toggle("pageActive");
@@ -285,7 +289,7 @@ function removeCase4() {
   });
 }
 
-function clearReset() {
+/*function clearReset() {
   switch (currentPage) {
     case 2:
       document
@@ -310,17 +314,20 @@ function clearReset() {
       )[0].checked = false;
       break;
   }
-}
+}*/
+
 /* START OF VALIDATION FORMS */
 function validateAllForms(event) {
   if (event.target.name == "confPass") {
-    if (event.target.validity.valid && event.target.value === person.pass) {
-      document.getElementById(event.target.id).classList.remove("error__input"); // set erase attribute in case that does not remove by itself.
+    if (event.target.value === person.pass) {
+      event.target.classList.remove("error__input"); // set erase attribute in case that does not remove by itself.
       document.querySelector("#" + event.target.id + "+span").innerHTML = ""; // Remove content in error span
+      event.target.setCustomValidity('');
       person[event.target.name] = event.target.value;
-      userFormIsValid.confPass = true;
+      //userFormIsValid.confPass = true;
     } else {
       document.getElementById(event.target.id).classList.add("error__input");
+      event.target.setCustomValidity('Password Must be Matching.');
       if ((innerHTML = event.target.title))
         document.querySelector("#" + event.target.id + "+span").innerHTML =
           event.target.title;
@@ -330,10 +337,10 @@ function validateAllForms(event) {
   }
 
   if (event.target.validity.valid) {
-    document.getElementById(event.target.id).classList.remove("error__input"); // set erase attribute in case that does not remove by itself.
+    event.target.classList.remove("error__input"); // set erase attribute in case that does not remove by itself.
     document.querySelector("#" + event.target.id + "+span").innerHTML = ""; // Remove content in error span
     person[event.target.name] = event.target.value;
-    userFormIsValid[event.target.name] = true;
+    //userFormIsValid[event.target.name] = true;
   } else {
     document.getElementById(event.target.id).classList.add("error__input");
     if ((innerHTML = event.target.title))
@@ -341,6 +348,7 @@ function validateAllForms(event) {
         event.target.title;
     else innerHTML = event.target.validationMessage;
   }
+
   /*
     const usernameRegex = /^[a-zA-Z0-9]{3,20}$/
     const emailRegex = /^(([^<>()\[\]\\.,:\s@"]+(\.[^<>()\[\]\\.,:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -517,21 +525,23 @@ function changePhoneCode(event) {
   person.phoneCode = phoneCodeOp.value;
   addressFormIsValid.phoneCode = true;
 }
+
 /* END OF VALIDATION FORMS */
 
-function validateUserForm() {
+function validateUserForm(form) {
   return (
-    Object.values(userFormIsValid).filter((value) => value === false).length ==
+    
+    Object.values(document.getElementById(form)).filter((value) => value.checkValidity() === false).length ==
     0
   );
 }
 
-function validateFormAddress() {
+/*function validateFormAddress(event) {
   return (
-    Object.values(addressFormIsValid).filter((value) => value === false)
+    Object.values(event.target.form).filter((value) => value === false)
       .length == 0
   );
-}
+}*/
 
 function homePageButtons() {
   personCar.productId = carId;
