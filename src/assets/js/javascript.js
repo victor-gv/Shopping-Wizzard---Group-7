@@ -1,5 +1,5 @@
 function activateCount() {
-  navibar.classList.add("displayNone");
+  naviBar.classList.add("displayNone");
   // Pop up message every minute
   let timer60s = setInterval(() => {
     let minutesLeft = document.getElementById("minutesLeft");
@@ -60,7 +60,7 @@ let btnForm = document.getElementById("next3");
 let btnShipping = document.getElementById("next4");
 let btnFinish = document.getElementById("next5");
 let okButton = document.querySelector(".okButton");
-let navibar = document.getElementById("modelsNav");
+let naviBar = document.getElementById("modelsNav");
 let termsDisabled = document.getElementById("termsCheck");
 // reset btn
 let btnResetUser = document.getElementById("clear2");
@@ -475,7 +475,7 @@ function validateAllForms(event) {
                 document.getElementById(event.target.id).classList.remove("error__input")
                 person.country = event.target.value
                 addressFormIsValid.country = true;
-                changePhonecode(event);
+                changePhoneCode(event);
                 break;
             }else{
                 addressFormIsValid.country = false;
@@ -511,10 +511,10 @@ function validateAllForms(event) {
     }*/
 }
 
-function changePhonecode(event) {
-  let phoneCodeop = document.getElementById("phoneCode");
-  phoneCodeop.options.selectedIndex = event.target.options.selectedIndex;
-  person.phoneCode = phoneCodeop.value;
+function changePhoneCode(event) {
+  let phoneCodeOp = document.getElementById("phoneCode");
+  phoneCodeOp.options.selectedIndex = event.target.options.selectedIndex;
+  person.phoneCode = phoneCodeOp.value;
   addressFormIsValid.phoneCode = true;
 }
 /* END OF VALIDATION FORMS */
