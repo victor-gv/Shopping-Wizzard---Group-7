@@ -27,6 +27,11 @@ firstLoad();
  * Functions
  */
 
+function firstLoad() {
+  var carId = "model-s";
+  changeCarInfo(carId);
+}
+
 function changeMainImage(e) {
   if (e.target.id != "hover-column") {
     mainImage.src = e.target.src;
@@ -47,11 +52,6 @@ function changeColor(e) {
       hoverImageContainer.appendChild(i);
     });
   }
-}
-
-function firstLoad() {
-  var carId = "model-s";
-  changeCarInfo(carId);
 }
 
 function navBarFunctions(e) {
