@@ -170,7 +170,7 @@ function controlPage() {
       currentPage++;
       break;
     case 2:
-      if (validateUserForm('formStep2')) {
+      if (validateUserForm("formStep2")) {
         removeCase2();
         formUser.classList.toggle("pageActive");
         formAddress.classList.toggle("pageActive");
@@ -193,7 +193,7 @@ function controlPage() {
         break;
       }
     case 3:
-      if (validateUserForm('formStep3')) {
+      if (validateUserForm("formStep3")) {
         removeCase3();
         formAddress.classList.toggle("pageActive");
         shipping.classList.toggle("pageActive");
@@ -216,7 +216,7 @@ function controlPage() {
       }
       break;
     case 4:
-      if (validateUserForm('formStep4')) {
+      if (validateUserForm("formStep4")) {
         removeCase4();
         shipping.classList.toggle("pageActive");
         thanksPage.classList.toggle("pageActive");
@@ -322,12 +322,12 @@ function validateAllForms(event) {
     if (event.target.value === person.pass) {
       event.target.classList.remove("error__input"); // set erase attribute in case that does not remove by itself.
       document.querySelector("#" + event.target.id + "+span").innerHTML = ""; // Remove content in error span
-      event.target.setCustomValidity('');
+      event.target.setCustomValidity("");
       person[event.target.name] = event.target.value;
       //userFormIsValid.confPass = true;
     } else {
       document.getElementById(event.target.id).classList.add("error__input");
-      event.target.setCustomValidity('Password Must be Matching.');
+      event.target.setCustomValidity("Password Must be Matching.");
       if ((innerHTML = event.target.title))
         document.querySelector("#" + event.target.id + "+span").innerHTML =
           event.target.title;
@@ -335,7 +335,7 @@ function validateAllForms(event) {
     }
   } else {
     if (event.target.validity.valid) {
-      if(event.target.name == "country")changePhoneCode(event);
+      if (event.target.name == "country") changePhoneCode(event);
       event.target.classList.remove("error__input"); // set erase attribute in case that does not remove by itself.
       document.querySelector("#" + event.target.id + "+span").innerHTML = ""; // Remove content in error span
       person[event.target.name] = event.target.value;
@@ -530,9 +530,9 @@ function changePhoneCode(event) {
 
 function validateUserForm(form) {
   return (
-    
-    Object.values(document.getElementById(form)).filter((value) => value.checkValidity() === false).length ==
-    0
+    Object.values(document.getElementById(form)).filter(
+      (value) => value.checkValidity() === false
+    ).length == 0
   );
 }
 
@@ -544,20 +544,17 @@ function validateUserForm(form) {
 }*/
 
 function homePageButtons() {
-  personCar.productId = carId;
+  personCar.productId = "";
   if (document.querySelector("#Autopilot").checked) {
     personCar.extras.push("Autopilot");
   }
   if (document.querySelector("#Performance").checked) {
     personCar.extras.push("Performance");
   }
-  personCar.color = colorValue;
+  personCar.color = "";
   personCar.price = carPrice.textContent;
   hoverImageContainer.removeEventListener("click", changeMainImage);
   colorContainer.removeEventListener("click", changeColor);
-
-  /* modelContainer was deleted */
-  //modelContainer.removeEventListener('click', changeCar);
 
   navBar.removeEventListener("click", navBarFunctions);
   menuIcon.removeEventListener("click", toggleMenu);
