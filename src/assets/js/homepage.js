@@ -1,4 +1,3 @@
-// window.onload = function () {
 /*
  * Initial variables
  */
@@ -21,14 +20,13 @@ modelsNav.addEventListener("click", navBarFunctions);
 /*
  * Page first load
  */
-firstLoad();
+firstLoad("model-s");
 
 /*
  * Functions
  */
 
-function firstLoad() {
-  var carId = "model-s";
+function firstLoad(carId) {
   changeCarInfo(carId);
 }
 
@@ -114,4 +112,3 @@ function changeCarInfo(carId) {
     carExtras.innerHTML += "<br><br>";
   });
 }
-// };
