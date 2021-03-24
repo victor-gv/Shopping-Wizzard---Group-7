@@ -333,20 +333,20 @@ function validateAllForms(event) {
           event.target.title;
       else innerHTML = event.target.validationMessage;
     }
-    return;
-  }
-
-  if (event.target.validity.valid) {
-    event.target.classList.remove("error__input"); // set erase attribute in case that does not remove by itself.
-    document.querySelector("#" + event.target.id + "+span").innerHTML = ""; // Remove content in error span
-    person[event.target.name] = event.target.value;
-    //userFormIsValid[event.target.name] = true;
   } else {
-    document.getElementById(event.target.id).classList.add("error__input");
-    if ((innerHTML = event.target.title))
-      document.querySelector("#" + event.target.id + "+span").innerHTML =
-        event.target.title;
-    else innerHTML = event.target.validationMessage;
+    if (event.target.validity.valid) {
+      if(event.target.name == "country")changePhoneCode(event);
+      event.target.classList.remove("error__input"); // set erase attribute in case that does not remove by itself.
+      document.querySelector("#" + event.target.id + "+span").innerHTML = ""; // Remove content in error span
+      person[event.target.name] = event.target.value;
+      //userFormIsValid[event.target.name] = true;
+    } else {
+      document.getElementById(event.target.id).classList.add("error__input");
+      if ((innerHTML = event.target.title))
+        document.querySelector("#" + event.target.id + "+span").innerHTML =
+          event.target.title;
+      else innerHTML = event.target.validationMessage;
+    }
   }
 
   /*
