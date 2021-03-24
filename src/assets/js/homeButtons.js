@@ -1,5 +1,4 @@
 window.onload = function () {
-  var carId = "model-3";
   var mainImage = document.getElementById("mainImage");
   var carName = document.getElementById("carName");
   var carPrice = document.getElementById("carPrice");
@@ -23,7 +22,7 @@ window.onload = function () {
   function changeColor(e) {
     if (e.target.id != "colorContainer") {
       var car = cars.filter((car) => {
-        return car.id == carId;
+        return car.id;
       });
       mainImage.src = car[0].color[e.target.value].img[0];
       hoverImageContainer.innerHTML = "";
