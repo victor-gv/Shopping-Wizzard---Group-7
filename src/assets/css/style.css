@@ -508,6 +508,8 @@ input[type=checkbox]{
 #gift {
   margin-top: 10px;
   margin-bottom: 20px;
+  padding: 10px;
+  /* Añadido padding para que quede mas bonico */
   border: solid 1px;
   border-radius: 10px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3),
