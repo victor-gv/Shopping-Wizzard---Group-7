@@ -1,5 +1,4 @@
 /*GLOBAL PROPERTIES*/
-
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +17,6 @@ body {
   height: 100%;
 }
 
-/* MODIFIED 24TH NOV 19 TASK 1 LUIS */
 .errorMessage {
   visibility: hidden;
   border: none;
@@ -27,8 +25,6 @@ body {
   padding: 10px 10px;
   border: 1px solid #b3141c;
   margin-bottom: 40px;
-
-  /* MODIFIED 24TH NOV 19  TASK 1 LUIS */
 }
 
 .errorValidation {
@@ -50,20 +46,16 @@ div {
   height: 100%;
 }
 
-/* MODIFIED 24TH NOV 19 TASK 1 LUIS */
 .error__input {
   border-color: #b3141c;
   background-color: rgb(255, 255, 255);
   color: #b3141c;
 }
 
-/* MODIFIED 24TH NOV 19 TASK 1 LUIS */
-
 .pageActive {
   display: block;
 }
 
-/*BOTTOM BUTTON FORMS TAGS */
 .bottom-btn {
   display: flex;
   flex-direction: row;
@@ -116,20 +108,16 @@ div {
   opacity: 0.8;
 }
 
-#carExtras label {
+.carExtras label {
   font-size: 1.1em;
 }
 
-#carExtras input {
+.carExtras input {
   margin-right: 1em;
 }
 
 .clickable:hover {
   cursor: pointer;
-}
-
-#modelContainer {
-  z-index: 2;
 }
 
 /*MAIN PAGE. HOVER COLUMN PROPERTIES*/
@@ -143,15 +131,16 @@ div {
   align-items: center;
   align-content: center;
   justify-content: center;
+  z-index: 2;
 }
 
-.hover-column:hover>img {
+.hover-column:hover > img {
   visibility: visible;
   opacity: 80%;
   overflow: visible;
 }
 
-.hover-column>img {
+.hover-column > img {
   position: relative;
   width: 90%;
   opacity: 0%;
@@ -159,17 +148,12 @@ div {
   margin: 2% 0;
 }
 
-.hover-column>img:hover {
+.hover-column > img:hover {
   width: 89%;
   opacity: 100%;
   transition: opacity 0.5s linear;
   border: solid #aaaaaaaa;
   overflow: visible;
-}
-
-/* VISIBILITY */
-#hover-column {
-  z-index: 2;
 }
 
 /*HOME PAGE BOTTOM MODELS DISPLAY*/
@@ -217,14 +201,14 @@ div {
   background-color: #ffffffaa;
 }
 
-.carModel>p {
+.carModel > p {
   font-weight: 700;
   color: black;
   font-size: x-large;
   margin-block-start: 0.5em;
 }
 
-.carModel:hover>p {
+.carModel:hover > p {
   opacity: 0%;
 }
 
@@ -238,7 +222,7 @@ div {
 }
 
 /* HOME PAGE. MAIN PICTURE*/
-.main-picture>img {
+.main-picture > img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -261,7 +245,7 @@ div {
   overflow: hidden;
 }
 
-.main-picture-img>img {
+.main-picture-img > img {
   object-fit: cover;
   height: 100vh;
   margin: auto;
@@ -289,7 +273,7 @@ div {
   text-align: center;
 }
 
-.details-column>div>h1 {
+.details-column > div > h1 {
   font-size: 60px;
   margin-block-start: 0.3em;
   margin-block-end: 0.3em;
@@ -323,7 +307,6 @@ div {
   margin-left: 15%;
 }
 
-/* MODIFIED LUIS 11.24 */
 input[type="checkbox"] {
   position: RELATIVE;
   cursor: pointer;
@@ -354,10 +337,6 @@ input[type="checkbox"]:checked:before {
   top: 0px;
   left: 0px;
   z-index: -1;
-  /*font-size:20px;
-    content: '✔️';
-    width: auto;
-    height: auto;*/
 }
 
 #regularAddress {
@@ -365,23 +344,6 @@ input[type="checkbox"]:checked:before {
   text-indent: 0px;
   vertical-align: bottom;
 }
-
-/* BEFORE BUTTON * END/
-
-/*
-.purchaseCheckbox {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1em;
-}
-.purchaseCheckbox input {
-    justify-content: left;
-}
-
-input[type=checkbox]{
-    text-align: center;
-    display: inline-block;
-}*/
 
 /* USER PAGE PROPERTIES */
 
@@ -420,10 +382,6 @@ input[type=checkbox]{
   border: solid 1px;
 }
 
-.step2 {
-  /*padding-top: 5%;*/
-}
-
 /* ADDRESS PAGE PROPERTIES */
 .formAddress {
   display: flex;
@@ -450,8 +408,6 @@ input[type=checkbox]{
   padding: 0.5em 0;
   height: 50px;
   border: solid 1px;
-  /* border de prueba */
-  /*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(100, 100, 100, 0.19);*/
 }
 
 #password-field {
@@ -509,7 +465,6 @@ input[type=checkbox]{
   margin-top: 10px;
   margin-bottom: 20px;
   padding: 10px;
-  /* Añadido padding para que quede mas bonico */
   border: solid 1px;
   border-radius: 10px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3),
@@ -578,7 +533,6 @@ input[type="file"] {
   text-align: center;
   top: 50%;
   left: 50%;
-  /* bring your own prefixes */
   transform: translate(-50%, -50%);
   width: 100%;
   z-index: 5;
@@ -592,7 +546,6 @@ input[type="file"] {
   top: 5%;
   right: 2%;
   z-index: 5;
-  /* bring your own prefixes */
 }
 
 .timeOutMessage {
@@ -620,7 +573,6 @@ input[type="file"] {
 }
 
 /* TERMS AND CONDITIONS */
-
 .finalPage {
   display: flex;
   margin-top: 50px;
@@ -634,7 +586,6 @@ input[type="file"] {
 }
 
 /* TERMS AND CONDITIONS DETAILS MIDDLE DIV */
-
 .finalPage {
   background-color: rgb(185, 182, 182);
   display: flex;
@@ -775,11 +726,11 @@ input[type="checkbox"] {
 
 /*making navibar elements get closer */
 @media screen and (max-width: 1200px) {
-  #carExtras label {
+  .carExtras label {
     font-size: 15px;
   }
 
-  .carSpecs>h3 {
+  .carSpecs > h3 {
     font-size: 30px;
   }
 
@@ -791,7 +742,7 @@ input[type="checkbox"] {
     margin-top: 50px;
   }
 
-  .details-column>div>h1 {
+  .details-column > div > h1 {
     font-size: 40px;
     margin-block-start: 0.3em;
     margin-block-end: 0.3em;
@@ -801,14 +752,14 @@ input[type="checkbox"] {
     display: none;
   }
 
-  .hover-column>img:hover {
+  .hover-column > img:hover {
     width: auto;
     opacity: 100%;
     border: none;
     overflow: visible;
   }
 
-  .hover-column>img {
+  .hover-column > img {
     position: relative;
     opacity: 100%;
     height: 90%;
@@ -830,9 +781,9 @@ input[type="checkbox"] {
   }
 }
 
-/* hidding navbar and making bigger bottom model buttons*/
+/* hiding navbar and making bigger bottom model buttons*/
 @media screen and (max-width: 970px) {
-  #hover-column {
+  .hover-column {
     z-index: 0;
   }
 
@@ -841,7 +792,7 @@ input[type="checkbox"] {
     height: 70px;
   }
 
-  #carExtras label {
+  .carExtras label {
     font-size: 25px;
   }
 
@@ -849,11 +800,11 @@ input[type="checkbox"] {
     font-size: 40px;
   }
 
-  .carSpecs>h3 {
+  .carSpecs > h3 {
     font-size: 70px;
   }
 
-  .details-column>div>h1 {
+  .details-column > div > h1 {
     font-size: 80px;
     margin-block-start: 0.3em;
     margin-block-end: 0.3em;
@@ -883,7 +834,7 @@ input[type="checkbox"] {
     margin-top: 10px;
   }
 
-  .hover-column>img {
+  .hover-column > img {
     position: relative;
     opacity: 100%;
     height: 90%;
@@ -892,7 +843,7 @@ input[type="checkbox"] {
     margin: 2% 0;
   }
 
-  .hover-column>img:hover {
+  .hover-column > img:hover {
     width: auto;
     opacity: 100%;
     border: none;
@@ -913,7 +864,7 @@ input[type="checkbox"] {
     overflow: hidden;
   }
 
-  .main-picture-img>img {
+  .main-picture-img > img {
     width: 100%;
     height: auto;
     margin: auto;
@@ -949,7 +900,7 @@ input[type="checkbox"] {
     height: 7vh;
   }
 
-  .details-column>div>h1 {
+  .details-column > div > h1 {
     font-size: 60px;
   }
 }
