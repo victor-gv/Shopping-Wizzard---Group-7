@@ -84,6 +84,9 @@ let premiumShipping = document.getElementById("premiumShipping");
 let premiumCost = document.getElementById("premiumCost");
 let extraCost = document.getElementById("extraCost");
 let noCost = document.getElementById("noCost");
+let checkGift = document.getElementById("input__gift");
+let inputMessage = document.getElementById("inputMessage");
+let inputImage = document.getElementById("inputImage");
 
 // premium shipping
 let date = new Date();
@@ -274,6 +277,7 @@ function removeCase3() {
   inputAddressForm.forEach((input) => {
     input.removeEventListener("blur", validateAllForms);
   });
+  checkGift.addEventListener("click", callGift, true);
 }
 
 function removeCase4() {
@@ -287,6 +291,7 @@ function removeCase4() {
   termsDisabled.addEventListener("change", () => {
     btnFinish.classList.toggle("pButtonColorGreen");
   });
+  checkGift.removeEventListener("click", callGift, true);
 }
 
 /*function clearReset() {
@@ -335,6 +340,7 @@ function validateAllForms(event) {
     }
   } else {
     if (event.target.validity.valid) {
+      //TODO: checkboxes o radios que no tienen span no deben entrar aqui
       if (event.target.name == "country") changePhoneCode(event);
       event.target.classList.remove("error__input"); // set erase attribute in case that does not remove by itself.
       document.querySelector("#" + event.target.id + "+span").innerHTML = ""; // Remove content in error span
@@ -526,6 +532,16 @@ function changePhoneCode(event) {
   addressFormIsValid.phoneCode = true;
 }
 
+function callGift(event) {
+  if (event.target.checked == true) {
+    inputMessage.style.display = "block";
+    inputImage.style.display = "block";
+  } else {
+    inputMessage.style.display = "none";
+    inputImage.style.display = "none";
+  }
+}
+
 /* END OF VALIDATION FORMS */
 
 function validateUserForm(form) {
@@ -544,14 +560,14 @@ function validateUserForm(form) {
 }*/
 
 function homePageButtons() {
-  personCar.productId = "";
+  personCar.productId = document.getElementById("carId").value;
   if (document.querySelector("#Autopilot").checked) {
     personCar.extras.push("Autopilot");
   }
   if (document.querySelector("#Performance").checked) {
     personCar.extras.push("Performance");
   }
-  personCar.color = "";
+  personCar.color = document.getElementById("colorId").value;
   personCar.price = carPrice.textContent;
   hoverImageContainer.removeEventListener("click", changeMainImage);
   colorContainer.removeEventListener("click", changeColor);

@@ -6,15 +6,18 @@
   box-sizing: border-box;
   outline: none;
 }
+
 body {
   font-family: "Roboto", sans-serif;
   margin: 0px;
 }
+
 .page {
   display: none;
   width: 100%;
   height: 100%;
 }
+
 /* MODIFIED 24TH NOV 19 TASK 1 LUIS */
 .errorMessage {
   visibility: hidden;
@@ -35,21 +38,25 @@ body {
 .errorMessageActive {
   visibility: visible;
 }
+
 label,
 p,
 div {
   font-size: 21px;
 }
+
 .main {
   flex-basis: 70%;
   height: 100%;
 }
+
 /* MODIFIED 24TH NOV 19 TASK 1 LUIS */
 .error__input {
   border-color: #b3141c;
   background-color: rgb(255, 255, 255);
   color: #b3141c;
 }
+
 /* MODIFIED 24TH NOV 19 TASK 1 LUIS */
 
 .pageActive {
@@ -64,6 +71,7 @@ div {
   align-content: space-around;
   align-items: space-evenly;
 }
+
 .footer-button {
   margin: 20px;
   padding: 20px;
@@ -80,6 +88,7 @@ div {
     0 4px 10px 0 rgba(100, 100, 100, 0.3);
   margin: 0 auto;
 }
+
 .footer-button:hover {
   cursor: pointer;
   box-shadow: 0 0.8rem 1.8rem 0 white;
@@ -94,6 +103,7 @@ div {
   width: 100%;
   align-items: stretch;
 }
+
 .colorButton {
   width: 50px;
   height: 50px;
@@ -101,21 +111,27 @@ div {
   margin: 0.1em;
   background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.5));
 }
+
 .colorButton:hover {
   opacity: 0.8;
 }
+
 #carExtras label {
   font-size: 1.1em;
 }
+
 #carExtras input {
   margin-right: 1em;
 }
+
 .clickable:hover {
   cursor: pointer;
 }
+
 #modelContainer {
   z-index: 2;
 }
+
 /*MAIN PAGE. HOVER COLUMN PROPERTIES*/
 .hover-column {
   position: absolute;
@@ -128,25 +144,29 @@ div {
   align-content: center;
   justify-content: center;
 }
-.hover-column:hover > img {
+
+.hover-column:hover>img {
   visibility: visible;
   opacity: 80%;
   overflow: visible;
 }
-.hover-column > img {
+
+.hover-column>img {
   position: relative;
   width: 90%;
   opacity: 0%;
   transition: opacity 0.5s linear;
   margin: 2% 0;
 }
-.hover-column > img:hover {
+
+.hover-column>img:hover {
   width: 89%;
   opacity: 100%;
   transition: opacity 0.5s linear;
   border: solid #aaaaaaaa;
   overflow: visible;
 }
+
 /* VISIBILITY */
 #hover-column {
   z-index: 2;
@@ -160,6 +180,7 @@ div {
   background-position: center;
   background-image: url("https://www.autopista.es/uploads/s1/77/57/82/7/el-tesla-model-3-aumenta-su-autonomia-pero-no-su-precio.jpeg");
 }
+
 #model-s:hover {
   transition: linear 1s;
   background-repeat: no-repeat;
@@ -167,6 +188,7 @@ div {
   background-position: center;
   background-image: url("https://tesla-cdn.thron.com/delivery/public/image/tesla/35d15221-0a5f-4dce-b484-a4db67b81dd2/bvlatuR/std/0x0/model-s@2x");
 }
+
 #model-x:hover {
   transition: linear 1s;
   background-repeat: no-repeat;
@@ -174,6 +196,7 @@ div {
   background-position: center;
   background-image: url("https://tesla-cdn.thron.com/delivery/public/image/tesla/efbb6471-e1b8-4533-b41a-6df9d50c0a42/bvlatuR/std/0x0/performance-hero@2");
 }
+
 #model-y:hover {
   transition: linear 1s;
   background-repeat: no-repeat;
@@ -181,6 +204,7 @@ div {
   background-position: center;
   background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-tesla-model-y-long-range-102-1592842278.jpg?crop=0.612xw:0.459xh;0.146xw,0.454xh&resize=640:*");
 }
+
 .carModel {
   width: 5%;
   height: 50px;
@@ -193,15 +217,17 @@ div {
   background-color: #ffffffaa;
 }
 
-.carModel > p {
+.carModel>p {
   font-weight: 700;
   color: black;
   font-size: x-large;
   margin-block-start: 0.5em;
 }
-.carModel:hover > p {
+
+.carModel:hover>p {
   opacity: 0%;
 }
+
 .carModel:hover {
   width: 25%;
   height: 150px;
@@ -212,11 +238,12 @@ div {
 }
 
 /* HOME PAGE. MAIN PICTURE*/
-.main-picture > img {
+.main-picture>img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
+
 .main-picture {
   position: relative;
   flex-basis: 80%;
@@ -233,11 +260,13 @@ div {
   flex-basis: 100%;
   overflow: hidden;
 }
-.main-picture-img > img {
+
+.main-picture-img>img {
   object-fit: cover;
   height: 100vh;
   margin: auto;
 }
+
 .main-picture-models {
   position: absolute;
   bottom: 0px;
@@ -259,11 +288,13 @@ div {
   justify-content: space-around;
   text-align: center;
 }
-.details-column > div > h1 {
+
+.details-column>div>h1 {
   font-size: 60px;
   margin-block-start: 0.3em;
   margin-block-end: 0.3em;
 }
+
 .buy-button {
   background-color: #428c59;
   padding: 15px 70px;
@@ -275,15 +306,18 @@ div {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3),
     0 4px 10px 0 rgba(100, 100, 100, 0.3);
 }
+
 .buy-button:hover {
   background-color: #337246;
 }
+
 .specValue {
   font-size: xx-large;
   font-weight: 200;
   margin-block-start: 0.3em;
   margin-block-end: 0.3em;
 }
+
 .extras {
   text-align: left;
   margin-left: 15%;
@@ -314,6 +348,7 @@ input[type="checkbox"]:before {
   background-color: rgb(255, 255, 255);
   z-index: 2;
 }
+
 input[type="checkbox"]:checked:before {
   background-color: #52996d;
   top: 0px;
@@ -330,6 +365,7 @@ input[type="checkbox"]:checked:before {
   text-indent: 0px;
   vertical-align: bottom;
 }
+
 /* BEFORE BUTTON * END/
 
 /*
@@ -374,6 +410,7 @@ input[type=checkbox]{
   margin: 50px 10px;
   height: 30px;
 }
+
 .formUser__input {
   font-size: 1rem;
   border-radius: 4px;
@@ -382,6 +419,7 @@ input[type=checkbox]{
   height: 55px;
   border: solid 1px;
 }
+
 .step2 {
   /*padding-top: 5%;*/
 }
@@ -397,29 +435,35 @@ input[type=checkbox]{
   height: 100%;
   min-width: 300px;
 }
+
 .formAddress__field {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   margin: 20px 10px;
 }
+
 .formAddress__input {
   text-align: center;
   font-size: 1rem;
   border-radius: 4px;
   padding: 0.5em 0;
   height: 50px;
-  border: solid 1px; /* border de prueba */
+  border: solid 1px;
+  /* border de prueba */
   /*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(100, 100, 100, 0.19);*/
 }
+
 #password-field {
   margin-bottom: 100px;
 }
+
 .userLabel,
 .addressLabel {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
+
 #regularAddress {
   font-size: 15px;
   font-weight: bold;
@@ -429,16 +473,20 @@ input[type=checkbox]{
 .formShipping {
   font: 1rem;
 }
+
 #first-div-shipping {
   margin-top: 100px;
   font-size: 10px;
 }
+
 #shippingTitle {
   font-size: 25px;
 }
+
 .strong-text {
   font-weight: bold;
 }
+
 .formShipping__input,
 #inputMessage,
 #inputImage {
@@ -446,24 +494,33 @@ input[type=checkbox]{
   margin: 1.5rem 0;
   font-size: 15px;
 }
+
 #inputImage {
   margin-bottom: 20px;
+  display: none;
 }
+
 #inputMessage {
   margin-top: 20px;
+  display: none;
 }
+
 #gift {
   margin-top: 10px;
   margin-bottom: 20px;
+  padding: 10px;
+  /* Añadido padding para que quede mas bonico */
   border: solid 1px;
   border-radius: 10px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3),
     0 4px 10px 0 rgba(100, 100, 100, 0.3);
 }
+
 input[type="file"] {
   opacity: 0;
   position: absolute;
 }
+
 .selectImageBtn,
 .SubmitBtn {
   width: 200px;
@@ -478,6 +535,7 @@ input[type="file"] {
   margin: 10px 0;
   cursor: pointer;
 }
+
 .selectImageBtn:hover,
 .SubmitBtn:hover {
   cursor: pointer;
@@ -496,6 +554,7 @@ input[type="file"] {
   background-position: center bottom;
   transition: all 1s ease-out;
 }
+
 .progressBarContainer {
   overflow: hidden;
   padding: 0;
@@ -512,6 +571,7 @@ input[type="file"] {
 .popup {
   position: fixed;
 }
+
 #timeOut5m {
   background-color: rgba(250, 250, 250, 0.89);
   border: 2px solid grey;
@@ -523,6 +583,7 @@ input[type="file"] {
   width: 100%;
   z-index: 5;
 }
+
 #timeOut60s {
   background-color: rgba(250, 250, 250, 100);
   border: 2px solid grey;
@@ -539,6 +600,7 @@ input[type="file"] {
   font-size: 1.4rem;
   font-weight: 400;
 }
+
 .okButton {
   font-size: 1.4rem;
   font-weight: 600;
@@ -548,9 +610,11 @@ input[type="file"] {
   border-radius: 0.4rem;
   outline: none;
 }
+
 .okButton:hover {
   opacity: 0.8;
 }
+
 .okButton:active {
   transform: translateY(2.5px);
 }
@@ -576,19 +640,23 @@ input[type="file"] {
   display: flex;
   justify-content: space-around;
 }
+
 .purchaseProductDetails {
   display: flex;
   flex-direction: row;
 }
+
 .purchaseProductDetailsImg {
   flex-basis: 50%;
 }
+
 .purchaseProductDetailsTxt {
   flex-basis: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
+
 .purchaseFinal {
   text-align: left;
   font-weight: bold;
@@ -604,6 +672,7 @@ input[type="file"] {
   font-size: 16px;
   color: #282828;
 }
+
 .purchaseButton {
   margin: 20px;
   padding: 20px;
@@ -620,9 +689,11 @@ input[type="file"] {
   margin: 0 auto;
   text-align: center;
 }
+
 .pButtonColorDark {
   background-color: rgb(58, 56, 56);
 }
+
 .pButtonColorGreen {
   background-color: rgb(66, 140, 89);
 }
@@ -632,6 +703,7 @@ input[type="file"] {
   box-shadow: 0 0.8rem 1.8rem 0 white;
   transform: scale(1.1);
 }
+
 .yourOrder,
 .termsAndConditions {
   margin: 20px;
@@ -642,19 +714,23 @@ input[type="file"] {
 .yourOrder {
   min-width: 15em;
 }
+
 .yourOrder div {
   text-align: right;
   font-weight: bold;
   margin: 0.3rem 0;
 }
+
 #productModel,
 #productColor {
   font-weight: bold;
 }
+
 #productDeliveryTime {
   font-size: 18px;
   font-weight: bold;
 }
+
 .disFlex {
   display: flex;
   flex-direction: row;
@@ -666,6 +742,7 @@ input[type="file"] {
   justify-content: center;
   margin-bottom: 1em;
 }
+
 .purchaseCheckbox input {
   justify-content: left;
 }
@@ -682,12 +759,15 @@ input[type="checkbox"] {
   .finalPage {
     flex-direction: column;
   }
+
   .purchaseProductDetailsImg img {
     padding: 0.5em;
   }
+
   .purchaseProductDetails {
     flex-direction: column;
   }
+
   .disFlex {
     margin: 0.5rem 0;
   }
@@ -698,30 +778,37 @@ input[type="checkbox"] {
   #carExtras label {
     font-size: 15px;
   }
-  .carSpecs > h3 {
+
+  .carSpecs>h3 {
     font-size: 30px;
   }
+
   .specValue {
     font-size: x-large;
   }
+
   .details-column {
     margin-top: 50px;
   }
-  .details-column > div > h1 {
+
+  .details-column>div>h1 {
     font-size: 40px;
     margin-block-start: 0.3em;
     margin-block-end: 0.3em;
   }
+
   .main-picture-models {
     display: none;
   }
-  .hover-column > img:hover {
+
+  .hover-column>img:hover {
     width: auto;
     opacity: 100%;
     border: none;
     overflow: visible;
   }
-  .hover-column > img {
+
+  .hover-column>img {
     position: relative;
     opacity: 100%;
     height: 90%;
@@ -729,6 +816,7 @@ input[type="checkbox"] {
     transition: opacity 0.5s linear;
     margin: 2% 0;
   }
+
   .hover-column {
     order: 2;
     opacity: 100%;
@@ -747,34 +835,43 @@ input[type="checkbox"] {
   #hover-column {
     z-index: 0;
   }
+
   .colorButton {
     width: 70px;
     height: 70px;
   }
+
   #carExtras label {
     font-size: 25px;
   }
+
   .specValue {
     font-size: 40px;
   }
-  .carSpecs > h3 {
+
+  .carSpecs>h3 {
     font-size: 70px;
   }
-  .details-column > div > h1 {
+
+  .details-column>div>h1 {
     font-size: 80px;
     margin-block-start: 0.3em;
     margin-block-end: 0.3em;
   }
+
   .main-picture-models {
     left: 5%;
   }
+
   .carModel {
     width: 20%;
   }
+
   .buy-button {
     padding: 10px 40px;
     margin: 2rem 0.5rem;
   }
+
   .hover-column {
     order: 2;
     opacity: 100%;
@@ -785,7 +882,8 @@ input[type="checkbox"] {
     width: auto;
     margin-top: 10px;
   }
-  .hover-column > img {
+
+  .hover-column>img {
     position: relative;
     opacity: 100%;
     height: 90%;
@@ -794,12 +892,13 @@ input[type="checkbox"] {
     margin: 2% 0;
   }
 
-  .hover-column > img:hover {
+  .hover-column>img:hover {
     width: auto;
     opacity: 100%;
     border: none;
     overflow: visible;
   }
+
   .home {
     display: flex;
     min-height: 400px;
@@ -807,17 +906,20 @@ input[type="checkbox"] {
     align-items: stretch;
     flex-direction: column;
   }
+
   .main-picture-img {
     order: 1;
     margin-top: 75px;
     overflow: hidden;
   }
-  .main-picture-img > img {
+
+  .main-picture-img>img {
     width: 100%;
     height: auto;
     margin: auto;
     margin: 0;
   }
+
   .main-picture {
     flex-basis: auto;
     align-items: center;
@@ -825,13 +927,16 @@ input[type="checkbox"] {
     height: auto;
     flex-direction: column;
   }
+
   .main-picture-models {
     display: none;
   }
+
   .details-column {
     flex-basis: auto;
     height: 900px;
   }
+
   .extras {
     text-align: left;
     margin-left: 30%;
@@ -843,7 +948,8 @@ input[type="checkbox"] {
   .hover-column {
     height: 7vh;
   }
-  .details-column > div > h1 {
+
+  .details-column>div>h1 {
     font-size: 60px;
   }
 }
@@ -854,6 +960,7 @@ input[type="checkbox"] {
     width: 50px;
     height: 50px;
   }
+
   #timeOut60s {
     bottom: none;
     right: none;
@@ -861,9 +968,11 @@ input[type="checkbox"] {
     width: 80%;
     height: 20%;
   }
+
   .hover-column {
     height: 5vh;
   }
+
   .extras {
     text-align: left;
     margin-left: 20%;
