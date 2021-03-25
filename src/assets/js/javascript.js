@@ -536,7 +536,6 @@ function callGift(event) {
   if (event.target.checked == true) {
     inputMessage.style.display = "block";
     inputImage.style.display = "block";
-
   } else {
     inputMessage.style.display = "none";
     inputImage.style.display = "none";
@@ -561,14 +560,14 @@ function validateUserForm(form) {
 }*/
 
 function homePageButtons() {
-  personCar.productId = "";
+  personCar.productId = document.getElementById("carId").value;
   if (document.querySelector("#Autopilot").checked) {
     personCar.extras.push("Autopilot");
   }
   if (document.querySelector("#Performance").checked) {
     personCar.extras.push("Performance");
   }
-  personCar.color = "";
+  personCar.color = document.getElementById("colorId").value;
   personCar.price = carPrice.textContent;
   hoverImageContainer.removeEventListener("click", changeMainImage);
   colorContainer.removeEventListener("click", changeColor);

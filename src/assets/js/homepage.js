@@ -40,12 +40,22 @@ function changeMainImage(e) {
 
 function changeColor(e) {
   if (e.target.id != "colorContainer") {
-    var car = cars.filter((car) => {
-      return car.id;
+    var car = cars.filter(
+      (car) => car.id == document.getElementById("carId").value
+    );
+
+    document.getElementById("colorId").value = e.target.id;
+
+    var index;
+    car[0].color.forEach(function (value, i) {
+      if (e.target.value == value.id) {
+        index = i;
+      }
     });
-    mainImage.src = car[0].color[e.target.value].img[0];
+
+    mainImage.src = car[0].color[index].img[0];
     hoverImageContainer.innerHTML = "";
-    car[0].color[e.target.value].img.forEach((img) => {
+    car[0].color[index].img.forEach((img) => {
       let i = document.createElement("img");
       i.setAttribute("class", "clickable");
       i.setAttribute("src", img);
@@ -66,6 +76,8 @@ function changeCarInfo(carId) {
     return c.id == carId;
   });
 
+  document.getElementById("carId").value = car[0].id;
+
   mainImage.src = car[0].color[0].img[0];
   hoverImageContainer.innerHTML = "";
   car[0].color[0].img.forEach((imag) => {
@@ -76,12 +88,15 @@ function changeCarInfo(carId) {
   });
   carName.innerHTML = car[0].name;
   carPrice.innerHTML = car[0].price + "€";
-  colorContainer.innerHTML = "";
+  colorContainer.innerHTML =
+    "<input name='colorId' id='colorId' type='hidden' value='" +
+    car[0].color[0].id +
+    "'>";
   car[0].color.forEach((c, index) => {
     let btn = document.createElement("button");
     btn.setAttribute("id", c.id);
     btn.setAttribute("class", "colorButton clickable");
-    btn.setAttribute("value", index);
+    btn.setAttribute("value", c.id);
     btn.setAttribute("style", "background-color:" + c.hex);
     colorContainer.appendChild(btn);
   });

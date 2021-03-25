@@ -82,29 +82,31 @@
         <!-- Main details column-->
         <div class="details-column">
           <div>
-            <h1 id="carName">Model 3</h1>
-            <p id='carPrice' class="specValue">49000€</p>
+            <input name="carId" id="carId" type="hidden" value="">
+            <h1 id="carName"></h1>
+            <p id='carPrice' class="specValue"></p>
           </div>
           <div id='colorContainer'>
-            <button id="white" class="colorButton clickable" value='0' style="background-color:#f2f2f2"></button>
-            <button id="black" class="colorButton clickable" value='1' style="background-color:#1d1d1d"></button>
-            <button id="grey" class="colorButton clickable" value='2' style="background-color:#5e626e"></button>
-            <button id="blue" class="colorButton clickable" value='3' style="background-color:#1d3189"></button>
-            <button id="red" class="colorButton clickable" value='4' style="background-color:#b3141c"></button>
+            <input name="colorId" id="colorId" type="hidden" value="">
+            <button id="white" class="colorButton clickable" value='white' style="background-color:#f2f2f2"></button>
+            <button id="black" class="colorButton clickable" value='black' style="background-color:#1d1d1d"></button>
+            <button id="grey" class="colorButton clickable" value='grey' style="background-color:#5e626e"></button>
+            <button id="blue" class="colorButton clickable" value='blue' style="background-color:#1d3189"></button>
+            <button id="red" class="colorButton clickable" value='red' style="background-color:#b3141c"></button>
           </div>
           <div id='carSpecs'>
             <h3>Autonomy</h3>
-            <p class="specValue">430km</p>
+            <p class="specValue"></p>
             <h3>Maximum speed</h3>
-            <p class="specValue">225km/h</p>
-            <h3>0-100 km/h</h3>
-            <p class="specValue">5,6s</p>
+            <p class="specValue"></p>
+            <h3></h3>
+            <p class="specValue"></p>
           </div>
           <div class="extras" id="carExtras">
             <input type="checkbox" class="clickable" id="Autopilot" name="Autopilot" value="0">
-            <label for="Autopilot"><strong>Autopilot</strong> 7500€</label><br>
+            <label for="Autopilot"><strong>Autopilot</strong></label><br>
             <input type="checkbox" class="clickable" id="Performance" name="Performance" value="1">
-            <label for="Performance"> <strong>Performance</strong> 16990€</label>
+            <label for="Performance"> <strong>Performance</strong></label>
           </div>
           <div>
             <button class="buy-button clickable" id="next">BUY</button>
