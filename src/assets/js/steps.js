@@ -81,7 +81,6 @@ let todayPlus78h = new Date(date.setTime(date.getTime() + 6 * 60 * 60 * 1000))
 /*
  * Event Listeners
  */
-
 freeShipping.addEventListener("click", freeF);
 function freeF() {
   deliveryExcepted.innerHTML = todayPlus72h + " and " + todayPlus78h + ".";
@@ -117,7 +116,6 @@ btnResetUser.addEventListener("click", callClear);
 /*
  * Event Listeners Functions
  */
-
 function callClear(e) {
   e.target.form.reset();
 }
@@ -231,7 +229,6 @@ function controlPage() {
 /*
  * Update Event Listeners functions
  */
-
 function removeCase2() {
   btnUser.removeEventListener("click", callControl, true);
   btnForm.addEventListener("click", callControl, true);
@@ -270,7 +267,6 @@ function removeCase4() {
 /*
  * Validation Functions
  */
-
 function validateAllForms(event) {
   var  errorSpan = document.querySelector("#" + event.target.id + "+span");
 
