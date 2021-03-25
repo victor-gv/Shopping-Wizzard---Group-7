@@ -9,6 +9,7 @@ In this project you must develop a shopping process form with steps, where each 
 - [Getting Started](#getting-started)
   - [The repo](#the-repo)
   - [Dependencies](#dependencies)
+- [Documentation](#documentation)
 - [Resources](#resources)
 
 ## Getting Started
@@ -24,6 +25,12 @@ $ git clone https://github.com/assembler-school/js-shopping-wizard.git
 ### Dependencies
 
 This project is created with Vanilla JS so you don't need to import any dependency.
+
+## Documentation
+
+You can check all the project documentation here:
+
+- [Shopping Wizard](<[https://link](https://docs.google.com/document/d/1wsoxchkR6AlfMxwXs674-XcVnsUgE02136a8OgwZxtE/edit?usp=sharing)>)
 
 ## Resources
 
