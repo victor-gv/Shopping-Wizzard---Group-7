@@ -323,10 +323,11 @@ function removeCase4() {
 
 /* START OF VALIDATION FORMS */
 function validateAllForms(event) {
+  var  errorSpan = document.querySelector("#" + event.target.id + "+span");
   if (event.target.name == "confPass") {
     if (event.target.value === person.pass) {
       event.target.classList.remove("error__input"); // set erase attribute in case that does not remove by itself.
-      document.querySelector("#" + event.target.id + "+span").innerHTML = ""; // Remove content in error span
+      if(errorSpan)errorSpan.innerHTML = ""; // Remove content in error span
       event.target.setCustomValidity("");
       person[event.target.name] = event.target.value;
       //userFormIsValid.confPass = true;
@@ -334,22 +335,21 @@ function validateAllForms(event) {
       document.getElementById(event.target.id).classList.add("error__input");
       event.target.setCustomValidity("Password Must be Matching.");
       if ((innerHTML = event.target.title))
-        document.querySelector("#" + event.target.id + "+span").innerHTML =
+      if(errorSpan)errorSpan.innerHTML =
           event.target.title;
       else innerHTML = event.target.validationMessage;
     }
   } else {
     if (event.target.validity.valid) {
-      //TODO: checkboxes o radios que no tienen span no deben entrar aqui
       if (event.target.name == "country") changePhoneCode(event);
       event.target.classList.remove("error__input"); // set erase attribute in case that does not remove by itself.
-      document.querySelector("#" + event.target.id + "+span").innerHTML = ""; // Remove content in error span
+      if(errorSpan)errorSpan.innerHTML = ""; // Remove content in error span
       person[event.target.name] = event.target.value;
       //userFormIsValid[event.target.name] = true;
     } else {
       document.getElementById(event.target.id).classList.add("error__input");
       if ((innerHTML = event.target.title))
-        document.querySelector("#" + event.target.id + "+span").innerHTML =
+      if(errorSpan)errorSpan.innerHTML =
           event.target.title;
       else innerHTML = event.target.validationMessage;
     }
@@ -617,3 +617,24 @@ function totalCost() {
     return total;
   }
 }
+
+window.showPurchaseInfo = function () {
+  // let purchaseDetails = document.querySelector('.purchaseProductDetails')
+  let productModel = document.getElementById("productModel");
+  let productColor = document.getElementById("productColor");
+  let productDeliveryTime = document.getElementById("productDeliveryTime");
+  let yourOrderCost = document.getElementById("yourOrderCost");
+  let yourOrderShippingCost = document.getElementById("yourOrderShippingCost");
+  let yourOrderTotalCost = document.getElementById("yourOrderTotalCost");
+  let personShippingStr = parseFloat(personCar.price.slice(0, -1));
+  let finalProductImage = document.querySelector(".finalProductImage");
+
+  finalProductImage.src = mainImage.src;
+  productModel.innerHTML = personCar.productId.toUpperCase();
+  productColor.innerHTML = personCar.color.toUpperCase();
+  productDeliveryTime.innerHTML = deliveryExcepted.innerHTML.slice(0, 17);
+  yourOrderCost.innerHTML = personShippingStr.toLocaleString() + "€";
+  yourOrderShippingCost.innerHTML = personCar.shipping;
+  yourOrderTotalCost.innerHTML = totalCost() + "€";
+};
+
