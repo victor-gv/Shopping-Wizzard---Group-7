@@ -134,13 +134,13 @@ div {
   z-index: 2;
 }
 
-.hover-column:hover > img {
+.hover-column:hover>img {
   visibility: visible;
   opacity: 80%;
   overflow: visible;
 }
 
-.hover-column > img {
+.hover-column>img {
   position: relative;
   width: 90%;
   opacity: 0%;
@@ -148,45 +148,12 @@ div {
   margin: 2% 0;
 }
 
-.hover-column > img:hover {
+.hover-column>img:hover {
   width: 89%;
   opacity: 100%;
   transition: opacity 0.5s linear;
   border: solid #aaaaaaaa;
   overflow: visible;
-}
-
-/*HOME PAGE BOTTOM MODELS DISPLAY*/
-#model-3:hover {
-  transition: linear 1s;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-image: url("https://www.autopista.es/uploads/s1/77/57/82/7/el-tesla-model-3-aumenta-su-autonomia-pero-no-su-precio.jpeg");
-}
-
-#model-s:hover {
-  transition: linear 1s;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-image: url("https://tesla-cdn.thron.com/delivery/public/image/tesla/35d15221-0a5f-4dce-b484-a4db67b81dd2/bvlatuR/std/0x0/model-s@2x");
-}
-
-#model-x:hover {
-  transition: linear 1s;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-image: url("https://tesla-cdn.thron.com/delivery/public/image/tesla/efbb6471-e1b8-4533-b41a-6df9d50c0a42/bvlatuR/std/0x0/performance-hero@2");
-}
-
-#model-y:hover {
-  transition: linear 1s;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-tesla-model-y-long-range-102-1592842278.jpg?crop=0.612xw:0.459xh;0.146xw,0.454xh&resize=640:*");
 }
 
 .carModel {
@@ -201,14 +168,14 @@ div {
   background-color: #ffffffaa;
 }
 
-.carModel > p {
+.carModel>p {
   font-weight: 700;
   color: black;
   font-size: x-large;
   margin-block-start: 0.5em;
 }
 
-.carModel:hover > p {
+.carModel:hover>p {
   opacity: 0%;
 }
 
@@ -222,7 +189,7 @@ div {
 }
 
 /* HOME PAGE. MAIN PICTURE*/
-.main-picture > img {
+.main-picture>img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -245,7 +212,7 @@ div {
   overflow: hidden;
 }
 
-.main-picture-img > img {
+.main-picture-img>img {
   object-fit: cover;
   height: 100vh;
   margin: auto;
@@ -273,7 +240,7 @@ div {
   text-align: center;
 }
 
-.details-column > div > h1 {
+.details-column>div>h1 {
   font-size: 60px;
   margin-block-start: 0.3em;
   margin-block-end: 0.3em;
@@ -730,7 +697,7 @@ input[type="checkbox"] {
     font-size: 15px;
   }
 
-  .carSpecs > h3 {
+  .carSpecs>h3 {
     font-size: 30px;
   }
 
@@ -742,7 +709,7 @@ input[type="checkbox"] {
     margin-top: 50px;
   }
 
-  .details-column > div > h1 {
+  .details-column>div>h1 {
     font-size: 40px;
     margin-block-start: 0.3em;
     margin-block-end: 0.3em;
@@ -752,14 +719,14 @@ input[type="checkbox"] {
     display: none;
   }
 
-  .hover-column > img:hover {
+  .hover-column>img:hover {
     width: auto;
     opacity: 100%;
     border: none;
     overflow: visible;
   }
 
-  .hover-column > img {
+  .hover-column>img {
     position: relative;
     opacity: 100%;
     height: 90%;
@@ -800,11 +767,11 @@ input[type="checkbox"] {
     font-size: 40px;
   }
 
-  .carSpecs > h3 {
+  .carSpecs>h3 {
     font-size: 70px;
   }
 
-  .details-column > div > h1 {
+  .details-column>div>h1 {
     font-size: 80px;
     margin-block-start: 0.3em;
     margin-block-end: 0.3em;
@@ -834,7 +801,7 @@ input[type="checkbox"] {
     margin-top: 10px;
   }
 
-  .hover-column > img {
+  .hover-column>img {
     position: relative;
     opacity: 100%;
     height: 90%;
@@ -843,7 +810,7 @@ input[type="checkbox"] {
     margin: 2% 0;
   }
 
-  .hover-column > img:hover {
+  .hover-column>img:hover {
     width: auto;
     opacity: 100%;
     border: none;
@@ -864,7 +831,7 @@ input[type="checkbox"] {
     overflow: hidden;
   }
 
-  .main-picture-img > img {
+  .main-picture-img>img {
     width: 100%;
     height: auto;
     margin: auto;
@@ -900,7 +867,7 @@ input[type="checkbox"] {
     height: 7vh;
   }
 
-  .details-column > div > h1 {
+  .details-column>div>h1 {
     font-size: 60px;
   }
 }
