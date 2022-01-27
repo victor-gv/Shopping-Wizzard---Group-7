@@ -1,6 +1,6 @@
-`#js` `#dom` `#assembler-school` `#master-in-software-engineering`
+`#js` `#dom` `#assembler-institute` `#master-in-software-engineering`
 
-# Assembler School: Shopping Wizard <!-- omit in toc -->
+# Assembler Institute: Shopping Wizard <!-- omit in toc -->
 
 In this project you must develop a shopping process form with steps, where each step will have its own validation.
 
