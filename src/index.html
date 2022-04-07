@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,17 +9,86 @@
     <script src="script.js" defer></script>
     <title>Shopping Wizard</title>
 </head>
+
 <body>
     <header>
         <div class="head">
-        <h2>logo</h2>
-        <h2>Victor</h2>
+
         </div>
     </header>
     <main>
         <div class="main"></div>
         <div class="profile"></div>
-        <div class="address"></div>
+        <div class="address">
+            <h2>Address</h2>
+
+            <form id="form-address">
+
+                <div class="item-address">
+                    <label for="fname">First name</label><br>
+                    <input type="text" id="fname" name="fname">
+                </div>
+
+                <div class="item-address">
+                    <label for="lname">Last name</label><br>
+                    <input type="text" id="lname" name="lname">
+                </div>
+
+                <div class="item-address">
+                    <label for="birthday">Birthday</label><br>
+                    <input type="date" id="birthday" name="birthday">
+                </div>
+
+                <div class="item-address">
+                    <label for="address1">Address 1</label><br>
+                    <input type="text" id="address1" name="address1">
+                </div>
+
+                <div class="item-address">
+                    <label for="address2">Address 2</label><br>
+                    <input type="text" id="address2" name="address2">
+                </div>
+
+                <div class="item-address">
+                    <label for="postal-code">Postal code</label><br>
+                    <input type="number" id="postal-code" name="postal-code">
+                </div>
+
+                <div class="item-address">
+                    <label for="country">Country</label><br>
+                    <select id="country" name="country">
+                        <option value="Andorra">Andorra</option>
+                        <option value="Spain">Spain</option>
+                        <option value="France">France</option>
+                        <option value="German">German</option>
+                        <option value="Greece">Greece</option>
+                    </select>
+                </div>
+
+                <div class="item-address">
+                    <label for="phone">Phone</label><br>
+                    <select id="country" name="country">
+                        <option value="AND">AND</option>
+                        <option value="ESP">ESP</option>
+                        <option value="FR">FR</option>
+                        <option value="GER">GER</option>
+                        <option value="GRE">GRE</option>
+                    </select>
+                    <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                </div>
+
+                <div class="item-address">
+                    <input type="checkbox">
+                    <label for="checkbox">This is my regular address</label><br>
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+
         <div class="shipping"></div>
         <div class="finish"></div>
     </main>
@@ -26,4 +96,5 @@
         <div class="foot"></div>
     </footer>
 </body>
+
 </html>
