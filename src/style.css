@@ -157,7 +157,9 @@ img {
 }
 
 .img-shirt {
-  width: 150px;
+  height: 30rem;
+  width: 25rem;
+
 }
 
 .conditional-check {
