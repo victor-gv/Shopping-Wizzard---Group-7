@@ -66,15 +66,23 @@
         </div>
         <div class="profile">
             <h2>Profile</h2>
-            <form action="/action_page.php">
+            <form id="profile-form">
                 <label for="name">Username:</label><br>
                 <input type="text" id="name" name="name"><br>
+                <div class="error"></div>
+
                 <label for="e-mail">E-mail:</label><br>
                 <input type="email" id="email" name="email"><br><br>
+                <div class="error"></div>
+
                 <label for="password">Password:</label><br>
                 <input type="password" id="password" name="password"><br><br>
+                <div class="error"></div>
+                
                 <label for="confirm-password">Confirm Password:</label><br>
                 <input type="confirm-password" id="confirm-password" name="confirm-password"><br><br>
+                <div class="error"></div>
+
             </form>
         </div>
         <div class="form-btns">
@@ -131,7 +139,7 @@
                 </div>
                 <div class="item-address">
                     <label for="phone">Phone</label><br>
-                    <select id="country" name="country">
+                    <select id="tel-country" name="country">
                         <option value="AND">AND</option>
                         <option value="ESP">ESP</option>
                         <option value="FR">FR</option>
