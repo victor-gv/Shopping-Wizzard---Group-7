@@ -3,199 +3,206 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'IBM Plex Sans', sans-serif;
-  }
-  
-  body {
+}
+
+body {
     background-color: rgb(255, 251, 251);
-  }
-  
-  
-  
-  /* HEADER-MAIN */
-  .header-main {
-      background-color: #dfd3d3;
-      padding: 15px 15px 15px 80px;
-      font-size: .9rem;
-      font-weight: bold;
-      height: min-content;
-      width: 100vw;
-  }
-  
-  
-  /* HEADER-PROGRESS */
-  .header-progress {
-      background: #ebe9e9;
-      width: 100vw;
-      height: min-content;
-  }
-  
-  .messages {
-      height: min-content;
-      font-weight: bold;
-      font-size: 1.2rem;
-      padding: 1vw;
-  }
-  
-      .message {
-          display: inline;
-          position: absolute;
-          margin-left: 4vw;
-      }
-  
-          .child-one {
-              left: 5vw;
-          }
-  
-          .child-two {
-              left: 30.5vw;
-          }
-  
-          .child-three {
-              left: 55vw;
-          }
-  
-          .child-four {
-              left: 80vw;
-          }
-  
-  
-  .wrapper {
-      padding-top: 10px;
-      margin-left: 3.5vw;
-      width: 844px;
-      height: 9vh;
-    }
-    .margin-area {
-      position: relative;
-      text-align: center;
-      font-size: 14px;
-      margin: 0 20px;
-    }
-  
-      .dot {
-          height: 30px;
-          width: 30px;
-          position: absolute;
-          background: white;
-          border-radius: 50%;
-          top: 10px;
-          color: #fff;
-          border: 3px solid black;
-          line-height: 30px;
-          z-index: 9999;
-      }
-  
-          .one {
-          left: 5vw;
-          background: black;
-          }
-          .two {
-          left: 30.5vw;
-          background: black;
-          }
-          .three {
-          left: 55vw;
-          background: white;
-          
-          }
-          .four {
-          left: 80vw;
-          background: white;
-          }
-    
-    .progress-bar {
-      position: absolute;
-      height: 10px;
-      width: 75vw;
-      top: 20px;
-      left: 5vw;
-      background: rgb(195, 192, 192);
-  }
-  
-    
-  
-  
-  .main {
+}
+
+
+
+/* HEADER-MAIN */
+.header-main {
+    background-color: #dfd3d3;
+    padding: 15px 15px 15px 80px;
+    font-size: .9rem;
+    font-weight: bold;
+    height: min-content;
+    width: 100vw;
+}
+
+
+/* HEADER-PROGRESS */
+.header-progress {
+    background: #ebe9e9;
+    width: 100vw;
+    height: min-content;
+}
+
+.messages {
+    height: min-content;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 1vw;
+}
+
+.message {
+    display: inline;
+    position: absolute;
+    margin-left: 4vw;
+}
+
+.child-one {
+    left: 5vw;
+}
+
+.child-two {
+    left: 30.5vw;
+}
+
+.child-three {
+    left: 55vw;
+}
+
+.child-four {
+    left: 80vw;
+}
+
+
+.wrapper {
+    padding-top: 10px;
+    margin-left: 3.5vw;
+    width: 844px;
+    height: 9vh;
+}
+
+.margin-area {
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 20px;
+}
+
+.dot {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    top: 10px;
+    color: #fff;
+    border: 3px solid black;
+    line-height: 30px;
+    z-index: 9999;
+}
+
+.one {
+    left: 5vw;
+    background: black;
+}
+
+.two {
+    left: 30.5vw;
+    background: black;
+}
+
+.three {
+    left: 55vw;
+    background: white;
+
+}
+
+.four {
+    left: 80vw;
+    background: white;
+}
+
+.progress-bar {
+    position: absolute;
+    height: 10px;
+    width: 75vw;
+    top: 20px;
+    left: 5vw;
+    background: rgb(195, 192, 192);
+}
+
+
+
+
+.main {
     display: flex;
     margin: 40px;
     padding: 40px;
     justify-content: space-evenly;
-  }
-  
-  img {
+}
+
+img {
     height: 30rem;
     width: 25rem;
-  }
-  
-  .minis button {
+}
+
+.minis button {
     background-image: url(/assets/iStock-1173379266.jpg);
     height: 4rem;
     width: 3.5rem;
-  }
-  
-  .menu {
+}
+
+.menu {
     height: 30rem;
-    width:25rem;
+    width: 25rem;
     display: block;
     margin: 30px;
     padding: 30px;
-  }
-  
-  .options {
+}
+
+.options {
     background-image: url(/assets/iStock-1173379266.jpg);
     height: 3rem;
     width: 2.5rem;
-  }
-  
-  /* Forms */
-  .profile{
-    display:flex;
+}
+
+/* Forms */
+.profile {
+    display: flex;
     vertical-align: middle;
     margin: 30px;
     padding: 30px;
-  }
-  .profile form {
+}
+
+.profile form {
     margin: 30px;
     padding: 30px;
     align-items: center;
-  }
-  
-  
-  
-  /* Section Address*/
-  .address {
-    display:flex;
+}
+
+
+
+/* Section Address*/
+.address {
+    display: flex;
     vertical-align: middle;
     margin: 30px;
     padding: 30px;
-  }
-  .address form {
+}
+
+.address form {
     margin: 30px;
     padding: 30px;
     align-items: center;
-  }
-  
-  /* Section Shipping*/
-  .shipping {
-    display:flex;
+}
+
+/* Section Shipping*/
+.shipping {
+    display: flex;
     vertical-align: middle;
     margin: 30px;
     padding: 30px;
-  }
-  .shipping form {
+}
+
+.shipping form {
     margin: 30px;
     padding: 30px;
     align-items: center;
-  }
-  
-  /* SECTION FINISH */
-  
-  .order-message {
+}
+
+/* SECTION FINISH */
+
+.order-message {
     padding: 2em 5rem;
     line-height: 2;
-  }
-  
-  .card {
+}
+
+.card {
     /* display: grid;
     grid-template-columns: 2fr 1fr;
     column-gap: 20px; */
@@ -203,61 +210,103 @@
     gap: 30px;
     padding: 0em 5rem;
     margin: auto 0;
-  }
-  
-  /* PURCHASE CARD */
-  .purchase-card {
+}
+
+/* PURCHASE CARD */
+.purchase-card {
     padding: 2em;
     background-color: #fefefe;
-  }
-  
-  .product-card {
+}
+
+.product-card {
     display: flex;
     align-items: center;
     gap: 40px;
     padding: 1em;
-  }
-  
-  .product-title {
+}
+
+.product-title {
     line-height: 2;
-  }
-  
-  .img-shirt {
+}
+
+.img-shirt {
     height: 30rem;
     width: 25rem;
-  
-  }
-  
-  .conditional-check {
+
+}
+
+.conditional-check {
     line-height: 2;
     margin-bottom: 1em;
-  }
-  .conditional-alert {
+}
+
+.conditional-alert {
     color: red;
     background-color: rgb(250, 204, 211);
-  }
-  
-  .btn-buy {
+}
+
+.btn-buy {
     padding: 4px 15px;
-  }
-  
-  /* ORDER CARD */
-  .order-card {
+}
+
+/* ORDER CARD */
+.order-card {
     display: flex;
     flex-direction: column;
-  
     padding: 2em;
     background-color: #fefefe;
     line-height: 2;
-  }
-  
-  /* FOOTER */
-  .foot {
-      text-align:center;
-      margin:30px;
-      padding: 30px;
-      background: #ebe9e9;
-      width: 100vw;
-      height: min-content;
-    }
-  
+}
+
+/* FOOTER */
+
+/*First footer*/
+.first-foot {
+    text-align: center;
+    padding: 30px;
+    background: #d0cece;
+    width: 100vw;
+    height: min-content;
+}
+
+/*Second footer*/
+.second-foot {
+    display: flex;
+    justify-content: end;
+    text-align: center;
+    padding: 30px;
+    background: #ebe9e9;
+    width: 100vw;
+    height: min-content;
+}
+
+.div-clear {
+    padding-right: 20px;
+}
+
+.btn-clear {
+    border: 2px solid black;
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 14vw;
+    padding: 10px;
+}
+
+.btn-clear:hover {
+    background-color: #dbd9d9;
+}
+
+
+.btn-next:hover {
+    background-color: rgba(0, 0, 0, 0.636);
+}
+
+.btn-next {
+    background-color: rgb(49, 49, 49);
+    color: white;
+    border: 2px solid black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    width: 9vw;
+    padding: 10px;
+}
