@@ -1,87 +1,174 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'IBM Plex Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
-body {
-  background-color: #eee;
+
+
+/* HEADER-MAIN */
+.header-main {
+    display: none;
+    background-color: #dfd3d3;
+    padding: 15px 15px 15px 80px;
+    width: 100vw;
+    font-size: .9rem;
+    font-weight: bold;
+    height: min-content;
 }
 
-/* HEADER */
-.head {
-  background-color: #fefefe;
+
+/* HEADER-PROGRESS */
+
+
+.header-progress {
+    background: #dfd3d3;
+    width: 100vw;
+    height: 100px;
 }
+
+.message {
+    display: flex;
+    flex-direction: row;
+    height: min-content;
+    font-weight: bold;
+    font-size: 1.2rem;
+    width: 100vw;
+    padding: 20px;
+}
+
+.message-child {
+    margin-left: 12vw;
+    padding: 10px;
+}
+
+
+.dot {
+    height: 30px;
+    width: 30px;
+    background: #000;
+    border-radius: 50%;
+    top: 10px;
+    color: #fff;
+    line-height: 30px;
+    z-index: 9999;
+}
+
+.one {
+    left: 65px;
+    background: #0C84D9;
+}
+
+.two {
+    left: 280px;
+    background: #0C84D9;
+}
+
+.three {
+    left: 490px;
+    background: #bbb;
+    color: #ffd800;
+}
+
+.four {
+    left: 700px;
+    background: #bbb;
+    color: #ffd800;
+}
+
+.progress-bar {
+    display: block;
+    height: 10px;
+    width: 25%;
+    top: 20px;
+    left: 10%;
+    background: #bbb;
+}
+
+/* .first {
+      background: #0C84D9;
+    }
+    .second {
+      left: 37%;
+    }
+    .third {
+      left: 64%;
+    } */
+
+
+
+
+
+
+
+
+
+
 
 /* SECTION FINISH */
 
 .order-message {
-  padding: 2em 5rem;
-  line-height: 2;
+    padding: 2em 5rem;
+    line-height: 2;
 }
 
 .card {
-  /* display: grid;
+    /* display: grid;
   grid-template-columns: 2fr 1fr;
   column-gap: 20px; */
-  display: flex;
-  gap: 30px;
-  padding: 0em 5rem;
-  margin: auto 0;
+    display: flex;
+    gap: 30px;
+    padding: 0em 5rem;
+    margin: auto 0;
 }
 
 /* PURCHASE CARD */
 .purchase-card {
-  padding: 2em;
-  background-color: #fefefe;
+    padding: 2em;
+    background-color: #fefefe;
 }
 
 .product-card {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  padding: 1em;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 1em;
 }
 
 .product-title {
-  line-height: 2;
+    line-height: 2;
 }
 
 .img-shirt {
-  width: 150px;
+    width: 150px;
 }
 
 .conditional-check {
-  line-height: 2;
-  margin-bottom: 1em;
+    line-height: 2;
+    margin-bottom: 1em;
 }
+
 .conditional-alert {
-  color: red;
-  background-color: rgb(250, 204, 211);
+    color: red;
+    background-color: rgb(250, 204, 211);
 }
 
 .btn-buy {
-  padding: 4px 15px;
+    padding: 4px 15px;
 }
 
 /* ORDER CARD */
 .order-card {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-  padding: 2em;
-  background-color: #fefefe;
-  line-height: 2;
+    padding: 2em;
+    background-color: #fefefe;
+    line-height: 2;
 }
 
 /* FOOTER */
 .foot {
-  background-color: #fefefe;
+    background-color: #fefefe;
 }
-
-
-
-
-
-
