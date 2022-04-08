@@ -6,12 +6,120 @@
 }
 
 body {
-  background-color: #eee;
+  background-color: rgb(255, 251, 251);
 }
 
 /* HEADER */
 .head {
-  background-color: #fefefe;
+  background-color: #000000;
+  color: #fff;
+}
+
+.main {
+  display: flex;
+  margin: 40px;
+  padding: 40px;
+  justify-content: space-evenly;
+}
+
+img {
+  height: 30rem;
+  width: 25rem;
+}
+
+.minis button {
+  background-image: url(/assets/iStock-1173379266.jpg);
+  height: 4rem;
+  width: 3.5rem;
+}
+
+.menu {
+  height: 30rem;
+  width:25rem;
+  display: block;
+  margin: 30px;
+  padding: 30px;
+}
+
+.options {
+  background-image: url(/assets/iStock-1173379266.jpg);
+  height: 3rem;
+  width: 2.5rem;
+}
+
+/* Forms */
+.profile{
+  display:flex;
+  vertical-align: middle;
+  margin: 30px;
+  padding: 30px;
+}
+.profile form {
+  margin: 30px;
+  padding: 30px;
+  align-items: center;
+}
+
+.form-btns {
+  background-color: #686666;
+  color: #fff;
+  text-align:center;
+  margin:30px;
+  padding: 30px;
+}
+.all-steps{
+  background-color: #686666;
+  color: #fff;
+  text-align:center;
+  margin:30px;
+  padding: 30px;
+}
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #fff;
+}
+
+/* Section Address*/
+.address {
+  display:flex;
+  vertical-align: middle;
+  margin: 30px;
+  padding: 30px;
+}
+.address form {
+  margin: 30px;
+  padding: 30px;
+  align-items: center;
+}
+
+/* Section Shipping*/
+.shipping {
+  display:flex;
+  vertical-align: middle;
+  margin: 30px;
+  padding: 30px;
+}
+.shipping form {
+  margin: 30px;
+  padding: 30px;
+  align-items: center;
 }
 
 /* SECTION FINISH */
@@ -49,7 +157,9 @@ body {
 }
 
 .img-shirt {
-  width: 150px;
+  height: 30rem;
+  width: 25rem;
+
 }
 
 .conditional-check {
