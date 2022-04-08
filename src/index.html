@@ -38,41 +38,48 @@
                         <div class="progress-bar first"></div>
                     </div>
                 </div>
-
-
         </header>
+
         <main>
             <div class="main">
-                <img src="/assets/iStock-1173379266.jpg" alt="white t-shirt" />
-                <button class="minis"></button>
-                <button class="minis"></button>
-                <button class="minis"></button>
-                <h2>White t-shirt</h2>
-                <h3>price:</h3>
-                <h2>14.55€</h2>
-                <div class="dropdown">
-                    <button class="dropbtn">Choose size</button>
-                    <div class="dropdown-content">
-                        <a href="#">XS</a>
-                        <a href="#">S</a>
-                        <a href="#">M</a>
-                        <a href="#">L</a>
-                        <a href="#">XL</a>
-                    </div>
+                <div class="minis">
+                    <button class="preview"></button><br>
+                    <button class="preview"></button><br>
+                    <button class="preview"></button><br>
                 </div>
-                <button class="options"></button>
-                <button class="options"></button>
-                <button class="options"></button>
-                <button class="options"></button>
-                <button class="options"></button>
-                <button class="options"></button>
-                <button class="btn-buy">Buy Now</button>
+                <div class="picture">
+                    <img src="/assets/t-shirt.png" alt="white t-shirt" />
+                </div>
+                <div class="menu">
+                    <h2>White t-shirt</h2>
+                    <br><br>
+                    <h3>price:</h3>
+                    <br><br>
+                    <h2>14.55€</h2>
+                    <br><br>
+                    <label for="size">Select size</label><br>
+                    <select id="sizr" name="size">
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                    <br><br>
+                    <button class="options"></button>
+                    <button class="options"></button>
+                    <button class="options"></button>
+                    <button class="options"></button>
+                    <button class="options"></button>
+                    <button class="options"></button>
+                    <br><br>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
             </div>
+
             <div class="profile">
-                <div class="nav">
-                    <h3>aqui iria el mapa </h3>
-                </div>
-                <form action="/action_page.php">
+                <h2>Profile</h2>
+                <form class="profile-form">
                     <label for="name">Username:</label><br>
                     <input type="text" id="name" name="name"><br>
                     <label for="e-mail">E-mail:</label><br>
@@ -81,44 +88,36 @@
                     <input type="password" id="password" name="password"><br><br>
                     <label for="confirm-password">Confirm Password:</label><br>
                     <input type="confirm-password" id="confirm-password" name="confirm-password"><br><br>
-                    <input type="submit" value="Submit">
                 </form>
             </div>
+            
             <div class="address">
                 <h2>Address</h2>
-
                 <form id="form-address">
-
                     <div class="item-address">
                         <label for="fname">First name</label><br>
                         <input type="text" id="fname" name="fname">
                     </div>
-
                     <div class="item-address">
                         <label for="lname">Last name</label><br>
                         <input type="text" id="lname" name="lname">
                     </div>
-
                     <div class="item-address">
                         <label for="birthday">Birthday</label><br>
                         <input type="date" id="birthday" name="birthday">
                     </div>
-
                     <div class="item-address">
                         <label for="address1">Address 1</label><br>
                         <input type="text" id="address1" name="address1">
                     </div>
-
                     <div class="item-address">
                         <label for="address2">Address 2</label><br>
                         <input type="text" id="address2" name="address2">
                     </div>
-
                     <div class="item-address">
                         <label for="postal-code">Postal code</label><br>
                         <input type="number" id="postal-code" name="postal-code">
                     </div>
-
                     <div class="item-address">
                         <label for="country">Country</label><br>
                         <select id="country" name="country">
@@ -129,7 +128,6 @@
                             <option value="Greece">Greece</option>
                         </select>
                     </div>
-
                     <div class="item-address">
                         <label for="phone">Phone</label><br>
                         <select id="tel-country" name="country">
@@ -141,60 +139,29 @@
                         </select>
                         <input type="tel" id="phone" name="phone" placeholder="Your phone number">
                     </div>
-
                     <div class="item-address">
                         <input type="checkbox">
                         <label for="checkbox">This is my regular address</label><br>
                     </div>
-
                 </form>
             </div>
+
             <div class="shipping">
-
-
-                <!-- Pending task : buttons historic puchases -->
-                <div class="container-form">
-                    <h2>Shipping</h2>
-                    <form action="#">
-                        <h3>Shipping type</h3>
-                        <input type="radio" name="free" id="free_shipping" />
-                        <label for="free_shipping">Free shipping (72h)</label>
-                        <br />
-                        <input type="radio" name="extra" id="extra_shipping" />
-                        <label for="extra_shipping">Extra shipping (48h) <b>4,99€</b></label>
-                        <br />
-                        <input type="radio" name="premium" id="premium" />
-                        <label for="premium">Premium (24h) <b>9,99€</b></label>
-                        <br />
-
-                        <!-- This part is for JS dates events
-                          <div>
-                          <p><b>Your order will arrive:</b></p>
-                          <p>Estimate delivery date:</p>
-                          <p>Between <b>21 de Julio de 2020 14:00h and 21 de Julio de 2020 20:00h</b></p>
-                        </div> 
-                      -->
-
-                        <input type="checkbox" name="" id="gift" />
-                        <label for="gift">Is it a gift?</label>
-                        <br />
-
-                        <label for="gift_message">Gift message</label>
-                        <br />
-                        <input type="text" name="" id="gift_message" />
-                        <br />
-
-                        <label for="">Gift wrapper image</label>
-                        <br />
-                        <input type="button" value="Select Image" />
-                        <br />
-                    </form>
-
-                    <!-- Pending task : footer buttons -->
-                </div>
-
-
+                <h2>Shipping Type</h2>
+                <form action="#">
+                    <input type="radio" id="free" name="free" value="free">
+                    <label for="free">FREE Shipping (72h)</label><br>
+                    <input type="radio" id="extra" name="extra" value="extra">
+                    <label for="extra">Extra Shipping (42h) 4,99$</label><br>
+                    <input type="radio" id="premium" name="premium" value="premium">
+                    <label for="extra">Premium Shipping (24h) 9,99$</label><br><br>
+                    <input type="checkbox" id="gifrt" name="gift" value="gift">
+                    <label for="gift"> is it a gift? </label><br><br>
+                    <p>Gift Message:</p>
+                    <textarea name="message" rows="5" cols="20"></textarea>
+                </form>
             </div>
+            
             <div class="finish">
                 <div class="order-message">
                     <h2>Your order is complete 🎉</h2>
@@ -216,7 +183,6 @@
                                 <p class="delivery-date">31 dezember 2022</p>
                             </div>
                         </div>
-
                         <div class="conditional-check">
                             <input type="checkbox" id="conditional-box" />
                             <label for="conditional-box">I have read and I accept the terms and conditionals.</label>
@@ -237,9 +203,13 @@
                     </div>
                 </div>
             </div>
+
         </main>
         <footer>
-            <div class="foot"></div>
+            <div class="foot">
+                <button class="btn-clear">Clear Form</button>
+                <button class="btn-next">Next</button>
+            </div>
         </footer>
     </body>
 
