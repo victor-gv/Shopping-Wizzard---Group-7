@@ -13,69 +13,130 @@
         rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Shopping Wizard</title>
-<head>
-<body>
-    <header>
-    <div class="head">
 
-    </div>
-    </header>
-    <main>
-      <div class="main"></div>
-      <div class="profile"></div>
-      <div class="address"></div>
-      <div class="shipping"></div>
-      <div class="finish">
-        <div class="order-message">
-          <h2>Your order is complete 🎉</h2>
-          <p>Thank You for your order!</p>
-        </div>
-        <!-- Purchase card -->
-        <div class="card">
-          <div class="purchase-card">
-            <h2>Your purchase</h2>
-            <div class="product-card">
-              <div class="product-img">
-                <img
-                  src="../assets/t-shirt.png"
-                  alt="white t-shirt"
-                  class="img-shirt"
-                />
-              </div>
-              <div class="product-title">
-                <h3>white t-shirt</h3>
-                <p class="product-size">Size:<span>M</span></p>
-                <p class="product-color">Color:<span>🛑</span></p>
-                <p class="delivery-txt">Estimate delivery date</p>
-                <p class="delivery-date">31 dezember 2022</p>
-              </div>
-            </div>
+    <head>
 
-            <div class="conditional-check">
-              <input type="checkbox" id="conditional-box" />
-              <label for="conditional-box"
-                >I have read and I accept the terms and conditionals.</label
-              >
-              <p class="conditional-alert">
-                Please accept the terms and conditionals
-              </p>
+    <body>
+        <header>
+            <div class="head">
+
             </div>
-            <button class="btn-buy">Buy Now</button>
-          </div>
-          <!-- Order card -->
-          <div class="order-card">
-            <h4>Your order</h4>
-            <div class="price">
-              <p class="product-price">T-shirt:<span>14.56$</span></p>
-              <p class="shipping-price">Premium shipping:<span>9.99$</span></p>
-              <p class="total-price">Total:<span>24.54$</span></p>
+        </header>
+        <main>
+            <div class="main"></div>
+            <div class="profile"></div>
+            <div class="address">
+                <h2>Address</h2>
+
+                <form id="form-address">
+
+                    <div class="item-address">
+                        <label for="fname">First name</label><br>
+                        <input type="text" id="fname" name="fname">
+                    </div>
+
+                    <div class="item-address">
+                        <label for="lname">Last name</label><br>
+                        <input type="text" id="lname" name="lname">
+                    </div>
+
+                    <div class="item-address">
+                        <label for="birthday">Birthday</label><br>
+                        <input type="date" id="birthday" name="birthday">
+                    </div>
+
+                    <div class="item-address">
+                        <label for="address1">Address 1</label><br>
+                        <input type="text" id="address1" name="address1">
+                    </div>
+
+                    <div class="item-address">
+                        <label for="address2">Address 2</label><br>
+                        <input type="text" id="address2" name="address2">
+                    </div>
+
+                    <div class="item-address">
+                        <label for="postal-code">Postal code</label><br>
+                        <input type="number" id="postal-code" name="postal-code">
+                    </div>
+
+                    <div class="item-address">
+                        <label for="country">Country</label><br>
+                        <select id="country" name="country">
+                            <option value="Andorra">Andorra</option>
+                            <option value="Spain">Spain</option>
+                            <option value="France">France</option>
+                            <option value="German">German</option>
+                            <option value="Greece">Greece</option>
+                        </select>
+                    </div>
+
+                    <div class="item-address">
+                        <label for="phone">Phone</label><br>
+                        <select id="country" name="country">
+                            <option value="AND">AND</option>
+                            <option value="ESP">ESP</option>
+                            <option value="FR">FR</option>
+                            <option value="GER">GER</option>
+                            <option value="GRE">GRE</option>
+                        </select>
+                        <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                    </div>
+
+                    <div class="item-address">
+                        <input type="checkbox">
+                        <label for="checkbox">This is my regular address</label><br>
+                    </div>
+
+                </form>
             </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer>
-    <div class="foot"></div>
-    </footer>
-</body>
+            <div class="shipping"></div>
+            <div class="finish">
+                <div class="order-message">
+                    <h2>Your order is complete 🎉</h2>
+                    <p>Thank You for your order!</p>
+                </div>
+                <!-- Purchase card -->
+                <div class="card">
+                    <div class="purchase-card">
+                        <h2>Your purchase</h2>
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="../assets/t-shirt.png" alt="white t-shirt" class="img-shirt" />
+                            </div>
+                            <div class="product-title">
+                                <h3>white t-shirt</h3>
+                                <p class="product-size">Size:<span>M</span></p>
+                                <p class="product-color">Color:<span>🛑</span></p>
+                                <p class="delivery-txt">Estimate delivery date</p>
+                                <p class="delivery-date">31 dezember 2022</p>
+                            </div>
+                        </div>
+
+                        <div class="conditional-check">
+                            <input type="checkbox" id="conditional-box" />
+                            <label for="conditional-box">I have read and I accept the terms and conditionals.</label>
+                            <p class="conditional-alert">
+                                Please accept the terms and conditionals
+                            </p>
+                        </div>
+                        <button class="btn-buy">Buy Now</button>
+                    </div>
+                    <!-- Order card -->
+                    <div class="order-card">
+                        <h4>Your order</h4>
+                        <div class="price">
+                            <p class="product-price">T-shirt:<span>14.56$</span></p>
+                            <p class="shipping-price">Premium shipping:<span>9.99$</span></p>
+                            <p class="total-price">Total:<span>24.54$</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="foot"></div>
+        </footer>
+    </body>
+
 </html>
