@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+body {
+  background-color: #eee;
+}
+
+/* HEADER */
+.head {
+  background-color: #fefefe;
+}
+
+/* SECTION FINISH */
+
+.order-message {
+  padding: 2em 5rem;
+  line-height: 2;
+}
+
+.card {
+  /* display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 20px; */
+  display: flex;
+  gap: 30px;
+  padding: 0em 5rem;
+  margin: auto 0;
+}
+
+/* PURCHASE CARD */
+.purchase-card {
+  padding: 2em;
+  background-color: #fefefe;
+}
+
+.product-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 1em;
+}
+
+.product-title {
+  line-height: 2;
+}
+
+.img-shirt {
+  width: 150px;
+}
+
+.conditional-check {
+  line-height: 2;
+  margin-bottom: 1em;
+}
+.conditional-alert {
+  color: red;
+  background-color: rgb(250, 204, 211);
+}
+
+.btn-buy {
+  padding: 4px 15px;
+}
+
+/* ORDER CARD */
+.order-card {
+  display: flex;
+  flex-direction: column;
+
+  padding: 2em;
+  background-color: #fefefe;
+  line-height: 2;
+}
+
+/* FOOTER */
+.foot {
+  background-color: #fefefe;
+}
