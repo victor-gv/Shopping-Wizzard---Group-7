@@ -8,11 +8,12 @@
 
 
 /* HEADER-MAIN */
+
+
 .header-main {
     display: none;
     background-color: #dfd3d3;
     padding: 15px 15px 15px 80px;
-    width: 100vw;
     font-size: .9rem;
     font-weight: bold;
     height: min-content;
@@ -21,38 +22,44 @@
 
 /* HEADER-PROGRESS */
 
-
 .header-progress {
     background: #dfd3d3;
     width: 100vw;
-    height: 100px;
+    height: min-content;
 }
 
 .message {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     height: min-content;
     font-weight: bold;
     font-size: 1.2rem;
-    width: 100vw;
-    padding: 20px;
+    padding: 1vw;
 }
 
 .message-child {
-    margin-left: 12vw;
-    padding: 10px;
+    margin-left: 6vw;
+}
+
+.progress-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: min-content;
+padding: 1vw;
+    /* height: 10px;
+    width: 25%;
+    top: 20px;
+    left: 10%; */
 }
 
 
 .dot {
+    display: flex;
     height: 30px;
     width: 30px;
-    background: #000;
     border-radius: 50%;
-    top: 10px;
-    color: #fff;
-    line-height: 30px;
-    z-index: 9999;
 }
 
 .one {
@@ -61,43 +68,18 @@
 }
 
 .two {
-    left: 280px;
+    left: 180px;
     background: #0C84D9;
 }
 
 .three {
-    left: 490px;
-    background: #bbb;
-    color: #ffd800;
+    left: 290px;
+    background: #0C84D9;
 }
 
 .four {
-    left: 700px;
-    background: #bbb;
-    color: #ffd800;
+    background: #0C84D9;
 }
-
-.progress-bar {
-    display: block;
-    height: 10px;
-    width: 25%;
-    top: 20px;
-    left: 10%;
-    background: #bbb;
-}
-
-/* .first {
-      background: #0C84D9;
-    }
-    .second {
-      left: 37%;
-    }
-    .third {
-      left: 64%;
-    } */
-
-
-
 
 
 
@@ -172,3 +154,8 @@
 .foot {
     background-color: #fefefe;
 }
+
+
+
+/* MEDIA QUERIES */
+
