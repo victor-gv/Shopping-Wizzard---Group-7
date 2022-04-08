@@ -47,7 +47,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     height: min-content;
-padding: 1vw;
+    padding: 1vw;
     /* height: 10px;
     width: 25%;
     top: 20px;
@@ -158,4 +158,3 @@ padding: 1vw;
 
 
 /* MEDIA QUERIES */
-
