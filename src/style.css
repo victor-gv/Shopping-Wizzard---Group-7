@@ -12,9 +12,7 @@ body {
 
 
 /* HEADER-MAIN */
-
 .header-main {
-    display: none;
     background-color: #dfd3d3;
     padding: 15px 15px 15px 80px;
     font-size: .9rem;
@@ -24,7 +22,6 @@ body {
 
 
 /* HEADER-PROGRESS */
-
 .header-progress {
     background: #ebe9e9;
     width: 100vw;
@@ -162,41 +159,7 @@ img {
   align-items: center;
 }
 
-.form-btns {
-  background-color: #686666;
-  color: #fff;
-  text-align:center;
-  margin:30px;
-  padding: 30px;
-}
-.all-steps{
-  background-color: #686666;
-  color: #fff;
-  text-align:center;
-  margin:30px;
-  padding: 30px;
-}
 
-.step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
-  border: none;
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
-}
-
-/* Mark the active step: */
-.step.active {
-  opacity: 1;
-}
-
-/* Mark the steps that are finished and valid: */
-.step.finish {
-  background-color: #fff;
-}
 
 /* Section Address*/
 .address {
@@ -289,5 +252,10 @@ img {
 
 /* FOOTER */
 .foot {
-  background-color: #fefefe;
-}
+    text-align:center;
+    margin:30px;
+    padding: 30px;
+    background: #ebe9e9;
+    width: 100vw;
+    height: min-content;
+  }
