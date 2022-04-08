@@ -16,11 +16,58 @@
     </div>
     </header>
     <main>
-        <div class="main"></div>
-        <div class="profile"></div>
-        <div class="address"></div>
-        <div class="shipping"></div>
-        <div class="finish"></div>
+      <div class="main"></div>
+      <div class="profile"></div>
+      <div class="address"></div>
+      <div class="shipping"></div>
+      <div class="finish">
+        <div class="order-message">
+          <h2>Your order is complete 🎉</h2>
+          <p>Thank You for your order!</p>
+        </div>
+        <!-- Purchase card -->
+        <div class="card">
+          <div class="purchase-card">
+            <h2>Your purchase</h2>
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="../assets/t-shirt.png"
+                  alt="white t-shirt"
+                  class="img-shirt"
+                />
+              </div>
+              <div class="product-title">
+                <h3>white t-shirt</h3>
+                <p class="product-size">Size:<span>M</span></p>
+                <p class="product-color">Color:<span>🛑</span></p>
+                <p class="delivery-txt">Estimate delivery date</p>
+                <p class="delivery-date">31 dezember 2022</p>
+              </div>
+            </div>
+
+            <div class="conditional-check">
+              <input type="checkbox" id="conditional-box" />
+              <label for="conditional-box"
+                >I have read and I accept the terms and conditionals.</label
+              >
+              <p class="conditional-alert">
+                Please accept the terms and conditionals
+              </p>
+            </div>
+            <button class="btn-buy">Buy Now</button>
+          </div>
+          <!-- Order card -->
+          <div class="order-card">
+            <h4>Your order</h4>
+            <div class="price">
+              <p class="product-price">T-shirt:<span>14.56$</span></p>
+              <p class="shipping-price">Premium shipping:<span>9.99$</span></p>
+              <p class="total-price">Total:<span>24.54$</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer>
     <div class="foot"></div>
