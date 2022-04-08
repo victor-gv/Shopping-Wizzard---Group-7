@@ -23,7 +23,7 @@
 /* HEADER-PROGRESS */
 
 .header-progress {
-    background: #dfd3d3;
+    background: #ebe9e9;
     width: 100vw;
     height: min-content;
 }
@@ -109,7 +109,7 @@
     width: 75vw;
     top: 20px;
     left: 5vw;
-    background: rgb(170, 168, 168);
+    background: rgb(195, 192, 192);
 }
 
   
