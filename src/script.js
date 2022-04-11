@@ -196,16 +196,13 @@ function validateAddress() {
     telCountry.value = "+30";
   }
 
-  // Phone validation
-
-  if (phone.value.trim() === "") {
-    phoneError.textContent = "Phone number is required";
-  } else if (phone.value.includes(" ")) {
-    phoneError.textContent = "Phone number can´t have space";
-  } else if (!phone.value.includes("\D")) {
-    phoneError.textContent = "Phone number must be a number";
+  //Phone validation
+  if (phone.value.trim() === "" || phone.value === null) {
+    phoneError.textContent = "Phone is required";
   } else if (phone.value.length > 9) {
-    phoneError.textContent = "Phone number must be at maximum 9 characters";
+    phoneError.textContent = "Phone must be at maximum 9 digits";
+  } else if (isNaN(phone.value)) {
+    phoneError.textContent = "Phone must be a number";
   } else {
     phoneError.style.display = "none";
     userData.phone = phone.value;
