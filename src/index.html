@@ -99,12 +99,12 @@
                     <div class="form-element">
                         <label for="password">Password:</label><br>
                         <input type="password" id="password" name="password"><br>
-                        <div id="error-password"  class="error"></div>
+                        <div id="error-password" class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="confirm-password">Confirm Password:</label><br>
                         <input type="password" id="confirm-password" name="confirm-password">
-                        <div id="error-confirmPassword"  class="error"></div><br><br>
+                        <div id="error-confirmPassword" class="error"></div><br><br>
                     </div>
                 </form>
             </section>
@@ -115,12 +115,12 @@
                     <div class="form-element">
                         <label for="fname">First name</label><br>
                         <input type="text" id="fname" name="fname">
-                        <div id="fname-error"  class="error"></div>
+                        <div id="fname-error" class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="lname">Last name</label><br>
                         <input type="text" id="lname" name="lname">
-                        <div id="lname-error"  class="error"></div>
+                        <div id="lname-error" class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="birthday">Birthday</label><br>
@@ -139,29 +139,28 @@
                     </div>
                     <div class="form-element">
                         <label for="postal-code">Postal code</label><br>
-                        <input type="number" id="postal-code" name="postal-code">
+                        <input type="text" id="postal-code" name="postal-code">
                         <div id="postal-code-error" class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="country">Country</label><br>
                         <select id="country" name="country">
+                            <option disabled selected>Select one option</option>
                             <option value="Andorra">Andorra</option>
                             <option value="Spain">Spain</option>
                             <option value="France">France</option>
-                            <option value="German">German</option>
+                            <option value="Germany">Germany</option>
                             <option value="Greece">Greece</option>
                         </select>
+                        <div id="country-error" class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="phone">Phone</label><br>
-                        <select id="tel-country" name="country">
-                            <option value="AND">AND</option>
-                            <option value="ESP">ESP</option>
-                            <option value="FR">FR</option>
-                            <option value="GER">GER</option>
-                            <option value="GRE">GRE</option>
-                        </select>
+                        <input id="tel-country" class="tel-country">
+
+                        </input>
                         <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                        <div id="phone-error" class="error"></div>
                     </div>
                     <div class="form-element">
                         <input type="checkbox">
@@ -178,9 +177,9 @@
 >>>>>>> develop
                 <h2>Shipping Type</h2>
                 <form action="#">
-                    
-                        <input type="radio" id="free" name="shipping" value="free">
-                        <label for="free">FREE Shipping (72h)</label><br>                    
+
+                    <input type="radio" id="free" name="shipping" value="free">
+                    <label for="free">FREE Shipping (72h)</label><br>
                     <input type="radio" id="extra" name="shipping" value="extra">
                     <label for="extra">Extra Shipping (42h) 4,99$</label><br>
                     <input type="radio" id="premium" name="shipping" value="premium">
@@ -189,7 +188,7 @@
                     <label for="gift"> is it a gift? </label><br><br>
 
 
-                
+
                     <p>Gift Message:</p>
                     <textarea name="message" rows="5" cols="20"></textarea>
 

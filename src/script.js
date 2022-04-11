@@ -35,10 +35,13 @@ const address_2 = document.getElementById("address2");
 const errorAddress_2 = document.getElementById("address2-error");
 
 const postalCode = document.getElementById("postal-code");
-const errorpostalCode = document.getElementById("postal-code-error");
+const errorPostalCode = document.getElementById("postal-code-error");
 
-const phone = document.getElementById("phone");
-// const errorpostalCode = document.getElementById("postal-code-error");
+const country = document.getElementById("country");
+const telCountry = document.getElementById("tel-country");
+
+let phone = document.getElementById("phone");
+const phoneError = document.getElementById("phone-error");
 
 // ----------------------------
 // * EVENTS
@@ -53,8 +56,6 @@ userEmail.addEventListener("blur", validateProfile);
 userPassword.addEventListener("focus", changeStyle);
 userPassword.addEventListener("blur", validateProfile);
 
-postalCode.addEventListener("focus", changeStyle);
-postalCode.addEventListener("blur", validateProfile);
 
 // ----------------------------
 // Address Events
@@ -64,8 +65,20 @@ firstName.addEventListener("blur", validateAddress);
 lastName.addEventListener("focus", changeStyle);
 lastName.addEventListener("blur", validateAddress);
 
-lastName.addEventListener("focus", changeStyle);
-errorLastName.addEventListener("blur", validateAddress);
+address_1.addEventListener("focus", changeStyle);
+address_1.addEventListener("blur", validateAddress);
+
+address_2.addEventListener("focus", changeStyle);
+address_2.addEventListener("blur", validateAddress);
+
+postalCode.addEventListener("focus", changeStyle);
+postalCode.addEventListener("blur", validateAddress);
+
+phone.addEventListener("focus", changeStyle);
+phone.addEventListener("blur", validateAddress);
+
+country.addEventListener("focus", changeStyle);
+country.addEventListener("blur", validateAddress);
 
 phone.addEventListener("focus", changeStyle);
 phone.addEventListener("blur", validateAddress);
@@ -120,31 +133,86 @@ function validateAddress() {
   console.log("blur works");
   // First name validation
   if (firstName.value.trim() === "" || firstName.value === null) {
-    errorfirstName.textContent = "Name is required";
-  } else if (firstName.value.length < 5 || firstName.value.length > 20) {
-    errorfirstName.textContent = "Name length between 5 and 20 characters";
+    errorfirstName.textContent = "First name is required";
+  } else if (firstName.value.length > 20) {
+    errorfirstName.textContent = "First name must be larger than 20 characters";
   } else if (firstName.value.includes(" ")) {
-    errorfirstName.textContent = "Name can´t have space";
+    errorfirstName.textContent = "First name can´t have space";
   } else {
     errorfirstName.style.display = "none";
-    userData.username = firstName.value;
+    userData.firstName = firstName.value;
   }
+
+  // Last name validation
+  if (lastName.value.trim() === "" || lastName.value === null) {
+    errorLastName.textContent = "Last name is required";
+  } else if (lastName.value.length > 20) {
+    errorLastName.textContent = "Last name must be larger than 20 characters";
+  } else if (lastName.value.includes(" ")) {
+    errorLastName.textContent = "Last name can´t have space";
+  } else {
+    errorLastName.style.display = "none";
+    userData.lastName = lastName.value;
+  }
+
+  // Address 1 validation
+  if (address_1.value.trim() === "" || address_1.value === null) {
+    errorAddress_1.textContent = "Address 1 is required";
+  } else if (address_1.value.length > 50) {
+    address_1.textContent = "Address 1 must be smaller than 50 characters";
+  } else {
+    errorAddress_1.style.display = "none";
+    userData.address_1 = address_1.value;
+  }
+
+  // Address 2 validation
+  if (address_2.value.length > 50) {
+    errorAddress_2.textContent = "Address 2 must be smaller than 50 characters";
+  } else {
+    errorAddress_2.style.display = "none";
+    userData.address_2 = address_2.value;
+  }
+
+  // Postal code validation
+  if (postalCode.value.trim() === "" || postalCode.value === null) {
+    errorPostalCode.textContent = "Postal code is required";
+  } else if (postalCode.value.length > 5) {
+    errorPostalCode.textContent = "Postal code must be at maximum 5 characters";
+  } else {
+    errorPostalCode.style.display = "none";
+    userData.postalCode = postalCode.value;
+  }
+
+  // Country validation
+  if (country.value == "Andorra") {
+    telCountry.value = "+376";
+  } else if (country.value == "Spain") {
+    telCountry.value = "+34";
+  } else if (country.value == "France") {
+    telCountry.value = "+33";
+  } else if (country.value == "Germany") {
+    telCountry.value = "+49";
+  } else if (country.value == "Greece") {
+    telCountry.value = "+30";
+  }
+
+  // Phone validation
+
+  if (phone.value.trim() === "") {
+    phoneError.textContent = "Phone number is required";
+  } else if (phone.value.includes(" ")) {
+    phoneError.textContent = "Phone number can´t have space";
+  } else if (!phone.value.includes("\D")) {
+    phoneError.textContent = "Phone number must be a number";
+  } else if (phone.value.length > 9) {
+    phoneError.textContent = "Phone number must be at maximum 9 characters";
+  } else {
+    phoneError.style.display = "none";
+    userData.phone = phone.value;
+  }
+
+  
+
 }
 
 console.log(userData);
-
-//  Function profile
-// let requirement = function () {
-//   for (const profile of form) {
-//     if (profile.value.trim() === "") {
-//       profile.style.border = "2px solid red";
-//       profile.placeholder = "Field required";
-//     }
-//   }
-// };
-
-//Button next
-// btnNext.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   requirement();
-// });
