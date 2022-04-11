@@ -211,8 +211,8 @@ img {
 
 .card {
   /* display: grid;
-    grid-template-columns: 2fr 1fr;
-    column-gap: 20px; */
+      grid-template-columns: 2fr 1fr;
+      column-gap: 20px; */
   display: flex;
   gap: 30px;
   padding: 0em 5rem;
@@ -246,9 +246,11 @@ img {
   margin-bottom: 1em;
 }
 
-.conditional-alert {
+.error {
   color: red;
   background-color: rgb(250, 204, 211);
+  margin-top: 5px;
+  padding-left: 5px;
 }
 
 .btn-buy {
