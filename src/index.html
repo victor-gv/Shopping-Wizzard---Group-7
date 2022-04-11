@@ -41,7 +41,7 @@
         </header>
 
         <main>
-            <div class="main">
+            <section class="main">
                 <div class="minis">
                     <button class="preview"></button><br>
                     <button class="preview"></button><br>
@@ -75,66 +75,66 @@
                     <br><br>
                     <button class="btn-buy">Buy Now</button>
                 </div>
-            </div>
+            </section>
 
-            <div class="profile">
+            <section class="profile">
                 <h2>Profile</h2>
                 <form class="profile-form">
                     <div class="form-element">
                         <label for="name">Username:</label><br>
-                        <input type="text" id="name" name="name"><br>
-                        <div id="error-userName"></div>
+                        <input type="text" id="user-name" name="name"><br>
+                        <div id="error-userName" class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="e-mail">E-mail:</label><br>
                         <input type="email" id="email" name="email"><br>
-                        <div id="error-email"></div>
+                        <div id="error-email" class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="password">Password:</label><br>
                         <input type="password" id="password" name="password"><br>
-                        <div id="error-password"></div>
+                        <div id="error-password"  class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="confirm-password">Confirm Password:</label><br>
-                        <input type="confirm-password" id="confirm-password" name="confirm-password">
-                        <div id="error-confirmPassword"></div><br><br>
+                        <input type="password" id="confirm-password" name="confirm-password">
+                        <div id="error-confirmPassword"  class="error"></div><br><br>
                     </div>
                 </form>
-            </div>
+            </section>
 
-            <div class="address">
+            <section class="address">
                 <h2>Address</h2>
                 <form id="form-address">
                     <div class="form-element">
                         <label for="fname">First name</label><br>
                         <input type="text" id="fname" name="fname">
-                        <div id="fname-error"></div>
+                        <div id="fname-error"  class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="lname">Last name</label><br>
                         <input type="text" id="lname" name="lname">
-                        <div id="lname-error"></div>
+                        <div id="lname-error"  class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="birthday">Birthday</label><br>
                         <input type="date" id="birthday" name="birthday">
-                        <div id="birthday-error"></div>
+                        <div id="birthday-error" class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="address1">Address 1</label><br>
                         <input type="text" id="address1" name="address1">
-                        <div id="address1-error"></div>
+                        <div id="address1-error" class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="address2">Address 2</label><br>
                         <input type="text" id="address2" name="address2">
-                        <div id="address2-error"></div>
+                        <div id="address2-error" class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="postal-code">Postal code</label><br>
                         <input type="number" id="postal-code" name="postal-code">
-                        <div id="postal-code-error"></div>
+                        <div id="postal-code-error" class="error"></div>
                     </div>
                     <div class="form-element">
                         <label for="country">Country</label><br>
@@ -162,25 +162,31 @@
                         <label for="checkbox">This is my regular address</label><br>
                     </div>
                 </form>
-            </div>
+            </section>
 
-            <div class="shipping">
+            <section class="shipping">
                 <h2>Shipping Type</h2>
                 <form action="#">
-                    <input type="radio" id="free" name="shipping" value="free">
-                    <label for="free">FREE Shipping (72h)</label><br>
+                    
+                        <input type="radio" id="free" name="shipping" value="free">
+                        <label for="free">FREE Shipping (72h)</label><br>                    
                     <input type="radio" id="extra" name="shipping" value="extra">
                     <label for="extra">Extra Shipping (42h) 4,99$</label><br>
                     <input type="radio" id="premium" name="shipping" value="premium">
                     <label for="extra">Premium Shipping (24h) 9,99$</label><br><br>
-                    <input type="checkbox" id="gifrt" name="shipping" value="gift">
+                    <input type="checkbox" id="gift" name="shipping" value="gift">
                     <label for="gift"> is it a gift? </label><br><br>
+
+
+                
                     <p>Gift Message:</p>
                     <textarea name="message" rows="5" cols="20"></textarea>
-                </form>
-            </div>
 
-            <div class="finish">
+
+                </form>
+            </section>
+
+            <section class="finish">
                 <div class="order-message">
                     <h2>Your order is complete 🎉</h2>
                     <p>Thank You for your order!</p>
@@ -204,7 +210,7 @@
                         <div class="conditional-check">
                             <input type="checkbox" id="conditional-box" />
                             <label for="conditional-box">I have read and I accept the terms and conditionals.</label>
-                            <p class="conditional-alert">
+                            <p class="error">
                                 Please accept the terms and conditionals
                             </p>
                         </div>
@@ -220,7 +226,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <div class="timer">
                 <p>You started registering 2 minutes ago. <br><br>Hurry up!
