@@ -1,189 +1,330 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'IBM Plex Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
 body {
-  background-color: rgb(255, 251, 251);
+    background-color: rgb(255, 251, 251);
 }
 
-/* HEADER */
-.head {
-  background-color: #000000;
-  color: #fff;
+
+
+/* HEADER-MAIN */
+.header-main {
+    background-color: #dfd3d3;
+    padding: 15px 15px 15px 80px;
+    font-size: .9rem;
+    font-weight: bold;
+    height: min-content;
+    width: 100vw;
 }
+
+
+/* HEADER-PROGRESS */
+.header-progress {
+    background: #ebe9e9;
+    width: 100vw;
+    height: min-content;
+}
+
+.messages {
+    height: min-content;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 1vw;
+}
+
+.message {
+    display: inline;
+    position: absolute;
+    margin-left: 4vw;
+}
+
+.child-one {
+    left: 5vw;
+}
+
+.child-two {
+    left: 30.5vw;
+}
+
+.child-three {
+    left: 55vw;
+}
+
+.child-four {
+    left: 80vw;
+}
+
+
+.wrapper {
+    padding-top: 10px;
+    margin-left: 3.5vw;
+    width: 844px;
+    height: 9vh;
+}
+
+.margin-area {
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 20px;
+}
+
+.dot {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    top: 10px;
+    color: #fff;
+    border: 3px solid black;
+    line-height: 30px;
+    z-index: 9999;
+}
+
+.one {
+    left: 5vw;
+    background: black;
+}
+
+.two {
+    left: 30.5vw;
+    background: black;
+}
+
+.three {
+    left: 55vw;
+    background: white;
+
+}
+
+.four {
+    left: 80vw;
+    background: white;
+}
+
+.progress-bar {
+    position: absolute;
+    height: 10px;
+    width: 75vw;
+    top: 20px;
+    left: 5vw;
+    background: rgb(195, 192, 192);
+}
+
+
+
 
 .main {
-  display: flex;
-  margin: 40px;
-  padding: 40px;
-  justify-content: space-evenly;
+    display: flex;
+    position: relative;
+    margin: 40px;
+    padding: 40px;
+    justify-content: space-evenly;
 }
 
 img {
-  height: 30rem;
-  width: 25rem;
+    height: 30rem;
+    width: 25rem;
 }
 
 .minis button {
-  background-image: url(/assets/iStock-1173379266.jpg);
-  height: 4rem;
-  width: 3.5rem;
+    background-image: url(/assets/iStock-1173379266.jpg);
+    height: 4rem;
+    width: 3.5rem;
 }
 
 .menu {
-  height: 30rem;
-  width:25rem;
-  display: block;
-  margin: 30px;
-  padding: 30px;
+    height: 30rem;
+    width: 25rem;
+    display: block;
+    margin: 30px;
+    padding: 30px;
 }
 
 .options {
-  background-image: url(/assets/iStock-1173379266.jpg);
-  height: 3rem;
-  width: 2.5rem;
+    background-image: url(/assets/iStock-1173379266.jpg);
+    height: 3rem;
+    width: 2.5rem;
 }
 
 /* Forms */
-.profile{
-  display:flex;
-  vertical-align: middle;
-  margin: 30px;
-  padding: 30px;
+
+.form-element {
+    padding-bottom: 10px;
 }
+
+.profile {
+    display: flex;
+    vertical-align: middle;
+    margin: 30px;
+    padding: 30px;
+}
+
 .profile form {
-  margin: 30px;
-  padding: 30px;
-  align-items: center;
+    margin: 30px;
+    padding: 30px;
+    align-items: center;
 }
 
-.form-btns {
-  background-color: #686666;
-  color: #fff;
-  text-align:center;
-  margin:30px;
-  padding: 30px;
-}
-.all-steps{
-  background-color: #686666;
-  color: #fff;
-  text-align:center;
-  margin:30px;
-  padding: 30px;
+
+/* TIMER */
+.timer {
+    position: fixed;
+    top: 220px;
+    right: 30px;
+    padding: 15px;
+    height: 125px;
+    width: 200px;
+    border: 1px solid red;
 }
 
-.step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
-  border: none;
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
-}
 
-/* Mark the active step: */
-.step.active {
-  opacity: 1;
-}
-
-/* Mark the steps that are finished and valid: */
-.step.finish {
-  background-color: #fff;
-}
 
 /* Section Address*/
 .address {
-  display:flex;
-  vertical-align: middle;
-  margin: 30px;
-  padding: 30px;
+    display: flex;
+    vertical-align: middle;
+    margin: 30px;
+    padding: 30px;
 }
+
 .address form {
-  margin: 30px;
-  padding: 30px;
-  align-items: center;
+    margin: 30px;
+    padding: 30px;
+    align-items: center;
 }
 
 /* Section Shipping*/
 .shipping {
-  display:flex;
-  vertical-align: middle;
-  margin: 30px;
-  padding: 30px;
+    display: flex;
+    vertical-align: middle;
+    margin: 30px;
+    padding: 30px;
 }
+
 .shipping form {
-  margin: 30px;
-  padding: 30px;
-  align-items: center;
+    margin: 30px;
+    padding: 30px;
+    align-items: center;
 }
 
 /* SECTION FINISH */
 
 .order-message {
-  padding: 2em 5rem;
-  line-height: 2;
+    padding: 2em 5rem;
+    line-height: 2;
 }
 
 .card {
-  /* display: grid;
-  grid-template-columns: 2fr 1fr;
-  column-gap: 20px; */
-  display: flex;
-  gap: 30px;
-  padding: 0em 5rem;
-  margin: auto 0;
+    /* display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 20px; */
+    display: flex;
+    gap: 30px;
+    padding: 0em 5rem;
+    margin: auto 0;
 }
 
 /* PURCHASE CARD */
 .purchase-card {
-  padding: 2em;
-  background-color: #fefefe;
+    padding: 2em;
+    background-color: #fefefe;
 }
 
 .product-card {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  padding: 1em;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 1em;
 }
 
 .product-title {
-  line-height: 2;
+    line-height: 2;
 }
 
 .img-shirt {
-  width: 150px;
+    height: 30rem;
+    width: 25rem;
+
 }
 
 .conditional-check {
-  line-height: 2;
-  margin-bottom: 1em;
+    line-height: 2;
+    margin-bottom: 1em;
 }
+
 .conditional-alert {
-  color: red;
-  background-color: rgb(250, 204, 211);
+    color: red;
+    background-color: rgb(250, 204, 211);
 }
 
 .btn-buy {
-  padding: 4px 15px;
+    padding: 4px 15px;
 }
 
 /* ORDER CARD */
 .order-card {
-  display: flex;
-  flex-direction: column;
-
-  padding: 2em;
-  background-color: #fefefe;
-  line-height: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    background-color: #fefefe;
+    line-height: 2;
 }
 
 /* FOOTER */
-.foot {
-  background-color: #fefefe;
+
+/*First footer*/
+.first-foot {
+    text-align: center;
+    padding: 30px;
+    background: #d0cece;
+    width: 100vw;
+    height: min-content;
+}
+
+/*Second footer*/
+.second-foot {
+    display: flex;
+    justify-content: end;
+    text-align: center;
+    padding: 30px;
+    background: #ebe9e9;
+    width: 100vw;
+    height: min-content;
+}
+
+.div-clear {
+    padding-right: 20px;
+}
+
+.btn-clear {
+    border: 2px solid black;
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 14vw;
+    padding: 10px;
+}
+
+.btn-clear:hover {
+    background-color: #dbd9d9;
+}
+
+
+.btn-next:hover {
+    background-color: rgba(0, 0, 0, 0.636);
+}
+
+.btn-next {
+    background-color: rgb(49, 49, 49);
+    color: white;
+    border: 2px solid black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    width: 9vw;
+    padding: 10px;
 }
