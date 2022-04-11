@@ -10,7 +10,6 @@ body {
 }
 
 
-
 /* HEADER-MAIN */
 .header-main {
     background-color: #dfd3d3;
@@ -136,6 +135,32 @@ img {
     background-image: url(/assets/iStock-1173379266.jpg);
     height: 4rem;
     width: 3.5rem;
+}
+
+button {
+  border: 1.5px solid #000;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.foot button {
+  height:3rem;
+  width:6rem;
+}
+
+.btn-clear {
+  background-color: #fff;
+  border: 1px solid #000;
+  font-size: 1rem;
+  margin: 15px;
+}
+
+.btn-next {
+  background-color: #000;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 1rem;
+  margin: 15px;
 }
 
 .menu {
