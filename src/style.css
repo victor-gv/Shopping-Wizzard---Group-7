@@ -121,6 +121,7 @@ body {
 
 .main {
     display: flex;
+    position: relative;
     margin: 40px;
     padding: 40px;
     justify-content: space-evenly;
@@ -152,6 +153,11 @@ img {
 }
 
 /* Forms */
+
+.form-element {
+    padding-bottom: 10px;
+}
+
 .profile {
     display: flex;
     vertical-align: middle;
@@ -163,6 +169,18 @@ img {
     margin: 30px;
     padding: 30px;
     align-items: center;
+}
+
+
+/* TIMER */
+.timer {
+    position: fixed;
+    top: 220px;
+    right: 30px;
+    padding: 15px;
+    height: 125px;
+    width: 200px;
+    border: 1px solid red;
 }
 
 
