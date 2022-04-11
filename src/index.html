@@ -82,7 +82,7 @@
                 <form class="profile-form">
                     <div class="form-element">
                         <label for="name">Username:</label><br>
-                        <input type="text" id="name" name="name"><br>
+                        <input type="text" id="user-name" name="name"><br>
                         <div id="error-userName"></div>
                     </div>
                     <div class="form-element">
@@ -167,16 +167,22 @@
             <div class="shipping">
                 <h2>Shipping Type</h2>
                 <form action="#">
-                    <input type="radio" id="free" name="free" value="free">
-                    <label for="free">FREE Shipping (72h)</label><br>
-                    <input type="radio" id="extra" name="extra" value="extra">
+                    
+                        <input type="radio" id="free" name="shipping" value="free">
+                        <label for="free">FREE Shipping (72h)</label><br>                    
+                    <input type="radio" id="extra" name="shipping" value="extra">
                     <label for="extra">Extra Shipping (42h) 4,99$</label><br>
-                    <input type="radio" id="premium" name="premium" value="premium">
+                    <input type="radio" id="premium" name="shipping" value="premium">
                     <label for="extra">Premium Shipping (24h) 9,99$</label><br><br>
-                    <input type="checkbox" id="gifrt" name="gift" value="gift">
+                    <input type="checkbox" id="gift" name="shipping" value="gift">
                     <label for="gift"> is it a gift? </label><br><br>
+
+
+                
                     <p>Gift Message:</p>
                     <textarea name="message" rows="5" cols="20"></textarea>
+
+
                 </form>
             </div>
 
