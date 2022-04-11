@@ -64,9 +64,6 @@ firstName.addEventListener("blur", validateAddress);
 lastName.addEventListener("focus", changeStyle);
 lastName.addEventListener("blur", validateAddress);
 
-lastName.addEventListener("focus", changeStyle);
-errorLastName.addEventListener("blur", validateAddress);
-
 phone.addEventListener("focus", changeStyle);
 phone.addEventListener("blur", validateAddress);
 
@@ -120,31 +117,29 @@ function validateAddress() {
   console.log("blur works");
   // First name validation
   if (firstName.value.trim() === "" || firstName.value === null) {
-    errorfirstName.textContent = "Name is required";
-  } else if (firstName.value.length < 5 || firstName.value.length > 20) {
-    errorfirstName.textContent = "Name length between 5 and 20 characters";
+    errorfirstName.textContent = "First name is required";
+  } else if (firstName.value.length > 20) {
+    errorfirstName.textContent = "First name larger than 20 characters";
   } else if (firstName.value.includes(" ")) {
-    errorfirstName.textContent = "Name can´t have space";
+    errorfirstName.textContent = "First name can´t have space";
   } else {
     errorfirstName.style.display = "none";
-    userData.username = firstName.value;
+    userData.firstName = firstName.value;
   }
+
+  // Last name validation
+  if (lastName.value.trim() === "" || lastName.value === null) {
+    errorLastName.textContent = "Last name is required";
+  } else if (lastName.value.length > 20) {
+    errorLastName.textContent = "Last name larger than 20 characters";
+  } else if (lastName.value.includes(" ")) {
+    errorLastName.textContent = "Last name can´t have space";
+  } else {
+    errorLastName.style.display = "none";
+    userData.lastName = lastName.value;
+  }
+
+  // birthday validation
 }
 
 console.log(userData);
-
-//  Function profile
-// let requirement = function () {
-//   for (const profile of form) {
-//     if (profile.value.trim() === "") {
-//       profile.style.border = "2px solid red";
-//       profile.placeholder = "Field required";
-//     }
-//   }
-// };
-
-//Button next
-// btnNext.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   requirement();
-// });
