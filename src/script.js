@@ -80,11 +80,13 @@ let addressShow = false;
 let shippingShow = false;
 let finishShow = false;
 
+// Storing user data
+const userData = {};
 // ----------------------------
 // * EVENTS
 // ----------------------------
 
-// Main page events 
+// Main page events
 btnBuy.addEventListener("click", showProfile);
 
 function showProfile() {
@@ -101,7 +103,9 @@ function showProfile() {
 nextButton.addEventListener("click", nextPage);
 
 function nextPage() {
-  if (!profileShow) {
+  console.log(userData);
+  console.log(Object.values(userData).length);
+  if (!profileShow &&  Object.values(userData).length === 3) {
     profileSection.style.display = "none";
     addressSection.style.display = "flex";
     dotTwo.style.background = "black";
@@ -135,6 +139,9 @@ userEmail.addEventListener("blur", validateProfile);
 userPassword.addEventListener("focus", changeStyle);
 userPassword.addEventListener("blur", validateProfile);
 
+confirmPassword.addEventListener("focus", changeStyle);
+confirmPassword.addEventListener("blur", validateProfile);
+
 // ----------------------------
 // Address Events
 firstName.addEventListener("focus", changeStyle);
@@ -163,9 +170,6 @@ phone.addEventListener("blur", validateAddress);
 
 // PENDING, it´s not mandatory
 function changeStyle() {}
-
-// Storing user data
-const userData = {};
 
 //Main page function
 minImgWhite.addEventListener("click", changeImgWhite);
@@ -301,21 +305,27 @@ function validateProfile() {
   }
 
   // Password validation
-  if (
-    userPassword.value.includes(
-      "^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,20}$"
-    )
+  if(userPassword.value.trim() === "" || userPassword.value === null){
+  errorPassword.style.display = "flex";
+  errorPassword.textContent = "Required Password";
+  } else if (userPassword.value.includes
+  ("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,20}$")
   ) {
     errorPassword.style.display = "flex";
     errorPassword.textContent = "Invalid password";
+  } else if (userPassword.value == confirmPassword.value){
+    userData.userPassword = confirmPassword.value;
   }
-
+  else {
+    errorPassword.style.display = "none";
+  }
   // Password confirmation
   if (userPassword.value !== confirmPassword.value) {
     errorConfirmPassword.style.display = "flex";
-    errorConfirmPassword.value = "Error! different passwords";
+    errorConfirmPassword.textContent = "Error! different passwords";
   } else {
-    userData.password = confirmPassword.value;
+    errorConfirmPassword.style.display = "none";
+    userData.userPassword = confirmPassword.value;
   }
 }
 
