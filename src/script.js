@@ -93,10 +93,13 @@ const userData = {};
 function validateProfile() {
   // UserName Validation
   if (userName.value.trim() === "" || userName.value === null) {
+    errorUserName.style.display = "flex";
     errorUserName.textContent = "Name is required";
   } else if (userName.value.length < 5 || userName.value.length > 20) {
+    errorUserName.style.display = "flex";
     errorUserName.textContent = "Name length between 5 and 20 characters";
   } else if (userName.value.includes(" ")) {
+    errorUserName.style.display = "flex";
     errorUserName.textContent = "Name can´t have space";
   } else {
     errorUserName.style.display = "none";
@@ -105,6 +108,7 @@ function validateProfile() {
 
   // Email validation
   if (!userEmail.value.includes("@") || userEmail.value.length > 50) {
+    errorEmail.style.display = "flex";
     errorEmail.textContent = "Invalid email";
   } else {
     errorEmail.style.display = "none";
@@ -117,12 +121,13 @@ function validateProfile() {
       "^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,20}$"
     )
   ) {
+    errorPassword.style.display = "flex";
     errorPassword.textContent = "Invalid password";
-    console.log(userPassword.value);
   }
 
   // Password confirmation
   if (userPassword.value !== confirmPassword.value) {
+    errorConfirmPassword.style.display = "flex";
     errorConfirmPassword.value = "Error! different passwords";
   } else {
     userData.password = confirmPassword.value;
@@ -133,10 +138,13 @@ function validateAddress() {
   console.log("blur works");
   // First name validation
   if (firstName.value.trim() === "" || firstName.value === null) {
+    errorfirstName.style.display = "flex";
     errorfirstName.textContent = "First name is required";
   } else if (firstName.value.length > 20) {
+    errorfirstName.style.display = "flex";
     errorfirstName.textContent = "First name must be larger than 20 characters";
   } else if (firstName.value.includes(" ")) {
+    errorfirstName.style.display = "flex";
     errorfirstName.textContent = "First name can´t have space";
   } else {
     errorfirstName.style.display = "none";
@@ -145,10 +153,13 @@ function validateAddress() {
 
   // Last name validation
   if (lastName.value.trim() === "" || lastName.value === null) {
+    errorLastName.style.display = "flex";
     errorLastName.textContent = "Last name is required";
   } else if (lastName.value.length > 20) {
+    errorLastName.style.display = "flex";
     errorLastName.textContent = "Last name must be larger than 20 characters";
   } else if (lastName.value.includes(" ")) {
+    errorLastName.style.display = "flex";
     errorLastName.textContent = "Last name can´t have space";
   } else {
     errorLastName.style.display = "none";
@@ -157,8 +168,10 @@ function validateAddress() {
 
   // Address 1 validation
   if (address_1.value.trim() === "" || address_1.value === null) {
+    errorAddress_1.style.display = "flex";
     errorAddress_1.textContent = "Address 1 is required";
   } else if (address_1.value.length > 50) {
+    errorAddress_1.style.display = "flex";
     address_1.textContent = "Address 1 must be smaller than 50 characters";
   } else {
     errorAddress_1.style.display = "none";
@@ -167,6 +180,7 @@ function validateAddress() {
 
   // Address 2 validation
   if (address_2.value.length > 50) {
+    errorAddress_2.style.display = "flex";
     errorAddress_2.textContent = "Address 2 must be smaller than 50 characters";
   } else {
     errorAddress_2.style.display = "none";
@@ -175,8 +189,10 @@ function validateAddress() {
 
   // Postal code validation
   if (postalCode.value.trim() === "" || postalCode.value === null) {
+    errorPostalCode.style.display = "flex";
     errorPostalCode.textContent = "Postal code is required";
   } else if (postalCode.value.length > 5) {
+    errorPostalCode.style.display = "flex";
     errorPostalCode.textContent = "Postal code must be at maximum 5 characters";
   } else {
     errorPostalCode.style.display = "none";
@@ -196,19 +212,23 @@ function validateAddress() {
     telCountry.value = "+30";
   }
 
+
   //Phone validation
   if (phone.value.trim() === "" || phone.value === null) {
+    phoneError.style.display = "flex";
     phoneError.textContent = "Phone is required";
   } else if (phone.value.length > 9) {
+    phoneError.style.display = "flex";
     phoneError.textContent = "Phone must be at maximum 9 digits";
   } else if (isNaN(phone.value)) {
+    phoneError.style.display = "flex";
     phoneError.textContent = "Phone must be a number";
   } else {
     phoneError.style.display = "none";
     userData.phone = phone.value;
   }
 
-  
+
 
 }
 
