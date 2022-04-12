@@ -2,6 +2,10 @@
 
 // * DOM ELEMENTS
 
+//Pages navigation
+const mainSection = document.getElementById("main-section");
+const profileSection = document.getElementById("profile-section");
+
 //Main page Elements
 const minImgBlack = document.querySelector(".img-black");
 const minImgPurple = document.querySelector(".img-purple");
@@ -9,6 +13,7 @@ const minImgBlue = document.querySelector(".img-blue");
 const minImgRed = document.querySelector(".img-red");
 const minImgYellow = document.querySelector(".img-yellow");
 const minImgWhite = document.querySelector(".img-white");
+const btnBuy = document.getElementById("btn-buy");
 
 const price = document.querySelector(".price");
 let size = document.getElementById("size");
@@ -58,7 +63,19 @@ const phoneError = document.getElementById("phone-error");
 // ----------------------------
 // * EVENTS
 // ----------------------------
+
+// Main page events 
+btnBuy.addEventListener("click", showProfile);
+
+function showProfile() {
+
+}
+
+
+
+
 // Profile Events
+
 userName.addEventListener("focus", changeStyle);
 userName.addEventListener("blur", validateProfile);
 
