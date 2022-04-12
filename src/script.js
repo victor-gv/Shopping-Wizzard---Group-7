@@ -142,7 +142,7 @@ function validateAddress() {
     errorfirstName.textContent = "First name is required";
   } else if (firstName.value.length > 20) {
     errorfirstName.style.display = "flex";
-    errorfirstName.textContent = "First name must be larger than 20 characters";
+    errorfirstName.textContent = "First name must be smaller than 20 characters";
   } else if (firstName.value.includes(" ")) {
     errorfirstName.style.display = "flex";
     errorfirstName.textContent = "First name can´t have space";
@@ -157,7 +157,7 @@ function validateAddress() {
     errorLastName.textContent = "Last name is required";
   } else if (lastName.value.length > 20) {
     errorLastName.style.display = "flex";
-    errorLastName.textContent = "Last name must be larger than 20 characters";
+    errorLastName.textContent = "Last name must be smaller than 20 characters";
   } else if (lastName.value.includes(" ")) {
     errorLastName.style.display = "flex";
     errorLastName.textContent = "Last name can´t have space";
@@ -225,7 +225,7 @@ function validateAddress() {
     phoneError.textContent = "Phone must be a number";
   } else {
     phoneError.style.display = "none";
-    userData.phone = phone.value;
+    userData.phone = telCountry.value + phone.value;
   }
 
 
