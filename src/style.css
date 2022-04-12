@@ -119,15 +119,14 @@ body {
     justify-content: space-evenly;
 }
 
-img {
-    height: 30rem;
-    width: 25rem;
+.picture  img {
+    height: 40rem;
+    width: 35rem;
 }
 
-.minis button {
-    background-image: url(/assets/iStock-1173379266.jpg);
-    height: 4rem;
-    width: 3.5rem;
+.minis {
+    display: flex;
+    flex-direction: column;
 }
 
 .menu {
@@ -138,10 +137,15 @@ img {
     padding: 30px;
 }
 
-.options {
-    background-image: url(/assets/iStock-1173379266.jpg);
-    height: 3rem;
-    width: 2.5rem;
+.section-option {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.options img {
+    height: 5rem;
+    width: 3.5rem;
 }
 
 /* Forms */
