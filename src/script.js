@@ -79,6 +79,7 @@ let profileShow = false;
 let addressShow = false;
 let shippingShow = false;
 let finishShow = false;
+let error = false;
 
 // Storing user data
 const userData = {};
@@ -105,7 +106,7 @@ nextButton.addEventListener("click", nextPage);
 function nextPage() {
   console.log(userData);
   console.log(Object.values(userData).length);
-  if (!profileShow &&  Object.values(userData).length === 3) {
+  if (!profileShow && Object.values(userData).length === 3 && !error) {
     profileSection.style.display = "none";
     addressSection.style.display = "flex";
     dotTwo.style.background = "black";
@@ -284,48 +285,62 @@ function validateProfile() {
   if (userName.value.trim() === "" || userName.value === null) {
     errorUserName.style.display = "flex";
     errorUserName.textContent = "Name is required";
+    error = true;
   } else if (userName.value.length < 5 || userName.value.length > 20) {
     errorUserName.style.display = "flex";
     errorUserName.textContent = "Name length between 5 and 20 characters";
+    error = true;
   } else if (userName.value.includes(" ")) {
     errorUserName.style.display = "flex";
     errorUserName.textContent = "Name can´t have space";
+    error = true;
   } else {
     errorUserName.style.display = "none";
     userData.username = userName.value;
+    error = false;
   }
 
   // Email validation
   if (!userEmail.value.includes("@") || userEmail.value.length > 50) {
     errorEmail.style.display = "flex";
     errorEmail.textContent = "Invalid email";
+    error = true;
   } else {
     errorEmail.style.display = "none";
     userData.userEmail = userEmail.value;
+    error = false;
   }
 
+
   // Password validation
-  if(userPassword.value.trim() === "" || userPassword.value === null){
-  errorPassword.style.display = "flex";
-  errorPassword.textContent = "Required Password";
-  } else if (userPassword.value.includes
-  ("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,20}$")
-  ) {
+  if (userPassword.value.trim() === "" || userPassword.value === null) {
     errorPassword.style.display = "flex";
-    errorPassword.textContent = "Invalid password";
-  } else if (userPassword.value == confirmPassword.value){
+    errorPassword.textContent = "Required Password";
+    error = true;
+  } else if (!userPassword.value.match(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/
+    )) {
+    errorPassword.style.display = "flex";
+    errorPassword.textContent = "Invalid password. It must include one number, one uppercase letter, one lowercase letter and one special character. The length must be between 8 and 20 characters.";
+    error = true;
+  } else if (userPassword.value == confirmPassword.value) {
     userData.userPassword = confirmPassword.value;
-  }
-  else {
+    error = true;
+  } else {
     errorPassword.style.display = "none";
+    error = false;
   }
+
+
   // Password confirmation
   if (userPassword.value !== confirmPassword.value) {
     errorConfirmPassword.style.display = "flex";
     errorConfirmPassword.textContent = "Error! different passwords";
+    error = true;
   } else {
     errorConfirmPassword.style.display = "none";
     userData.userPassword = confirmPassword.value;
+    error = false;
   }
 }
 
