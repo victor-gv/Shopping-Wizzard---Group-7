@@ -23,14 +23,13 @@ body {
 .header-progress {
     background: #ebe9e9;
     width: 100vw;
-    height: min-content;
+    height: 130px;
 }
 
 .messages {
-    height: min-content;
     font-weight: bold;
     font-size: 1.2rem;
-    padding: 1vw;
+    padding: 1.3rem;
 }
 
 .message {
@@ -119,7 +118,7 @@ body {
     justify-content: space-evenly;
 }
 
-.picture  img {
+.picture img {
     height: 40rem;
     width: 35rem;
 }
