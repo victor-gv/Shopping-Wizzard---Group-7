@@ -17,8 +17,6 @@ const dotThree = document.getElementById("dot-three");
 const dotFour = document.getElementById("dot-four");
 const nextButton = document.getElementById("next-button");
 
-
-
 //Main page Elements
 const minImgBlack = document.querySelector(".img-black");
 const minImgPurple = document.querySelector(".img-purple");
@@ -73,12 +71,12 @@ const telCountry = document.getElementById("tel-country");
 let phone = document.getElementById("phone");
 const phoneError = document.getElementById("phone-error");
 
-
 //Global variables
 let profileShow = false;
 let addressShow = false;
 let shippingShow = false;
 let finishShow = false;
+let fullDateValidation = false;
 
 // Storing user data
 const userData = {};
@@ -98,35 +96,28 @@ function showProfile() {
   secondFoot.style.display = "flex";
 }
 
-
-
 nextButton.addEventListener("click", nextPage);
 
 function nextPage() {
   console.log(userData);
   console.log(Object.values(userData).length);
-  if (!profileShow &&  Object.values(userData).length === 3) {
+  if (!profileShow && Object.values(userData).length === 3) {
     profileSection.style.display = "none";
     addressSection.style.display = "flex";
     dotTwo.style.background = "black";
     profileShow = true;
-
-  } else if (profileShow && !addressShow) {
+  } else if (profileShow && !addressShow && !fullDateValidation) {
     addressSection.style.display = "none";
     shippingSection.style.display = "flex";
     dotThree.style.background = "black";
     addressShow = true;
-
   } else if (profileShow && addressShow && !shippingShow) {
     shippingSection.style.display = "none";
     finishSection.style.display = "flex";
     dotFour.style.background = "black";
     shippingShow = true;
-
   }
 }
-
-
 
 // Profile Events
 
@@ -263,6 +254,7 @@ function changeImgYellow() {
   behindTshirt.setAttribute("src", "/assets/behind-yellow.jpg");
 }
 
+//T-Shirt change price relate to size
 size.addEventListener("change", changePrice);
 
 function changePrice() {
@@ -278,6 +270,42 @@ function changePrice() {
     price.textContent = "35.00$";
   }
 }
+
+// Birthday Event
+birthday.addEventListener("change", getUserBirth);
+
+// Getting current date in order to avoid the Match between "birthday selected" and "current date"
+let datePickUp = new Date();
+let currentDay = datePickUp.getDate();
+let currentMonth = datePickUp.getMonth() + 1;
+let currentYear = datePickUp.getFullYear();
+let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
+console.log(fullCurrentDate);
+
+//Getting user birthday
+function getUserBirth() {
+  let getBirthValue = birthday.value;
+  let date = new Date(getBirthValue);
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  let fullDate = [day, month, year].join("/");
+  userData.userBirthday = fullDate;
+  console.log(fullDate);
+
+  /* birthday validation */
+  if (userData.userBirthday === fullCurrentDate) {
+    console.log("test same date");
+    errorBirthday.style.display = "flex";
+    errorBirthday.textContent = "Birthday can't be the current date";
+    fullDateValidation = true;
+  } else {
+    errorBirthday.style.display = "none";
+    userData.userBirthday = fullDate;
+    fullDateValidation = false;
+  }
+}
+
 // validating data from Profile Page
 function validateProfile() {
   // UserName Validation
@@ -305,18 +333,19 @@ function validateProfile() {
   }
 
   // Password validation
-  if(userPassword.value.trim() === "" || userPassword.value === null){
-  errorPassword.style.display = "flex";
-  errorPassword.textContent = "Required Password";
-  } else if (userPassword.value.includes
-  ("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,20}$")
+  if (userPassword.value.trim() === "" || userPassword.value === null) {
+    errorPassword.style.display = "flex";
+    errorPassword.textContent = "Required Password";
+  } else if (
+    userPassword.value.includes(
+      "^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,20}$"
+    )
   ) {
     errorPassword.style.display = "flex";
     errorPassword.textContent = "Invalid password";
-  } else if (userPassword.value == confirmPassword.value){
+  } else if (userPassword.value == confirmPassword.value) {
     userData.userPassword = confirmPassword.value;
-  }
-  else {
+  } else {
     errorPassword.style.display = "none";
   }
   // Password confirmation
@@ -330,7 +359,6 @@ function validateProfile() {
 }
 
 function validateAddress() {
-  console.log("blur works");
   // First name validation
   if (firstName.value.trim() === "" || firstName.value === null) {
     errorfirstName.style.display = "flex";
@@ -361,6 +389,13 @@ function validateAddress() {
     errorLastName.style.display = "none";
     userData.lastName = lastName.value;
   }
+
+  // birthday validation
+  // if (userData[userBirthday] === fullCurrentDate) {
+  //   console.log("test");
+  //   errorBirthday.style.display = "flex";
+  //   errorBirthday.textContent = "Birthday can't be the current date";
+  // }
 
   // Address 1 validation
   if (address_1.value.trim() === "" || address_1.value === null) {
