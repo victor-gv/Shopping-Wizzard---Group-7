@@ -5,6 +5,19 @@
 //Pages navigation
 const mainSection = document.getElementById("main-section");
 const profileSection = document.getElementById("profile-section");
+const addressSection = document.getElementById("address-section");
+const shippingSection = document.getElementById("shipping-section");
+const finishSection = document.getElementById("finish-section");
+const headerMain = document.getElementById("header-main");
+const headerProgress = document.getElementById("header-progress");
+const firstFoot = document.getElementById("first-foot");
+const secondFoot = document.getElementById("second-foot");
+const dotTwo = document.getElementById("dot-two");
+const dotThree = document.getElementById("dot-three");
+const dotFour = document.getElementById("dot-four");
+const nextButton = document.getElementById("next-button");
+
+
 
 //Main page Elements
 const minImgBlack = document.querySelector(".img-black");
@@ -60,6 +73,13 @@ const telCountry = document.getElementById("tel-country");
 let phone = document.getElementById("phone");
 const phoneError = document.getElementById("phone-error");
 
+
+//Global variables
+let profileShow = false;
+let addressShow = false;
+let shippingShow = false;
+let finishShow = false;
+
 // ----------------------------
 // * EVENTS
 // ----------------------------
@@ -68,9 +88,39 @@ const phoneError = document.getElementById("phone-error");
 btnBuy.addEventListener("click", showProfile);
 
 function showProfile() {
-
+  mainSection.style.display = "none";
+  profileSection.style.display = "flex";
+  headerMain.style.display = "none";
+  headerProgress.style.display = "block";
+  firstFoot.style.display = "none";
+  secondFoot.style.display = "flex";
 }
 
+
+
+nextButton.addEventListener("click", nextPage);
+
+function nextPage() {
+  if (!profileShow) {
+    profileSection.style.display = "none";
+    addressSection.style.display = "flex";
+    dotTwo.style.background = "black";
+    profileShow = true;
+
+  } else if (profileShow && !addressShow) {
+    addressSection.style.display = "none";
+    shippingSection.style.display = "flex";
+    dotThree.style.background = "black";
+    addressShow = true;
+
+  } else if (profileShow && addressShow && !shippingShow) {
+    shippingSection.style.display = "none";
+    finishSection.style.display = "flex";
+    dotFour.style.background = "black";
+    shippingShow = true;
+
+  }
+}
 
 
 
@@ -210,6 +260,7 @@ function changeImgYellow() {
 }
 
 size.addEventListener("change", changePrice);
+
 function changePrice() {
   if (size.value == "XS") {
     price.textContent = "20.00$";

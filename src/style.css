@@ -89,7 +89,7 @@ body {
 
 .two {
   left: 30.5vw;
-  background: black;
+  background: white;
 }
 
 .three {
@@ -114,10 +114,10 @@ body {
 .main {
   display: flex;
   position: relative;
-  margin-bottom: 90px;
+  margin: 40px;
   width: 100vw;
   padding: 40px;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .picture img {
@@ -288,13 +288,11 @@ body {
 
 /*First footer*/
 .first-foot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
+  padding: 30px;
   background: #d0cece;
   width: 100vw;
-  height: 100px;
+  height: min-content;
 }
 
 /*Second footer*/
