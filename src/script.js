@@ -3,12 +3,15 @@
 // * DOM ELEMENTS
 
 //Main page Elements
-
 const minImgBlack = document.querySelector(".img-black");
 const minImgPurple = document.querySelector(".img-purple");
 const minImgBlue = document.querySelector(".img-blue");
 const minImgRed = document.querySelector(".img-red");
 const minImgYellow = document.querySelector(".img-yellow");
+const minImgWhite = document.querySelector(".img-white");
+
+const price = document.querySelector(".price");
+let size = document.getElementById("size");
 
 // Profile Elements
 const form = document.getElementById("profile-form");
@@ -98,11 +101,26 @@ function changeStyle() {}
 const userData = {};
 
 //Main page function
+minImgWhite.addEventListener("click", changeImgWhite);
 minImgBlack.addEventListener("click", changeImgBlack);
 minImgPurple.addEventListener("click", changeImgPurple);
 minImgBlue.addEventListener("click", changeImgBlue);
 minImgRed.addEventListener("click", changeImgRed);
 minImgYellow.addEventListener("click", changeImgYellow);
+
+function changeImgWhite() {
+  let mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front.jpg");
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind.jpg");
+}
 
 function changeImgBlack() {
   let mainTshirt = document.getElementById("main-tshirt");
@@ -174,6 +192,20 @@ function changeImgYellow() {
   behindTshirt.setAttribute("src", "/assets/behind-yellow.jpg");
 }
 
+size.addEventListener("change", changePrice);
+function changePrice() {
+  if (size.value == "XS") {
+    price.textContent = "20.00$";
+  } else if (size.value == "S") {
+    price.textContent = "25.00$";
+  } else if (size.value == "M") {
+    price.textContent = "27.00$";
+  } else if (size.value == "L") {
+    price.textContent = "30.00$";
+  } else if (size.value == "XL") {
+    price.textContent = "35.00$";
+  }
+}
 // validating data from Profile Page
 function validateProfile() {
   // UserName Validation
