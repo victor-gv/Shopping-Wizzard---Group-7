@@ -1,6 +1,15 @@
 "use strict";
 
 // * DOM ELEMENTS
+
+//Main page Elements
+
+const minImgBlack = document.querySelector(".img-black");
+const minImgPurple = document.querySelector(".img-purple");
+const minImgBlue = document.querySelector(".img-blue");
+const minImgRed = document.querySelector(".img-red");
+const minImgYellow = document.querySelector(".img-yellow");
+
 // Profile Elements
 const form = document.getElementById("profile-form");
 
@@ -56,7 +65,6 @@ userEmail.addEventListener("blur", validateProfile);
 userPassword.addEventListener("focus", changeStyle);
 userPassword.addEventListener("blur", validateProfile);
 
-
 // ----------------------------
 // Address Events
 firstName.addEventListener("focus", changeStyle);
@@ -88,6 +96,83 @@ function changeStyle() {}
 
 // Storing user data
 const userData = {};
+
+//Main page function
+minImgBlack.addEventListener("click", changeImgBlack);
+minImgPurple.addEventListener("click", changeImgPurple);
+minImgBlue.addEventListener("click", changeImgBlue);
+minImgRed.addEventListener("click", changeImgRed);
+minImgYellow.addEventListener("click", changeImgYellow);
+
+function changeImgBlack() {
+  let mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-black.jpg");
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-black.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-black.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-black.jpg");
+}
+
+function changeImgPurple() {
+  let mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-purple.jpg");
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-purple.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-purple.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-purple.jpg");
+}
+
+function changeImgBlue() {
+  let mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-light-blue.jpg");
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-light-blue.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-light-blue.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-light-blue.jpg");
+}
+
+function changeImgRed() {
+  let mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-red.jpg");
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-red.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-red.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-red.jpg");
+}
+
+function changeImgYellow() {
+  let mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-yellow.jpg");
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-yellow.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-yellow.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-yellow.jpg");
+}
 
 // validating data from Profile Page
 function validateProfile() {
@@ -142,7 +227,8 @@ function validateAddress() {
     errorfirstName.textContent = "First name is required";
   } else if (firstName.value.length > 20) {
     errorfirstName.style.display = "flex";
-    errorfirstName.textContent = "First name must be smaller than 20 characters";
+    errorfirstName.textContent =
+      "First name must be smaller than 20 characters";
   } else if (firstName.value.includes(" ")) {
     errorfirstName.style.display = "flex";
     errorfirstName.textContent = "First name can´t have space";
@@ -212,7 +298,6 @@ function validateAddress() {
     telCountry.value = "+30";
   }
 
-
   //Phone validation
   if (phone.value.trim() === "" || phone.value === null) {
     phoneError.style.display = "flex";
@@ -227,9 +312,6 @@ function validateAddress() {
     phoneError.style.display = "none";
     userData.phone = telCountry.value + phone.value;
   }
-
-
-
 }
 
 console.log(userData);
