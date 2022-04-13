@@ -481,17 +481,14 @@ function validateAddress() {
     let currentMonth = datePickUp.getMonth() + 1;
     let currentYear = datePickUp.getFullYear();
     let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
-  
-  
-  
+
     /* birthday validation: avoid empty input */
     if (!birthday.value) {
       errorBirthday.style.display = "flex";
       errorBirthday.textContent = "Birthday is required";
       error = true;
     }
-  
-  
+
     //Getting user birthday
     function getUserBirth() {
       let getBirthValue = birthday.value;
@@ -501,7 +498,7 @@ function validateAddress() {
       let year = date.getFullYear();
       let fullDate = [day, month, year].join("/");
       userData.userBirthday = fullDate;
-  
+
       if (userData.userBirthday === fullCurrentDate) {
         errorBirthday.style.display = "flex";
         errorBirthday.textContent = "Birthday can't be the current date";
@@ -511,9 +508,5 @@ function validateAddress() {
         userData.userBirthday = fullDate;
         error = false;
       }
-  
     }
-    
 }
-
-console.log(userData);
