@@ -17,8 +17,6 @@ const dotThree = document.getElementById("dot-three");
 const dotFour = document.getElementById("dot-four");
 const nextButton = document.getElementById("next-button");
 
-
-
 //Main page Elements
 const minImgBlack = document.querySelector(".img-black");
 const minImgPurple = document.querySelector(".img-purple");
@@ -73,12 +71,12 @@ const telCountry = document.getElementById("tel-country");
 let phone = document.getElementById("phone");
 const phoneError = document.getElementById("phone-error");
 
-
 //Global variables
 let profileShow = false;
 let addressShow = false;
 let shippingShow = false;
 let finishShow = false;
+let fullCurrentDate = false;
 let error = false;
 
 // Storing user data
@@ -99,8 +97,6 @@ function showProfile() {
   secondFoot.style.display = "flex";
 }
 
-
-
 nextButton.addEventListener("click", nextPage);
 
 function nextPage() {
@@ -111,23 +107,18 @@ function nextPage() {
     addressSection.style.display = "flex";
     dotTwo.style.background = "black";
     profileShow = true;
-
   } else if (profileShow && !addressShow) {
     addressSection.style.display = "none";
     shippingSection.style.display = "flex";
     dotThree.style.background = "black";
     addressShow = true;
-
   } else if (profileShow && addressShow && !shippingShow) {
     shippingSection.style.display = "none";
     finishSection.style.display = "flex";
     dotFour.style.background = "black";
     shippingShow = true;
-
   }
 }
-
-
 
 // Profile Events
 
@@ -279,6 +270,42 @@ function changePrice() {
     price.textContent = "35.00$";
   }
 }
+
+// Birthday Event
+birthday.addEventListener("change", getUserBirth);
+
+// Getting current date in order to avoid the Match between "birthday selected" and "current date"
+let datePickUp = new Date();
+let currentDay = datePickUp.getDate();
+let currentMonth = datePickUp.getMonth() + 1;
+let currentYear = datePickUp.getFullYear();
+let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
+console.log(fullCurrentDate);
+
+//Getting user birthday
+function getUserBirth() {
+  let getBirthValue = birthday.value;
+  let date = new Date(getBirthValue);
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  let fullDate = [day, month, year].join("/");
+  userData.userBirthday = fullDate;
+  console.log(fullDate);
+
+  /* birthday validation */
+  if (userData.userBirthday === fullCurrentDate) {
+    console.log("test same date");
+    errorBirthday.style.display = "flex";
+    errorBirthday.textContent = "Birthday can't be the current date";
+    fullDateValidation = true;
+  } else {
+    errorBirthday.style.display = "none";
+    userData.userBirthday = fullDate;
+    fullDateValidation = false;
+  }
+}
+
 // validating data from Profile Page
 function validateProfile() {
   // UserName Validation
@@ -311,17 +338,19 @@ function validateProfile() {
     error = false;
   }
 
-
   // Password validation
   if (userPassword.value.trim() === "" || userPassword.value === null) {
     errorPassword.style.display = "flex";
     errorPassword.textContent = "Required Password";
     error = true;
-  } else if (!userPassword.value.match(
+  } else if (
+    !userPassword.value.match(
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/
-    )) {
+    )
+  ) {
     errorPassword.style.display = "flex";
-    errorPassword.textContent = "Invalid password. It must include one number, one uppercase letter, one lowercase letter and one special character. The length must be between 8 and 20 characters.";
+    errorPassword.textContent =
+      "Invalid password. It must include one number, one uppercase letter, one lowercase letter and one special character. The length must be between 8 and 20 characters.";
     error = true;
   } else if (userPassword.value == confirmPassword.value) {
     userData.userPassword = confirmPassword.value;
@@ -330,7 +359,6 @@ function validateProfile() {
     errorPassword.style.display = "none";
     error = false;
   }
-
 
   // Password confirmation
   if (userPassword.value !== confirmPassword.value) {
