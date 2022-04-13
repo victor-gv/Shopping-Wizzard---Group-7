@@ -158,9 +158,6 @@ phone.addEventListener("blur", validateAddress);
 country.addEventListener("focus", changeStyle);
 country.addEventListener("blur", validateAddress);
 
-phone.addEventListener("focus", changeStyle);
-phone.addEventListener("blur", validateAddress);
-
 // PENDING, it´s not mandatory
 function changeStyle() {}
 
