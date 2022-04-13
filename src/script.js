@@ -269,8 +269,6 @@ function changePrice() {
   }
 }
 
-
-
 // validating data from Profile Page
 function validateProfile() {
   // UserName Validation
