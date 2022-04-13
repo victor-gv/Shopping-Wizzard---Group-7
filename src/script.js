@@ -67,6 +67,7 @@ const errorPostalCode = document.getElementById("postal-code-error");
 
 const country = document.getElementById("country");
 const telCountry = document.getElementById("tel-country");
+const errorCountry = document.getElementById("country-error");
 
 let phone = document.getElementById("phone");
 const phoneError = document.getElementById("phone-error");
@@ -76,8 +77,8 @@ let profileShow = false;
 let addressShow = false;
 let shippingShow = false;
 let finishShow = false;
-let fullDateValidation = false;
 let error = false;
+
 
 // Storing user data
 const userData = {};
@@ -107,7 +108,7 @@ function nextPage() {
     addressSection.style.display = "flex";
     dotTwo.style.background = "black";
     profileShow = true;
-  } else if (profileShow && !addressShow) {
+  } else if (profileShow && Object.values(userData).length === 11 && !addressShow && !error) {
     addressSection.style.display = "none";
     shippingSection.style.display = "flex";
     dotThree.style.background = "black";
@@ -272,40 +273,7 @@ function changePrice() {
   }
 }
 
-// Birthday Event
-birthday.addEventListener("change", getUserBirth);
 
-// Getting current date in order to avoid the Match between "birthday selected" and "current date"
-let datePickUp = new Date();
-let currentDay = datePickUp.getDate();
-let currentMonth = datePickUp.getMonth() + 1;
-let currentYear = datePickUp.getFullYear();
-let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
-console.log(fullCurrentDate);
-
-//Getting user birthday
-function getUserBirth() {
-  let getBirthValue = birthday.value;
-  let date = new Date(getBirthValue);
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-  let fullDate = [day, month, year].join("/");
-  userData.userBirthday = fullDate;
-  console.log(fullDate);
-
-  /* birthday validation */
-  if (userData.userBirthday === fullCurrentDate) {
-    console.log("test same date");
-    errorBirthday.style.display = "flex";
-    errorBirthday.textContent = "Birthday can't be the current date";
-    fullDateValidation = true;
-  } else {
-    errorBirthday.style.display = "none";
-    userData.userBirthday = fullDate;
-    fullDateValidation = false;
-  }
-}
 
 // validating data from Profile Page
 function validateProfile() {
@@ -378,93 +346,175 @@ function validateAddress() {
   if (firstName.value.trim() === "" || firstName.value === null) {
     errorfirstName.style.display = "flex";
     errorfirstName.textContent = "First name is required";
+    error = true;
   } else if (firstName.value.length > 20) {
     errorfirstName.style.display = "flex";
     errorfirstName.textContent =
       "First name must be smaller than 20 characters";
+    error = true;
   } else if (firstName.value.includes(" ")) {
     errorfirstName.style.display = "flex";
     errorfirstName.textContent = "First name can´t have space";
+    error = true;
   } else {
     errorfirstName.style.display = "none";
     userData.firstName = firstName.value;
+    error = false;
   }
 
   // Last name validation
   if (lastName.value.trim() === "" || lastName.value === null) {
     errorLastName.style.display = "flex";
     errorLastName.textContent = "Last name is required";
+    error = true;
   } else if (lastName.value.length > 20) {
     errorLastName.style.display = "flex";
     errorLastName.textContent = "Last name must be smaller than 20 characters";
+    error = true;
   } else if (lastName.value.includes(" ")) {
     errorLastName.style.display = "flex";
     errorLastName.textContent = "Last name can´t have space";
+    error = true;
   } else {
     errorLastName.style.display = "none";
     userData.lastName = lastName.value;
+    error = false;
   }
+
 
   // Address 1 validation
   if (address_1.value.trim() === "" || address_1.value === null) {
     errorAddress_1.style.display = "flex";
     errorAddress_1.textContent = "Address 1 is required";
+    error = true;
   } else if (address_1.value.length > 50) {
     errorAddress_1.style.display = "flex";
-    address_1.textContent = "Address 1 must be smaller than 50 characters";
+    errorAddress_1.textContent = "Address 1 must be smaller than 50 characters";
+    error = true;
   } else {
     errorAddress_1.style.display = "none";
     userData.address_1 = address_1.value;
+    error = false;
   }
 
   // Address 2 validation
   if (address_2.value.length > 50) {
     errorAddress_2.style.display = "flex";
     errorAddress_2.textContent = "Address 2 must be smaller than 50 characters";
+    error = true;
   } else {
     errorAddress_2.style.display = "none";
     userData.address_2 = address_2.value;
+    error = false;
   }
+
 
   // Postal code validation
   if (postalCode.value.trim() === "" || postalCode.value === null) {
     errorPostalCode.style.display = "flex";
     errorPostalCode.textContent = "Postal code is required";
+    error = true;
   } else if (postalCode.value.length > 5) {
     errorPostalCode.style.display = "flex";
     errorPostalCode.textContent = "Postal code must be at maximum 5 characters";
+    error = true;
   } else {
     errorPostalCode.style.display = "none";
     userData.postalCode = postalCode.value;
+    error = false;
   }
 
   // Country validation
-  if (country.value == "Andorra") {
+  if (country.value == "Select one option") {
+    errorCountry.style.display = "flex";
+    errorCountry.textContent = "Country is required";
+    error = true;
+  } else if (country.value == "Andorra") {
     telCountry.value = "+376";
+    errorCountry.style.display = "none";
+    error = false;
   } else if (country.value == "Spain") {
     telCountry.value = "+34";
+    errorCountry.style.display = "none";
+    error = false;
   } else if (country.value == "France") {
     telCountry.value = "+33";
+    errorCountry.style.display = "none";
+    error = false;
   } else if (country.value == "Germany") {
     telCountry.value = "+49";
+    errorCountry.style.display = "none";
+    error = false;
   } else if (country.value == "Greece") {
     telCountry.value = "+30";
+    errorCountry.style.display = "none";
+    error = false;
   }
 
   //Phone validation
   if (phone.value.trim() === "" || phone.value === null) {
     phoneError.style.display = "flex";
     phoneError.textContent = "Phone is required";
+    error = true;
   } else if (phone.value.length > 9) {
     phoneError.style.display = "flex";
     phoneError.textContent = "Phone must be at maximum 9 digits";
+    error = true;
   } else if (isNaN(phone.value)) {
     phoneError.style.display = "flex";
     phoneError.textContent = "Phone must be a number";
+    error = true;
   } else {
     phoneError.style.display = "none";
     userData.phone = telCountry.value + phone.value;
+    userData.country = country.value;
+    error = false;
   }
+
+
+    // Birthday Event
+    birthday.addEventListener("change", getUserBirth);
+
+
+    // Getting current date in order to avoid the Match between "birthday selected" and "current date"
+    let datePickUp = new Date();
+    let currentDay = datePickUp.getDate();
+    let currentMonth = datePickUp.getMonth() + 1;
+    let currentYear = datePickUp.getFullYear();
+    let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
+  
+  
+  
+    /* birthday validation: avoid empty input */
+    if (!birthday.value) {
+      errorBirthday.style.display = "flex";
+      errorBirthday.textContent = "Birthday is required";
+      error = true;
+    }
+  
+  
+    //Getting user birthday
+    function getUserBirth() {
+      let getBirthValue = birthday.value;
+      let date = new Date(getBirthValue);
+      let day = date.getDate();
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      let fullDate = [day, month, year].join("/");
+      userData.userBirthday = fullDate;
+  
+      if (userData.userBirthday === fullCurrentDate) {
+        errorBirthday.style.display = "flex";
+        errorBirthday.textContent = "Birthday can't be the current date";
+        error = true;
+      } else {
+        errorBirthday.style.display = "none";
+        userData.userBirthday = fullDate;
+        error = false;
+      }
+  
+    }
+    
 }
 
 console.log(userData);
