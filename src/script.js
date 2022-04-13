@@ -76,7 +76,7 @@ let profileShow = false;
 let addressShow = false;
 let shippingShow = false;
 let finishShow = false;
-let fullCurrentDate = false;
+let fullDateValidation = false;
 let error = false;
 
 // Storing user data
