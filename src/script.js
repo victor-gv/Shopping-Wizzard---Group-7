@@ -78,7 +78,7 @@ let addressShow = false;
 let shippingShow = false;
 let finishShow = false;
 let error = false;
-let fullDateValidation = false;
+
 
 // Storing user data
 const userData = {};
@@ -108,13 +108,7 @@ function nextPage() {
     addressSection.style.display = "flex";
     dotTwo.style.background = "black";
     profileShow = true;
-  } else if (
-    profileShow &&
-    Object.values(userData).length === 11 &&
-    !addressShow &&
-    !error &&
-    !fullDateValidation
-  ) {
+  } else if (profileShow && Object.values(userData).length === 11 && !addressShow && !error) {
     addressSection.style.display = "none";
     shippingSection.style.display = "flex";
     dotThree.style.background = "black";
@@ -163,9 +157,6 @@ phone.addEventListener("blur", validateAddress);
 
 country.addEventListener("focus", changeStyle);
 country.addEventListener("blur", validateAddress);
-
-phone.addEventListener("focus", changeStyle);
-phone.addEventListener("blur", validateAddress);
 
 // PENDING, it´s not mandatory
 function changeStyle() {}
@@ -262,7 +253,6 @@ function changeImgYellow() {
   behindTshirt.setAttribute("src", "/assets/behind-yellow.jpg");
 }
 
-//T-Shirt change price relate to size
 size.addEventListener("change", changePrice);
 
 function changePrice() {
@@ -278,6 +268,8 @@ function changePrice() {
     price.textContent = "35.00$";
   }
 }
+
+
 
 // validating data from Profile Page
 function validateProfile() {
@@ -385,6 +377,7 @@ function validateAddress() {
     error = false;
   }
 
+
   // Address 1 validation
   if (address_1.value.trim() === "" || address_1.value === null) {
     errorAddress_1.style.display = "flex";
@@ -410,6 +403,7 @@ function validateAddress() {
     userData.address_2 = address_2.value;
     error = false;
   }
+
 
   // Postal code validation
   if (postalCode.value.trim() === "" || postalCode.value === null) {
@@ -473,44 +467,43 @@ function validateAddress() {
     error = false;
   }
 
-  // Birthday Event
-  birthday.addEventListener("change", getUserBirth);
 
-  // Getting current date in order to avoid the Match between "birthday selected" and "current date"
-  let datePickUp = new Date();
-  let currentDay = datePickUp.getDate();
-  let currentMonth = datePickUp.getMonth() + 1;
-  let currentYear = datePickUp.getFullYear();
-  let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
+    // Birthday Event
+    birthday.addEventListener("change", getUserBirth);
 
-  /* birthday validation: avoid empty input */
-  if (!birthday.value) {
-    errorBirthday.style.display = "flex";
-    errorBirthday.textContent = "Birthday is required";
-    error = true;
-  }
 
-  //Getting user birthday
-  function getUserBirth() {
-    let getBirthValue = birthday.value;
-    let date = new Date(getBirthValue);
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    let fullDate = [day, month, year].join("/");
-    userData.userBirthday = fullDate;
+    // Getting current date in order to avoid the Match between "birthday selected" and "current date"
+    let datePickUp = new Date();
+    let currentDay = datePickUp.getDate();
+    let currentMonth = datePickUp.getMonth() + 1;
+    let currentYear = datePickUp.getFullYear();
+    let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
 
-    if (userData.userBirthday === fullCurrentDate) {
+    /* birthday validation: avoid empty input */
+    if (!birthday.value) {
       errorBirthday.style.display = "flex";
-      errorBirthday.textContent = "Birthday can't be the current date";
-      fullDateValidation = true;
+      errorBirthday.textContent = "Birthday is required";
       error = true;
-    } else {
-      errorBirthday.style.display = "none";
-      userData.userBirthday = fullDate;
-      error = false;
     }
-  }
-}
 
-console.log(userData);
+    //Getting user birthday
+    function getUserBirth() {
+      let getBirthValue = birthday.value;
+      let date = new Date(getBirthValue);
+      let day = date.getDate();
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      let fullDate = [day, month, year].join("/");
+      userData.userBirthday = fullDate;
+
+      if (userData.userBirthday === fullCurrentDate) {
+        errorBirthday.style.display = "flex";
+        errorBirthday.textContent = "Birthday can't be the current date";
+        error = true;
+      } else {
+        errorBirthday.style.display = "none";
+        userData.userBirthday = fullDate;
+        error = false;
+      }
+    }
+}
