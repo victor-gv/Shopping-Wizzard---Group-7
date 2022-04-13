@@ -17,8 +17,6 @@ const dotThree = document.getElementById("dot-three");
 const dotFour = document.getElementById("dot-four");
 const nextButton = document.getElementById("next-button");
 
-
-
 //Main page Elements
 const minImgBlack = document.querySelector(".img-black");
 const minImgPurple = document.querySelector(".img-purple");
@@ -73,18 +71,21 @@ const telCountry = document.getElementById("tel-country");
 let phone = document.getElementById("phone");
 const phoneError = document.getElementById("phone-error");
 
-
 //Global variables
 let profileShow = false;
 let addressShow = false;
 let shippingShow = false;
 let finishShow = false;
+let fullDateValidation = false;
+let error = false;
 
+// Storing user data
+const userData = {};
 // ----------------------------
 // * EVENTS
 // ----------------------------
 
-// Main page events 
+// Main page events
 btnBuy.addEventListener("click", showProfile);
 
 function showProfile() {
@@ -96,33 +97,28 @@ function showProfile() {
   secondFoot.style.display = "flex";
 }
 
-
-
 nextButton.addEventListener("click", nextPage);
 
 function nextPage() {
-  if (!profileShow) {
+  console.log(userData);
+  console.log(Object.values(userData).length);
+  if (!profileShow && Object.values(userData).length === 3 && !error) {
     profileSection.style.display = "none";
     addressSection.style.display = "flex";
     dotTwo.style.background = "black";
     profileShow = true;
-
   } else if (profileShow && !addressShow) {
     addressSection.style.display = "none";
     shippingSection.style.display = "flex";
     dotThree.style.background = "black";
     addressShow = true;
-
   } else if (profileShow && addressShow && !shippingShow) {
     shippingSection.style.display = "none";
     finishSection.style.display = "flex";
     dotFour.style.background = "black";
     shippingShow = true;
-
   }
 }
-
-
 
 // Profile Events
 
@@ -134,6 +130,9 @@ userEmail.addEventListener("blur", validateProfile);
 
 userPassword.addEventListener("focus", changeStyle);
 userPassword.addEventListener("blur", validateProfile);
+
+confirmPassword.addEventListener("focus", changeStyle);
+confirmPassword.addEventListener("blur", validateProfile);
 
 // ----------------------------
 // Address Events
@@ -163,9 +162,6 @@ phone.addEventListener("blur", validateAddress);
 
 // PENDING, it´s not mandatory
 function changeStyle() {}
-
-// Storing user data
-const userData = {};
 
 //Main page function
 minImgWhite.addEventListener("click", changeImgWhite);
@@ -274,48 +270,105 @@ function changePrice() {
     price.textContent = "35.00$";
   }
 }
+
+// Birthday Event
+birthday.addEventListener("change", getUserBirth);
+
+// Getting current date in order to avoid the Match between "birthday selected" and "current date"
+let datePickUp = new Date();
+let currentDay = datePickUp.getDate();
+let currentMonth = datePickUp.getMonth() + 1;
+let currentYear = datePickUp.getFullYear();
+let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
+console.log(fullCurrentDate);
+
+//Getting user birthday
+function getUserBirth() {
+  let getBirthValue = birthday.value;
+  let date = new Date(getBirthValue);
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  let fullDate = [day, month, year].join("/");
+  userData.userBirthday = fullDate;
+  console.log(fullDate);
+
+  /* birthday validation */
+  if (userData.userBirthday === fullCurrentDate) {
+    console.log("test same date");
+    errorBirthday.style.display = "flex";
+    errorBirthday.textContent = "Birthday can't be the current date";
+    fullDateValidation = true;
+  } else {
+    errorBirthday.style.display = "none";
+    userData.userBirthday = fullDate;
+    fullDateValidation = false;
+  }
+}
+
 // validating data from Profile Page
 function validateProfile() {
   // UserName Validation
   if (userName.value.trim() === "" || userName.value === null) {
     errorUserName.style.display = "flex";
     errorUserName.textContent = "Name is required";
+    error = true;
   } else if (userName.value.length < 5 || userName.value.length > 20) {
     errorUserName.style.display = "flex";
     errorUserName.textContent = "Name length between 5 and 20 characters";
+    error = true;
   } else if (userName.value.includes(" ")) {
     errorUserName.style.display = "flex";
     errorUserName.textContent = "Name can´t have space";
+    error = true;
   } else {
     errorUserName.style.display = "none";
     userData.username = userName.value;
+    error = false;
   }
 
   // Email validation
   if (!userEmail.value.includes("@") || userEmail.value.length > 50) {
     errorEmail.style.display = "flex";
     errorEmail.textContent = "Invalid email";
+    error = true;
   } else {
     errorEmail.style.display = "none";
     userData.userEmail = userEmail.value;
+    error = false;
   }
 
   // Password validation
-  if (
-    userPassword.value.includes(
-      "^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,20}$"
+  if (userPassword.value.trim() === "" || userPassword.value === null) {
+    errorPassword.style.display = "flex";
+    errorPassword.textContent = "Required Password";
+    error = true;
+  } else if (
+    !userPassword.value.match(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/
     )
   ) {
     errorPassword.style.display = "flex";
-    errorPassword.textContent = "Invalid password";
+    errorPassword.textContent =
+      "Invalid password. It must include one number, one uppercase letter, one lowercase letter and one special character. The length must be between 8 and 20 characters.";
+    error = true;
+  } else if (userPassword.value == confirmPassword.value) {
+    userData.userPassword = confirmPassword.value;
+    error = true;
+  } else {
+    errorPassword.style.display = "none";
+    error = false;
   }
 
   // Password confirmation
   if (userPassword.value !== confirmPassword.value) {
     errorConfirmPassword.style.display = "flex";
-    errorConfirmPassword.value = "Error! different passwords";
+    errorConfirmPassword.textContent = "Error! different passwords";
+    error = true;
   } else {
-    userData.password = confirmPassword.value;
+    errorConfirmPassword.style.display = "none";
+    userData.userPassword = confirmPassword.value;
+    error = false;
   }
 }
 
