@@ -477,19 +477,16 @@ function validateAddress() {
 
   // Birthday Event
   birthday.addEventListener("change", getUserBirth);
-
+ 
   // Getting current date in order to avoid the Match between "birthday selected" and "current date"
   let datePickUp = new Date();
   let currentDay = datePickUp.getDate();
   let currentMonth = datePickUp.getMonth() + 1;
   let currentYear = datePickUp.getFullYear();
   let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
+  let fullDate = "";
 
-  if (!birthday.value) {
-    errorBirthday.style.display = "flex";
-    errorBirthday.textContent = "Birthday is required";
-    error = true;
-  }
+
 
   //Getting user birthday
   function getUserBirth() {
@@ -498,24 +495,25 @@ function validateAddress() {
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
-    let fullDate = [day, month, year].join("/");
-    userData.userBirthday = fullDate; 
+    fullDate = [day, month, year].join("/");
+    userData.userBirthday = fullDate;
+  }
 
-      /* birthday validation: avoid empty input */
-    if (userData.userBirthday == fullCurrentDate) {
+  
+  /* birthday validation */
+  if (!birthday.value) {
+    errorBirthday.style.display = "flex";
+    errorBirthday.textContent = "Birthday is required";
+    error = true;
+  } else if (userData.userBirthday == fullCurrentDate) {
     errorBirthday.style.display = "flex";
     errorBirthday.textContent = "Birthday can't be the current date";
     error = true;
   } else {
     errorBirthday.style.display = "none";
-    userData.userBirthday = fullDate;
     error = false;
   }
-  }
 
- 
-
- 
 }
 
 console.log(userData);
