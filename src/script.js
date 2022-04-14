@@ -16,6 +16,7 @@ const dotTwo = document.getElementById("dot-two");
 const dotThree = document.getElementById("dot-three");
 const dotFour = document.getElementById("dot-four");
 const nextButton = document.getElementById("next-button");
+const clearForm = document.getElementById("clear-form");
 
 //Main page Elements
 const minImgBlack = document.querySelector(".img-black");
@@ -30,7 +31,7 @@ const price = document.querySelector(".price");
 let size = document.getElementById("size");
 
 // Profile Elements
-const form = document.getElementById("profile-form");
+const profileForm = document.getElementById("profile-form");
 
 const btnNext = document.querySelector(".btn-next");
 
@@ -47,6 +48,8 @@ const confirmPassword = document.getElementById("confirm-password");
 const errorConfirmPassword = document.getElementById("error-confirmPassword");
 
 // Adress Elements
+const addressForm = document.getElementById("form-address");
+
 const firstName = document.getElementById("fname");
 const errorfirstName = document.getElementById("fname-error");
 
@@ -81,7 +84,7 @@ let error = false;
 
 
 // Storing user data
-const userData = {};
+let userData = {};
 // ----------------------------
 // * EVENTS
 // ----------------------------
@@ -124,6 +127,33 @@ function nextPage() {
     dotFour.style.background = "black";
     shippingShow = true;
   }
+}
+
+
+//Clear form button
+clearForm.addEventListener("click", clearFormData);
+
+function clearFormData() {
+  mainSection.style.display = "flex";
+  profileSection.style.display = "none";
+  addressSection.style.display = "none";
+  shippingSection.style.display = "none";
+  finishSection.style.display = "none";
+  headerMain.style.display = "flex";
+  headerProgress.style.display = "none";
+  firstFoot.style.display = "flex";
+  secondFoot.style.display = "none";
+  dotTwo.style.background = "white";
+  dotThree.style.background = "white";
+  dotFour.style.background = "white";
+  profileShow = false;
+  addressShow = false;
+  shippingShow = false;
+  finishShow = false;
+  error = false;
+  profileForm.reset();
+  addressForm.reset();
+  userData = {};
 }
 
 // Profile Events
