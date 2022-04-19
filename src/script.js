@@ -514,7 +514,6 @@ function validateAddress() {
   let currentMonth = datePickUp.getMonth() + 1;
   let currentYear = datePickUp.getFullYear();
   let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
-  let fullDate = "";
 
 
 
@@ -525,7 +524,7 @@ function validateAddress() {
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
-    fullDate = [day, month, year].join("/");
+    let fullDate = [day, month, year].join("/");
     userData.userBirthday = fullDate;
   }
 
