@@ -1,28 +1,34 @@
-* {
+
+html, body {
+  position: absolute;
+  box-sizing: border-box;
+  height: 100%;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "IBM Plex Sans", sans-serif;
-}
-
-body {
   background-color: rgb(255, 251, 251);
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 /* HEADER-MAIN */
 .header-main {
+  display: flex;
   background-color: #dfd3d3;
   padding: 15px 15px 15px 80px;
   font-size: 0.9rem;
   font-weight: bold;
+  width: min-content;
   height: min-content;
-  width: 100vw;
+
 }
 
 /* HEADER-PROGRESS */
+
+header {
+  background-color: #dfd3d3;
+}
+
 .header-progress {
   display: none;
-  background: #ebe9e9;
   width: 100vw;
   height: 130px;
 }
@@ -113,54 +119,79 @@ body {
 
 .main {
   display: flex;
-  position: relative;
-  margin: 40px;
-  width: 100vw;
-  padding: 40px;
-  justify-content: space-evenly;
+  flex-direction: row;
+  max-width: 100rem;
+  margin: 5rem auto;
 }
 
-.picture img {
-  height: 40rem;
-  width: 35rem;
-}
 
 .minis {
-  display: flex;
-  flex-direction: column;
+  margin-left: 6rem;
+  margin-right: 6rem;
 }
+
+
+.picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 6rem;
+  margin-left: 6rem;
+
+}
+
 
 .preview:hover {
   transform: scale(1.5);
 }
 
 .menu {
-  height: 30rem;
-  width: 25rem;
-  display: block;
-  margin: 30px;
-  padding: 30px;
+  padding: 30px 0px;
+  margin-left: 6rem;
+
+}
+
+.menu-item {
+  padding-bottom: 10px;
 }
 
 .section-option {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
-.options img {
-  height: 5rem;
-  width: 3.5rem;
-}
+
 
 /* Forms */
+
+.profile {
+  display: none;
+  height: 47rem;
+
+}
+
+.profile h2 {
+  margin: 6rem 0 1rem 6.5rem;
+  font-weight: bold;
+}
+
+.profile form {
+  margin: 4rem 0 1rem 6.5rem;
+  align-items: center;
+}
+
+
+.form-element {
+  padding-bottom: 40px;
+}
+
 
 .profile-form input {
   border: 2px solid black;
   font-size: 1.1rem;
   width: 14vw;
   padding: 5px;
-  margin-top: 0.6rem;
+  margin-top: .6rem;
 }
 
 .profile-form label {
@@ -175,37 +206,21 @@ body {
   margin-top: 5px;
   padding-left: 5px;
   width: 14vw;
-  margin-bottom: 1.6rem;
 }
 
-.form-element {
-  padding-bottom: 10px;
-}
-
-.profile {
-  display: none;
-  vertical-align: middle;
-  margin: 30px;
-  padding: 30px;
-}
-
-.profile form {
-  margin: 30px;
-  padding: 30px;
-  align-items: center;
-}
 
 /* TIMER */
-#timer {
+.timer {
   display: none;
-  position: fixed;
+  position: absolute;
   top: 220px;
-  right: 30px;
+  right: 15rem;
   padding: 15px;
-  height: 125px;
+  height: 110px;
   width: 200px;
-  border: 1px solid #ccc;
-  background-color: #d3d3d3;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: #f8f4f4;
+  padding: 1rem;
 }
 
 /* Section Address*/
@@ -313,9 +328,6 @@ body {
 }
 
 .card {
-  /* display: grid;
-      grid-template-columns: 2fr 1fr;
-      column-gap: 20px; */
   display: flex;
   gap: 30px;
   padding: 0em 5rem;
@@ -372,11 +384,17 @@ body {
 
 /* FOOTER */
 
+footer {
+  background-color: #dfd3d3;
+
+}
+
 /*First footer*/
 .first-foot {
-  text-align: center;
-  padding: 30px;
-  background: #d0cece;
+  display: flex;
+  justify-content: center;
+  padding: 15px 15px 15px 80px;
+  background-color: #dfd3d3;
   width: 100vw;
   height: min-content;
 }
@@ -384,10 +402,11 @@ body {
 /*Second footer*/
 .second-foot {
   display: none;
-  justify-content: end;
+  justify-content: flex-end;
   text-align: center;
+  margin-right: 5rem;
   padding: 30px;
-  background: #ebe9e9;
+  background-color: #dfd3d3;
   width: 100vw;
   height: min-content;
 }
