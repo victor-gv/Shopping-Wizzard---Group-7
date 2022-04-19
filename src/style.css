@@ -211,33 +211,95 @@ body {
 /* Section Address*/
 .address {
   display: none;
-  vertical-align: middle;
-  margin: 30px;
-  padding: 30px;
+
 }
 
+.address h2 {
+  margin: 6rem 0 1rem 6.5rem;
+  font-weight: bold;
+}
+
+
 .address form {
-  margin: 30px;
-  padding: 30px;
+  display: block;
+  max-width: 70rem;
+  margin: 4rem 0 1rem 6.5rem;
   align-items: center;
 }
 
-.tel-country {
-  width: 50px;
+.form-address input:not([type="checkbox"]),
+.form-address select {
+  border: 2px solid black;
+  font-size: 1.1rem;
+  width: 20vw;
+  padding: 5px;
+  margin-top: .6rem;
 }
+
+.form-address label {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.form-address:last-child {
+  padding-bottom: none;
+}
+
+
+.tel-country {
+  width: 55px !important;
+}
+
+
 
 /* Section Shipping*/
 .shipping {
-  display: none;
-  margin: 30px;
-  padding: 30px;
+  display: block;
 }
 
 .shipping form {
-  margin: 30px;
-  padding: 30px;
+  margin: 4rem 0 1.5rem 6.5rem;
   align-items: center;
 }
+
+.shipping h2 {
+  margin: 6rem 0 2.5rem 6.5rem;
+  font-weight: bold;
+}
+
+.shipping h4 {
+  margin: 1rem 0 1rem 6.5rem;
+  font-weight: bold;
+}
+
+.shipping input,
+.shipping select {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+
+}
+
+.shipping label {
+  font-size: 1.1rem;
+}
+
+.shipping p {
+  margin-bottom: .5rem;
+}
+
+.input-file {
+  display: block;
+  text-align: center;
+  padding-top: .6rem;
+  border: 1px solid black;
+  width: 11rem;
+  height: 2.4rem;
+}
+
+.estimate-date-container {
+  display: none;
+}
+
 
 /* SECTION FINISH */
 
