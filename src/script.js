@@ -675,14 +675,14 @@ function shippingType() {
 }
 
 //Finish Section validation
-conditionalBox.addEventListener("click ",validateTerms);
-confirmBtn.addEventListener("click",showFinish);
+conditionalBox.addEventListener("click", validateTerms);
+confirmBtn.addEventListener("click", showFinish);
 
 function validateTerms() {
   if (!conditionalBox.checked){
     errorCheck.style.display = "block";
     error = true;
-  }else if (conditionalBox.checked){
+  } else if (conditionalBox.checked){
     errorCheck.style.display = "none";
     error = false;
   }
@@ -695,10 +695,7 @@ function showFinish() {
   if (!conditionalBox.checked){
     errorCheck.style.display = "block";
     error = true;
-  }else if (conditionalBox.checked){
-    errorCheck.style.display = "none";
-    error = false;
-  }
+  } 
 
   if (finishShow && !error){
   mainSection.style.display = "none";
