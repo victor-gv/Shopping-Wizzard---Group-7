@@ -294,7 +294,6 @@ function changeImgYellow() {
   behindTshirt.setAttribute("src", "/assets/behind-yellow.jpg");
 }
 
-//T-Shirt change price relate to size
 size.addEventListener("change", changePrice);
 
 function changePrice() {
@@ -310,6 +309,8 @@ function changePrice() {
     price.textContent = "35.00$";
   }
 }
+
+
 
 // validating data from Profile Page
 function validateProfile() {
@@ -417,6 +418,7 @@ function validateAddress() {
     error = false;
   }
 
+
   // Address 1 validation
   if (address_1.value.trim() === "" || address_1.value === null) {
     errorAddress_1.style.display = "flex";
@@ -442,6 +444,7 @@ function validateAddress() {
     userData.address_2 = address_2.value;
     error = false;
   }
+
 
   // Postal code validation
   if (postalCode.value.trim() === "" || postalCode.value === null) {
