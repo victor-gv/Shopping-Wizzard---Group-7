@@ -75,13 +75,14 @@ const errorCountry = document.getElementById("country-error");
 let phone = document.getElementById("phone");
 const phoneError = document.getElementById("phone-error");
 
+// Timers
+const timer = document.getElementById("timer");
 //Global variables
 let profileShow = false;
 let addressShow = false;
 let shippingShow = false;
 let finishShow = false;
 let error = false;
-
 
 // Storing user data
 let userData = {};
@@ -99,6 +100,7 @@ function showProfile() {
   headerProgress.style.display = "block";
   firstFoot.style.display = "none";
   secondFoot.style.display = "flex";
+  profileShow = true;
 }
 
 nextButton.addEventListener("click", nextPage);
@@ -106,29 +108,31 @@ nextButton.addEventListener("click", nextPage);
 function nextPage() {
   console.log(userData);
   console.log(Object.values(userData).length);
-  if (!profileShow && Object.values(userData).length === 3 && !error) {
+  if (profileShow && Object.values(userData).length === 3 && !error) {
     profileSection.style.display = "none";
-    addressSection.style.display = "flex";
+    addressSection.style.display = "block";
     dotTwo.style.background = "black";
-    profileShow = true;
+    profileShow = false;
+    addressShow = true;
   } else if (
-    profileShow &&
+    !profileShow &&
     Object.values(userData).length === 11 &&
-    !addressShow &&
+    addressShow &&
     !error
   ) {
     addressSection.style.display = "none";
-    shippingSection.style.display = "flex";
+    shippingSection.style.display = "block";
     dotThree.style.background = "black";
-    addressShow = true;
-  } else if (profileShow && addressShow && !shippingShow) {
+    addressShow = false;
+    shippingShow = true;
+  } else if (!profileShow && !addressShow && shippingShow) {
     shippingSection.style.display = "none";
     finishSection.style.display = "flex";
     dotFour.style.background = "black";
-    shippingShow = true;
+    shippingShow = false;
+    finishShow = true;
   }
 }
-
 
 //Clear form button
 clearForm.addEventListener("click", clearFormData);
@@ -310,8 +314,6 @@ function changePrice() {
   }
 }
 
-
-
 // validating data from Profile Page
 function validateProfile() {
   // UserName Validation
@@ -418,7 +420,6 @@ function validateAddress() {
     error = false;
   }
 
-
   // Address 1 validation
   if (address_1.value.trim() === "" || address_1.value === null) {
     errorAddress_1.style.display = "flex";
@@ -444,7 +445,6 @@ function validateAddress() {
     userData.address_2 = address_2.value;
     error = false;
   }
-
 
   // Postal code validation
   if (postalCode.value.trim() === "" || postalCode.value === null) {
@@ -510,15 +510,13 @@ function validateAddress() {
 
   // Birthday Event
   birthday.addEventListener("change", getUserBirth);
- 
+
   // Getting current date in order to avoid the Match between "birthday selected" and "current date"
   let datePickUp = new Date();
   let currentDay = datePickUp.getDate();
   let currentMonth = datePickUp.getMonth() + 1;
   let currentYear = datePickUp.getFullYear();
   let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
-
-
 
   //Getting user birthday
   function getUserBirth() {
@@ -531,7 +529,6 @@ function validateAddress() {
     userData.userBirthday = fullDate;
   }
 
-  
   /* birthday validation */
   if (!birthday.value) {
     errorBirthday.style.display = "flex";
@@ -545,7 +542,42 @@ function validateAddress() {
     errorBirthday.style.display = "none";
     error = false;
   }
-
 }
+
+// Timers
+let countTimer = 0;
+
+const oneMinute = 60000;
+const fiveSeconds = 5000;
+
+setInterval(function () {
+  if (profileShow || addressShow || shippingShow || finishShow) {
+    if (countTimer === 0) {
+      timer.style.display = "block";
+      timer.innerHTML = `You start your purchase ${
+        countTimer + 1
+      } minute ago, <b> Hurry up! </b> The limit is 5 minutes `;
+      countTimer++;
+    } else {
+      timer.style.display = "block";
+      timer.innerHTML = `You start your purchase ${
+        countTimer + 1
+      } minutes ago, <b> Hurry up! </b> The limit is 5 minutes `;
+      countTimer++;
+    }
+
+    setTimeout(function () {
+      timer.style.display = "none";
+    }, fiveSeconds);
+  }
+  if (countTimer === 5) {
+    timer.textContent = `The maximum date for your purchase expired, you are going to be redirect to the main page in 5 seconds`;
+    setTimeout(function () {
+      timer.style.display = "none";
+      clearFormData();
+      countTimer = 0;
+    }, fiveSeconds);
+  }
+}, oneMinute);
 
 console.log(userData);

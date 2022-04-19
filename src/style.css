@@ -160,7 +160,7 @@ body {
   font-size: 1.1rem;
   width: 14vw;
   padding: 5px;
-  margin-top: .6rem;
+  margin-top: 0.6rem;
 }
 
 .profile-form label {
@@ -196,14 +196,16 @@ body {
 }
 
 /* TIMER */
-.timer {
+#timer {
+  display: none;
   position: fixed;
   top: 220px;
   right: 30px;
   padding: 15px;
   height: 125px;
   width: 200px;
-  border: 1px solid red;
+  border: 1px solid #ccc;
+  background-color: #d3d3d3;
 }
 
 /* Section Address*/
@@ -285,7 +287,6 @@ body {
   line-height: 2;
   margin-bottom: 1em;
 }
-
 
 .error-check {
   color: red;
