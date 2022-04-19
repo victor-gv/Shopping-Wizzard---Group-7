@@ -8,6 +8,7 @@ const profileSection = document.getElementById("profile-section");
 const addressSection = document.getElementById("address-section");
 const shippingSection = document.getElementById("shipping-section");
 const finishSection = document.getElementById("finish-section");
+let showShirt = document.getElementById("selected-shirt");
 const headerMain = document.getElementById("header-main");
 const headerProgress = document.getElementById("header-progress");
 const firstFoot = document.getElementById("first-foot");
@@ -87,8 +88,120 @@ let error = false;
 // Storing user data
 let userData = {};
 // ----------------------------
-// * EVENTS
+
 // ----------------------------
+
+
+//Main page function
+minImgWhite.addEventListener("click", changeImgWhite);
+minImgBlack.addEventListener("click", changeImgBlack);
+minImgPurple.addEventListener("click", changeImgPurple);
+minImgBlue.addEventListener("click", changeImgBlue);
+minImgRed.addEventListener("click", changeImgRed);
+minImgYellow.addEventListener("click", changeImgYellow);
+let mainTshirt;
+
+function changeImgWhite() {
+  mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front.jpg");
+
+  console.log(mainTshirt);
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind.jpg");
+}
+
+function changeImgBlack() {
+  mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-black.jpg");
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-black.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-black.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-black.jpg");
+}
+
+function changeImgPurple() {
+  mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-purple.jpg");
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-purple.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-purple.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-purple.jpg");
+}
+
+function changeImgBlue() {
+  mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-light-blue.jpg");
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-light-blue.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-light-blue.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-light-blue.jpg");
+}
+
+function changeImgRed() {
+  mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-red.jpg");
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-red.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-red.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-red.jpg");
+}
+
+function changeImgYellow() {
+  mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-yellow.jpg");
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-yellow.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-yellow.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-yellow.jpg");
+}
+
+size.addEventListener("change", changePrice);
+
+function changePrice() {
+  if (size.value == "XS") {
+    price.textContent = "20.00$";
+  } else if (size.value == "S") {
+    price.textContent = "25.00$";
+  } else if (size.value == "M") {
+    price.textContent = "27.00$";
+  } else if (size.value == "L") {
+    price.textContent = "30.00$";
+  } else if (size.value == "XL") {
+    price.textContent = "35.00$";
+  }
+}
 
 // Main page events
 btnBuy.addEventListener("click", showProfile);
@@ -104,6 +217,7 @@ function showProfile() {
 }
 
 nextButton.addEventListener("click", nextPage);
+
 
 function nextPage() {
   console.log(userData);
@@ -131,6 +245,9 @@ function nextPage() {
     dotFour.style.background = "black";
     shippingShow = false;
     finishShow = true;
+    let selectedShirt = document.createElement("img");
+    selectedShirt.src = mainTshirt.src;
+    showShirt.appendChild(selectedShirt);
   }
 }
 
@@ -206,113 +323,7 @@ birthday.addEventListener("blur", validateAddress);
 // PENDING, it´s not mandatory
 function changeStyle() {}
 
-//Main page function
-minImgWhite.addEventListener("click", changeImgWhite);
-minImgBlack.addEventListener("click", changeImgBlack);
-minImgPurple.addEventListener("click", changeImgPurple);
-minImgBlue.addEventListener("click", changeImgBlue);
-minImgRed.addEventListener("click", changeImgRed);
-minImgYellow.addEventListener("click", changeImgYellow);
 
-function changeImgWhite() {
-  let mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front.jpg");
-
-  let frontTshirt = document.getElementById("front");
-  frontTshirt.setAttribute("src", "/assets/front.jpg");
-
-  let turnTshirt = document.getElementById("turn");
-  turnTshirt.setAttribute("src", "/assets/turn.jpg");
-
-  let behindTshirt = document.getElementById("behind");
-  behindTshirt.setAttribute("src", "/assets/behind.jpg");
-}
-
-function changeImgBlack() {
-  let mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-black.jpg");
-
-  let frontTshirt = document.getElementById("front");
-  frontTshirt.setAttribute("src", "/assets/front-black.jpg");
-
-  let turnTshirt = document.getElementById("turn");
-  turnTshirt.setAttribute("src", "/assets/turn-black.jpg");
-
-  let behindTshirt = document.getElementById("behind");
-  behindTshirt.setAttribute("src", "/assets/behind-black.jpg");
-}
-
-function changeImgPurple() {
-  let mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-purple.jpg");
-
-  let frontTshirt = document.getElementById("front");
-  frontTshirt.setAttribute("src", "/assets/front-purple.jpg");
-
-  let turnTshirt = document.getElementById("turn");
-  turnTshirt.setAttribute("src", "/assets/turn-purple.jpg");
-
-  let behindTshirt = document.getElementById("behind");
-  behindTshirt.setAttribute("src", "/assets/behind-purple.jpg");
-}
-
-function changeImgBlue() {
-  let mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-light-blue.jpg");
-
-  let frontTshirt = document.getElementById("front");
-  frontTshirt.setAttribute("src", "/assets/front-light-blue.jpg");
-
-  let turnTshirt = document.getElementById("turn");
-  turnTshirt.setAttribute("src", "/assets/turn-light-blue.jpg");
-
-  let behindTshirt = document.getElementById("behind");
-  behindTshirt.setAttribute("src", "/assets/behind-light-blue.jpg");
-}
-
-function changeImgRed() {
-  let mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-red.jpg");
-
-  let frontTshirt = document.getElementById("front");
-  frontTshirt.setAttribute("src", "/assets/front-red.jpg");
-
-  let turnTshirt = document.getElementById("turn");
-  turnTshirt.setAttribute("src", "/assets/turn-red.jpg");
-
-  let behindTshirt = document.getElementById("behind");
-  behindTshirt.setAttribute("src", "/assets/behind-red.jpg");
-}
-
-function changeImgYellow() {
-  let mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-yellow.jpg");
-
-  let frontTshirt = document.getElementById("front");
-  frontTshirt.setAttribute("src", "/assets/front-yellow.jpg");
-
-  let turnTshirt = document.getElementById("turn");
-  turnTshirt.setAttribute("src", "/assets/turn-yellow.jpg");
-
-  let behindTshirt = document.getElementById("behind");
-  behindTshirt.setAttribute("src", "/assets/behind-yellow.jpg");
-}
-
-size.addEventListener("change", changePrice);
-
-function changePrice() {
-  if (size.value == "XS") {
-    price.textContent = "20.00$";
-  } else if (size.value == "S") {
-    price.textContent = "25.00$";
-  } else if (size.value == "M") {
-    price.textContent = "27.00$";
-  } else if (size.value == "L") {
-    price.textContent = "30.00$";
-  } else if (size.value == "XL") {
-    price.textContent = "35.00$";
-  }
-}
 
 // validating data from Profile Page
 function validateProfile() {
@@ -579,5 +590,8 @@ setInterval(function () {
     }, fiveSeconds);
   }
 }, oneMinute);
+
+
+
 
 console.log(userData);
