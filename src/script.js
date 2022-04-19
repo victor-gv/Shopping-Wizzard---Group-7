@@ -12,6 +12,9 @@ let showShirt = document.getElementById("selected-shirt");
 let showSize = document.getElementById("selected-size");
 let showColor = document.getElementById("selected-color");
 let showDeliveryDate = document.getElementById("delivery-date");
+let showShirtPrice = document.getElementById("tshirt-price");
+let showShippingPrice = document.getElementById("shipping-price");
+let showTotalPrice = document.getElementById("total-price");
 const headerMain = document.getElementById("header-main");
 const headerProgress = document.getElementById("header-progress");
 const firstFoot = document.getElementById("first-foot");
@@ -117,6 +120,7 @@ let error = false;
   let extraOptionDateMargin = [currentDay + 3, currentMonth, currentYear].join("/");
   let premiumOptionDateMargin = [currentDay + 2, currentMonth, currentYear].join("/");
   let fullDate = "";
+  let estimateDeliveryDate = "";
 
 // Storing user data
 let userData = {};
@@ -227,18 +231,24 @@ function changeImgYellow() {
 }
 
 size.addEventListener("change", changePrice);
+let tshirtPrice = 20;
 
 function changePrice() {
   if (size.value == "XS") {
     price.textContent = "20.00$";
+    tshirtPrice = 20;
   } else if (size.value == "S") {
     price.textContent = "25.00$";
+    tshirtPrice = 25;
   } else if (size.value == "M") {
     price.textContent = "27.00$";
+    tshirtPrice = 27;
   } else if (size.value == "L") {
     price.textContent = "30.00$";
+    tshirtPrice = 30;
   } else if (size.value == "XL") {
     price.textContent = "35.00$";
+    tshirtPrice = 35;
   }
 }
 
@@ -289,7 +299,11 @@ function nextPage() {
     showShirt.appendChild(selectedShirt);
     showSize.textContent = `Size: ${size.value}`;
     showColor.textContent = `Color: ${color}`;
-
+    showShirtPrice.textContent = ` ${tshirtPrice}.00$`;
+    showShippingPrice.textContent = ` ${shippingPrice}$`;
+    showTotalPrice.textContent = ` ${tshirtPrice + shippingPrice}$`;
+    showDeliveryDate.innerHTML = estimateDeliveryDate;
+  
   }
 }
 
@@ -633,17 +647,21 @@ setInterval(function () {
 //Shipping form function
 
 shippingForm.addEventListener("change", shippingType);
+let shippingPrice = 0;
 
 function shippingType() {
   if (free.checked){
     estimateDateContainer.style.display = "block";
-    estimateDateItem.innerHTML = `Between <b>${freeOptionDate} at ${currentTime}</b> and <b>${freeOptionDateMargin} at ${currentTime}</b>`;
+    estimateDeliveryDate = estimateDateItem.innerHTML = `Between <b>${freeOptionDate} at ${currentTime}</b> and <b>${freeOptionDateMargin} at ${currentTime}</b>`;
+    shippingPrice = 0;
 } else if (extra.checked) {
     estimateDateContainer.style.display = "block";
-    estimateDateItem.innerHTML = `Between <b>${extraOptionDate} at ${currentTime}</b> and <b>${extraOptionDateMargin} at ${currentTime}</b>`;
+    estimateDeliveryDate = estimateDateItem.innerHTML = `Between <b>${extraOptionDate} at ${currentTime}</b> and <b>${extraOptionDateMargin} at ${currentTime}</b>`;
+    shippingPrice = 4.99;
 } else if (premium.checked) {
     estimateDateContainer.style.display = "block";
-    estimateDateItem.innerHTML = `Between <b> ${premiumOptionDate} </b> at ${currentTime} and <b>${premiumOptionDateMargin} at ${currentTime}</b>`;
+    estimateDeliveryDate = estimateDateItem.innerHTML = `Between <b> ${premiumOptionDate} </b> at ${currentTime} and <b>${premiumOptionDateMargin} at ${currentTime}</b>`;
+    shippingPrice = 9.99;
 }
 
 }

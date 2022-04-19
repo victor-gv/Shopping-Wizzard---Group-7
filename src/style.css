@@ -254,7 +254,7 @@ body {
 
 /* Section Shipping*/
 .shipping {
-  display: block;
+  display: none;
 }
 
 .shipping form {
