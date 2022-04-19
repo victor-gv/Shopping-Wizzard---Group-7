@@ -144,13 +144,13 @@ minImgBlue.addEventListener("click", changeImgBlue);
 minImgRed.addEventListener("click", changeImgRed);
 minImgYellow.addEventListener("click", changeImgYellow);
 let mainTshirt = document.getElementById("main-tshirt");
-mainTshirt.setAttribute("src", "/assets/front.jpg");
+mainTshirt.setAttribute("src", "/assets/front-white-main.jpg");
 let color = "White";
 
 function changeImgWhite() {
   mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front.jpg");
-  color = "white";
+  mainTshirt.setAttribute("src", "/assets/front-white-main.jpg");
+  color = "White";
 
   let frontTshirt = document.getElementById("front");
   frontTshirt.setAttribute("src", "/assets/front.jpg");
@@ -164,8 +164,8 @@ function changeImgWhite() {
 
 function changeImgBlack() {
   mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-black.jpg");
-  color = "black";
+  mainTshirt.setAttribute("src", "/assets/front-black-main.jpg");
+  color = "Black";
 
   let frontTshirt = document.getElementById("front");
   frontTshirt.setAttribute("src", "/assets/front-black.jpg");
@@ -179,8 +179,8 @@ function changeImgBlack() {
 
 function changeImgPurple() {
   mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-purple.jpg");
-  color = "purple";
+  mainTshirt.setAttribute("src", "/assets/front-purple-main.jpg");
+  color = "Purple";
 
   let frontTshirt = document.getElementById("front");
   frontTshirt.setAttribute("src", "/assets/front-purple.jpg");
@@ -194,8 +194,8 @@ function changeImgPurple() {
 
 function changeImgBlue() {
   mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-light-blue.jpg");
-  color = "blue";
+  mainTshirt.setAttribute("src", "/assets/front-light-blue-main.jpg");
+  color = "Blue";
 
   let frontTshirt = document.getElementById("front");
   frontTshirt.setAttribute("src", "/assets/front-light-blue.jpg");
@@ -209,8 +209,8 @@ function changeImgBlue() {
 
 function changeImgRed() {
   mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-red.jpg");
-  color = "red";
+  mainTshirt.setAttribute("src", "/assets/front-red-main.jpg");
+  color = "Red";
 
   let frontTshirt = document.getElementById("front");
   frontTshirt.setAttribute("src", "/assets/front-red.jpg");
@@ -224,8 +224,8 @@ function changeImgRed() {
 
 function changeImgYellow() {
   mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-yellow.jpg");
-  color = "yellow";
+  mainTshirt.setAttribute("src", "/assets/front-yellow-main.jpg");
+  color = "Yellow";
 
   let frontTshirt = document.getElementById("front");
   frontTshirt.setAttribute("src", "/assets/front-yellow.jpg");
@@ -264,7 +264,7 @@ btnBuy.addEventListener("click", showProfile);
 
 function showProfile() {
   mainSection.style.display = "none";
-  profileSection.style.display = "flex";
+  profileSection.style.display = "block";
   headerMain.style.display = "none";
   headerProgress.style.display = "block";
   firstFoot.style.display = "none";
