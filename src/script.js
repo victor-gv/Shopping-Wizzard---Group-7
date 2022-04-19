@@ -16,6 +16,7 @@ const dotTwo = document.getElementById("dot-two");
 const dotThree = document.getElementById("dot-three");
 const dotFour = document.getElementById("dot-four");
 const nextButton = document.getElementById("next-button");
+const clearForm = document.getElementById("clear-form");
 
 //Main page Elements
 const minImgBlack = document.querySelector(".img-black");
@@ -30,7 +31,7 @@ const price = document.querySelector(".price");
 let size = document.getElementById("size");
 
 // Profile Elements
-const form = document.getElementById("profile-form");
+const profileForm = document.getElementById("profile-form");
 
 const btnNext = document.querySelector(".btn-next");
 
@@ -47,6 +48,8 @@ const confirmPassword = document.getElementById("confirm-password");
 const errorConfirmPassword = document.getElementById("error-confirmPassword");
 
 // Adress Elements
+const addressForm = document.getElementById("form-address");
+
 const firstName = document.getElementById("fname");
 const errorfirstName = document.getElementById("fname-error");
 
@@ -72,6 +75,8 @@ const errorCountry = document.getElementById("country-error");
 let phone = document.getElementById("phone");
 const phoneError = document.getElementById("phone-error");
 
+//
+
 //Global variables
 let profileShow = false;
 let addressShow = false;
@@ -79,9 +84,8 @@ let shippingShow = false;
 let finishShow = false;
 let error = false;
 
-
 // Storing user data
-const userData = {};
+let userData = {};
 // ----------------------------
 // * EVENTS
 // ----------------------------
@@ -108,7 +112,12 @@ function nextPage() {
     addressSection.style.display = "flex";
     dotTwo.style.background = "black";
     profileShow = true;
-  } else if (profileShow && Object.values(userData).length === 11 && !addressShow && !error) {
+  } else if (
+    profileShow &&
+    Object.values(userData).length === 11 &&
+    !addressShow &&
+    !error
+  ) {
     addressSection.style.display = "none";
     shippingSection.style.display = "flex";
     dotThree.style.background = "black";
@@ -119,6 +128,32 @@ function nextPage() {
     dotFour.style.background = "black";
     shippingShow = true;
   }
+}
+
+//Clear form button
+clearForm.addEventListener("click", clearFormData);
+
+function clearFormData() {
+  mainSection.style.display = "flex";
+  profileSection.style.display = "none";
+  addressSection.style.display = "none";
+  shippingSection.style.display = "none";
+  finishSection.style.display = "none";
+  headerMain.style.display = "flex";
+  headerProgress.style.display = "none";
+  firstFoot.style.display = "flex";
+  secondFoot.style.display = "none";
+  dotTwo.style.background = "white";
+  dotThree.style.background = "white";
+  dotFour.style.background = "white";
+  profileShow = false;
+  addressShow = false;
+  shippingShow = false;
+  finishShow = false;
+  error = false;
+  profileForm.reset();
+  addressForm.reset();
+  userData = {};
 }
 
 // Profile Events
@@ -157,6 +192,12 @@ phone.addEventListener("blur", validateAddress);
 
 country.addEventListener("focus", changeStyle);
 country.addEventListener("blur", validateAddress);
+
+phone.addEventListener("focus", changeStyle);
+phone.addEventListener("blur", validateAddress);
+
+birthday.addEventListener("focus", changeStyle);
+birthday.addEventListener("blur", validateAddress);
 
 // PENDING, it´s not mandatory
 function changeStyle() {}
@@ -269,8 +310,6 @@ function changePrice() {
   }
 }
 
-
-
 // validating data from Profile Page
 function validateProfile() {
   // UserName Validation
@@ -377,7 +416,6 @@ function validateAddress() {
     error = false;
   }
 
-
   // Address 1 validation
   if (address_1.value.trim() === "" || address_1.value === null) {
     errorAddress_1.style.display = "flex";
@@ -403,7 +441,6 @@ function validateAddress() {
     userData.address_2 = address_2.value;
     error = false;
   }
-
 
   // Postal code validation
   if (postalCode.value.trim() === "" || postalCode.value === null) {
@@ -467,43 +504,40 @@ function validateAddress() {
     error = false;
   }
 
+  // Birthday Event
+  birthday.addEventListener("change", getUserBirth);
 
-    // Birthday Event
-    birthday.addEventListener("change", getUserBirth);
+  // Getting current date in order to avoid the Match between "birthday selected" and "current date"
+  let datePickUp = new Date();
+  let currentDay = datePickUp.getDate();
+  let currentMonth = datePickUp.getMonth() + 1;
+  let currentYear = datePickUp.getFullYear();
+  let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
 
+  //Getting user birthday
+  function getUserBirth() {
+    let getBirthValue = birthday.value;
+    let date = new Date(getBirthValue);
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let fullDate = [day, month, year].join("/");
+    userData.userBirthday = fullDate;
+  }
 
-    // Getting current date in order to avoid the Match between "birthday selected" and "current date"
-    let datePickUp = new Date();
-    let currentDay = datePickUp.getDate();
-    let currentMonth = datePickUp.getMonth() + 1;
-    let currentYear = datePickUp.getFullYear();
-    let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
-
-    /* birthday validation: avoid empty input */
-    if (!birthday.value) {
-      errorBirthday.style.display = "flex";
-      errorBirthday.textContent = "Birthday is required";
-      error = true;
-    }
-
-    //Getting user birthday
-    function getUserBirth() {
-      let getBirthValue = birthday.value;
-      let date = new Date(getBirthValue);
-      let day = date.getDate();
-      let month = date.getMonth() + 1;
-      let year = date.getFullYear();
-      let fullDate = [day, month, year].join("/");
-      userData.userBirthday = fullDate;
-
-      if (userData.userBirthday === fullCurrentDate) {
-        errorBirthday.style.display = "flex";
-        errorBirthday.textContent = "Birthday can't be the current date";
-        error = true;
-      } else {
-        errorBirthday.style.display = "none";
-        userData.userBirthday = fullDate;
-        error = false;
-      }
-    }
+  /* birthday validation */
+  if (!birthday.value) {
+    errorBirthday.style.display = "flex";
+    errorBirthday.textContent = "Birthday is required";
+    error = true;
+  } else if (userData.userBirthday == fullCurrentDate) {
+    errorBirthday.style.display = "flex";
+    errorBirthday.textContent = "Birthday can't be the current date";
+    error = true;
+  } else {
+    errorBirthday.style.display = "none";
+    error = false;
+  }
 }
+
+console.log(userData);
