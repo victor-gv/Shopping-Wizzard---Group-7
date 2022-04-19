@@ -7,6 +7,8 @@ const mainSection = document.getElementById("main-section");
 const profileSection = document.getElementById("profile-section");
 const addressSection = document.getElementById("address-section");
 const shippingSection = document.getElementById("shipping-section");
+const errorCheck = document.getElementById("error-check");
+const conditionalBox = document.getElementById("conditional-box");
 const finishSection = document.getElementById("finish-section");
 let showShirt = document.getElementById("selected-shirt");
 let showSize = document.getElementById("selected-size");
@@ -267,7 +269,6 @@ function showProfile() {
 
 nextButton.addEventListener("click", nextPage);
 
-
 function nextPage() {
   console.log(userData);
   console.log(Object.values(userData).length);
@@ -288,7 +289,8 @@ function nextPage() {
     dotThree.style.background = "black";
     addressShow = false;
     shippingShow = true;
-  } else if (!profileShow && !addressShow && shippingShow) {
+  } else if (!profileShow && !addressShow && shippingShow && (free.checked || extra.checked || premium.checked)) {
+    secondFoot.style.display = "none";
     shippingSection.style.display = "none";
     finishSection.style.display = "flex";
     dotFour.style.background = "black";
@@ -301,9 +303,10 @@ function nextPage() {
     showColor.textContent = `Color: ${color}`;
     showShirtPrice.textContent = ` ${tshirtPrice}.00$`;
     showShippingPrice.textContent = ` ${shippingPrice}$`;
-    showTotalPrice.textContent = ` ${tshirtPrice + shippingPrice}$`;
     showDeliveryDate.innerHTML = estimateDeliveryDate;
-  
+    let totalPrice = 0;
+    totalPrice = tshirtPrice + shippingPrice;
+    showTotalPrice.innerHTML = " " + totalPrice.toFixed(2) + "$";
   }
 }
 

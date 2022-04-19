@@ -350,6 +350,7 @@ body {
 }
 
 .error-check {
+  display: none;
   color: red;
   background-color: rgb(250, 204, 211);
   margin-top: 5px;
