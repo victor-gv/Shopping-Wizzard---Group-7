@@ -95,6 +95,9 @@ const freeShipping = document.getElementById("free");
 const extraShipping = document.getElementById("extra");
 const premiumShipping = document.getElementById("premium");
 
+//Finish Elements
+const confirmBtn = document.getElementById("confirm-btn");
+
 
 //Global variables
 let profileShow = false;
@@ -669,5 +672,30 @@ function shippingType() {
 
 }
 
+//Finish Section validation
 
+  if (conditionalBox.checked){
+    errorCheck.style.display = "none";
+    error = false;
+  }else if (conditionalBox.checked){
+    errorCheck.style.display = "block";
+    error = true;
+  }
+
+//Confirm function
+;
+confirmBtn.addEventListener("click",showFinish );
+
+function showFinish() {
+  if (finishShow && !error){
+  mainSection.style.display = "none";
+  profileSection.style.display = "none";
+  headerMain.style.display = "none";
+  headerProgress.style.display = "block";
+  firstFoot.style.display = "none";
+  secondFoot.style.display = "none";
+  finishSection.style.display = "none";
+  thankPageShow = true;
+}
+}
 console.log(userData);
