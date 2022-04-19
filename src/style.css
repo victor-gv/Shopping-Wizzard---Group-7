@@ -229,7 +229,6 @@ body {
 /* Section Shipping*/
 .shipping {
   display: none;
-  vertical-align: middle;
   margin: 30px;
   padding: 30px;
 }
@@ -358,4 +357,9 @@ body {
   font-size: 1.1rem;
   width: 9vw;
   padding: 10px;
+}
+
+/* Thank section  */
+.thank-section {
+  display: none;
 }

@@ -9,6 +9,9 @@ const addressSection = document.getElementById("address-section");
 const shippingSection = document.getElementById("shipping-section");
 const finishSection = document.getElementById("finish-section");
 let showShirt = document.getElementById("selected-shirt");
+let showSize = document.getElementById("selected-size");
+let showColor = document.getElementById("selected-color");
+let showDeliveryDate = document.getElementById("delivery-date");
 const headerMain = document.getElementById("header-main");
 const headerProgress = document.getElementById("header-progress");
 const firstFoot = document.getElementById("first-foot");
@@ -78,12 +81,42 @@ const phoneError = document.getElementById("phone-error");
 
 // Timers
 const timer = document.getElementById("timer");
+
+// Shipping Elements
+const shippingForm = document.getElementById("shipping-form"); 
+const estimateDateContainer = document.getElementById("estimate-date-container");
+const estimateDateItem = document.getElementById("estimate-date-item");
+const freeShipping = document.getElementById("free");
+const extraShipping = document.getElementById("extra");
+const premiumShipping = document.getElementById("premium");
+
+
 //Global variables
 let profileShow = false;
 let addressShow = false;
 let shippingShow = false;
 let finishShow = false;
 let error = false;
+
+  // Getting current date, both for birthday input in address section and for the shipping form. 
+  let datePickUp = new Date();
+  let currentHour = datePickUp.getHours();
+  let currentMinute = datePickUp.getMinutes();
+    if (currentMinute < 10) {
+      currentMinute = "0" + currentMinute;
+    }
+  let currentTime = currentHour + ":" + currentMinute;
+  let currentDay = datePickUp.getDate();
+  let currentMonth = datePickUp.getMonth() + 1;
+  let currentYear = datePickUp.getFullYear();
+  let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
+  let freeOptionDate = [currentDay + 3, currentMonth, currentYear].join("/");
+  let extraOptionDate = [currentDay + 2, currentMonth, currentYear].join("/");
+  let premiumOptionDate = [currentDay + 1, currentMonth, currentYear].join("/");
+  let freeOptionDateMargin = [currentDay + 4, currentMonth, currentYear].join("/");
+  let extraOptionDateMargin = [currentDay + 3, currentMonth, currentYear].join("/");
+  let premiumOptionDateMargin = [currentDay + 2, currentMonth, currentYear].join("/");
+  let fullDate = "";
 
 // Storing user data
 let userData = {};
@@ -99,13 +132,14 @@ minImgPurple.addEventListener("click", changeImgPurple);
 minImgBlue.addEventListener("click", changeImgBlue);
 minImgRed.addEventListener("click", changeImgRed);
 minImgYellow.addEventListener("click", changeImgYellow);
-let mainTshirt;
+let mainTshirt = document.getElementById("main-tshirt");
+mainTshirt.setAttribute("src", "/assets/front.jpg");
+let color = "White";
 
 function changeImgWhite() {
   mainTshirt = document.getElementById("main-tshirt");
   mainTshirt.setAttribute("src", "/assets/front.jpg");
-
-  console.log(mainTshirt);
+  color = "white";
 
   let frontTshirt = document.getElementById("front");
   frontTshirt.setAttribute("src", "/assets/front.jpg");
@@ -120,6 +154,7 @@ function changeImgWhite() {
 function changeImgBlack() {
   mainTshirt = document.getElementById("main-tshirt");
   mainTshirt.setAttribute("src", "/assets/front-black.jpg");
+  color = "black";
 
   let frontTshirt = document.getElementById("front");
   frontTshirt.setAttribute("src", "/assets/front-black.jpg");
@@ -134,6 +169,7 @@ function changeImgBlack() {
 function changeImgPurple() {
   mainTshirt = document.getElementById("main-tshirt");
   mainTshirt.setAttribute("src", "/assets/front-purple.jpg");
+  color = "purple";
 
   let frontTshirt = document.getElementById("front");
   frontTshirt.setAttribute("src", "/assets/front-purple.jpg");
@@ -148,6 +184,7 @@ function changeImgPurple() {
 function changeImgBlue() {
   mainTshirt = document.getElementById("main-tshirt");
   mainTshirt.setAttribute("src", "/assets/front-light-blue.jpg");
+  color = "blue";
 
   let frontTshirt = document.getElementById("front");
   frontTshirt.setAttribute("src", "/assets/front-light-blue.jpg");
@@ -162,6 +199,7 @@ function changeImgBlue() {
 function changeImgRed() {
   mainTshirt = document.getElementById("main-tshirt");
   mainTshirt.setAttribute("src", "/assets/front-red.jpg");
+  color = "red";
 
   let frontTshirt = document.getElementById("front");
   frontTshirt.setAttribute("src", "/assets/front-red.jpg");
@@ -176,6 +214,7 @@ function changeImgRed() {
 function changeImgYellow() {
   mainTshirt = document.getElementById("main-tshirt");
   mainTshirt.setAttribute("src", "/assets/front-yellow.jpg");
+  color = "yellow";
 
   let frontTshirt = document.getElementById("front");
   frontTshirt.setAttribute("src", "/assets/front-yellow.jpg");
@@ -248,6 +287,9 @@ function nextPage() {
     let selectedShirt = document.createElement("img");
     selectedShirt.src = mainTshirt.src;
     showShirt.appendChild(selectedShirt);
+    showSize.textContent = `Size: ${size.value}`;
+    showColor.textContent = `Color: ${color}`;
+
   }
 }
 
@@ -522,12 +564,7 @@ function validateAddress() {
   // Birthday Event
   birthday.addEventListener("change", getUserBirth);
 
-  // Getting current date in order to avoid the Match between "birthday selected" and "current date"
-  let datePickUp = new Date();
-  let currentDay = datePickUp.getDate();
-  let currentMonth = datePickUp.getMonth() + 1;
-  let currentYear = datePickUp.getFullYear();
-  let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
+
 
   //Getting user birthday
   function getUserBirth() {
@@ -592,6 +629,24 @@ setInterval(function () {
 }, oneMinute);
 
 
+
+//Shipping form function
+
+shippingForm.addEventListener("change", shippingType);
+
+function shippingType() {
+  if (free.checked){
+    estimateDateContainer.style.display = "block";
+    estimateDateItem.innerHTML = `Between <b>${freeOptionDate} at ${currentTime}</b> and <b>${freeOptionDateMargin} at ${currentTime}</b>`;
+} else if (extra.checked) {
+    estimateDateContainer.style.display = "block";
+    estimateDateItem.innerHTML = `Between <b>${extraOptionDate} at ${currentTime}</b> and <b>${extraOptionDateMargin} at ${currentTime}</b>`;
+} else if (premium.checked) {
+    estimateDateContainer.style.display = "block";
+    estimateDateItem.innerHTML = `Between <b> ${premiumOptionDate} </b> at ${currentTime} and <b>${premiumOptionDateMargin} at ${currentTime}</b>`;
+}
+
+}
 
 
 console.log(userData);

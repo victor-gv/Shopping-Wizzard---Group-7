@@ -166,32 +166,36 @@
             </section>
 
             <section id="shipping-section" class="shipping">
-                <h2>Shipping Type</h2>
-                <form action="#">
-
+                <h2>Shipping</h2>
+                <h4>Shipping type</h4>
+                <form id="shipping-form" >
                     <input type="radio" id="free" name="shipping" value="free">
                     <label for="free">FREE Shipping (72h)</label><br>
                     <input type="radio" id="extra" name="shipping" value="extra">
                     <label for="extra">Extra Shipping (42h) 4,99$</label><br>
                     <input type="radio" id="premium" name="shipping" value="premium">
-                    <label for="extra">Premium Shipping (24h) 9,99$</label><br><br>
+                    <label for="extra">Premium Shipping (24h) 9,99$</label><br>
+
+                    <div id="estimate-date-container" class="estimate-date-container">
+                        <p><b>Your order will arrive:</b></p>
+                        <p>ESTIMATE DELIVERY DATE:</p>
+                        <div id="estimate-date-item"></div><br><br>
+                    </div>
+
                     <input type="checkbox" id="gift" name="shipping" value="gift">
-                    <label for="gift"> is it a gift? </label><br><br>
-
-
-
+                    <label for="gift"> Is it a gift? </label>
                     <p>Gift Message:</p>
-                    <textarea name="message" rows="5" cols="20"></textarea>
-
-
+                    <textarea name="message" rows="5" cols="20"></textarea><br><br>
+                    <p>Gift wrapper image</p>
+                    <div class="input-file">
+                        <label for="files" class="btn-file">Select Image</label>
+                        <input id="files" style="visibility:hidden;" type="file" accept="image/png, image/jpeg">
+                    </div>
                 </form>
             </section>
 
             <section id="finish-section" class="finish">
-                <div class="order-message">
-                    <h2>Your order is complete 🎉</h2>
-                    <p>Thank You for your order!</p>
-                </div>
+               
                 <!-- Purchase card -->
                 <div class="card">
                     <div class="purchase-card">
@@ -201,11 +205,11 @@
 
                             </div>
                             <div class="product-title">
-                                <h3>white t-shirt</h3>
-                                <p class="product-size">Size:<span>M</span></p>
-                                <p class="product-color">Color:<span>🛑</span></p>
+                                <h3>T-shirt</h3>
+                                <p id="selected-size" class="product-size"></p>
+                                <p id="selected-color" class="product-color"></p>
                                 <p class="delivery-txt">Estimate delivery date</p>
-                                <p class="delivery-date">31 dezember 2022</p>
+                                <p id="delivery-date" class="delivery-date"></p>
                             </div>
                         </div>
                         <div class="conditional-check">
@@ -231,8 +235,11 @@
 
 
 
-            <section id="thank-section" class="thank">
-
+            <section id="thank-section" class="thank-section">
+                <div class="order-message">
+                    <h2>Your order is complete 🎉</h2>
+                    <p>Thank You for your order!</p>
+                </div>
 
 
 
