@@ -7,6 +7,7 @@ const mainSection = document.getElementById("main-section");
 const profileSection = document.getElementById("profile-section");
 const addressSection = document.getElementById("address-section");
 const shippingSection = document.getElementById("shipping-section");
+const thankSection = document.getElementById("thank-section");
 const errorCheck = document.getElementById("error-check");
 const conditionalBox = document.getElementById("conditional-box");
 const finishSection = document.getElementById("finish-section");
@@ -104,6 +105,7 @@ let profileShow = false;
 let addressShow = false;
 let shippingShow = false;
 let finishShow = false;
+let thankShow = false;
 let error = false;
 
   // Getting current date, both for birthday input in address section and for the shipping form. 
@@ -673,20 +675,31 @@ function shippingType() {
 }
 
 //Finish Section validation
+conditionalBox.addEventListener("click ",validateTerms);
+confirmBtn.addEventListener("click",showFinish);
 
-  if (conditionalBox.checked){
-    errorCheck.style.display = "none";
-    error = false;
-  }else if (conditionalBox.checked){
+function validateTerms() {
+  if (!conditionalBox.checked){
     errorCheck.style.display = "block";
     error = true;
+  }else if (conditionalBox.checked){
+    errorCheck.style.display = "none";
+    error = false;
   }
+}
 
 //Confirm function
-;
-confirmBtn.addEventListener("click",showFinish );
+
 
 function showFinish() {
+  if (!conditionalBox.checked){
+    errorCheck.style.display = "block";
+    error = true;
+  }else if (conditionalBox.checked){
+    errorCheck.style.display = "none";
+    error = false;
+  }
+
   if (finishShow && !error){
   mainSection.style.display = "none";
   profileSection.style.display = "none";
@@ -695,7 +708,8 @@ function showFinish() {
   firstFoot.style.display = "none";
   secondFoot.style.display = "none";
   finishSection.style.display = "none";
-  thankPageShow = true;
+  thankSection.style.display = "block";
+  thankShow = true;
 }
 }
 console.log(userData);

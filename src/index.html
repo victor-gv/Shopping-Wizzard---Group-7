@@ -194,7 +194,7 @@
             </section>
 
             <section id="finish-section" class="finish">
-               
+
                 <!-- Purchase card -->
                 <div class="card">
                     <div class="purchase-card">
@@ -212,8 +212,10 @@
                             </div>
                         </div>
                         <div class="conditional-check">
-                            <input type="checkbox" id="conditional-box" />
-                            <label for="conditional-box">I have read and I accept the terms and conditionals.</label>
+                            <form>
+                                <input type="checkbox" id="conditional-box" />
+                                <label for="conditional-box">I have read and I accept the terms and conditionals.</label>
+                            </form>
                             <p id="error-check" class="error-check">
                             Please accept the terms and conditions
                             </p>
@@ -235,13 +237,34 @@
 
 
             <section id="thank-section" class="thank-section">
+                <div class="purchase-card">
                 <div class="order-message">
                     <h2>Your order is complete 🎉</h2>
                     <p>Thank You for your order!</p>
                 </div>
+                <div class="purchase-card">
+                    <h2>Your purchase</h2>
+                    <div class="product-card">
+                        <div id="selected-shirt" class="product-img">
 
-
-
+                        </div>
+                        <div class="product-title">
+                            <h3>T-shirt</h3>
+                            <p id="selected-size" class="product-size"></p>
+                            <p id="selected-color" class="product-color"></p>
+                            <p class="delivery-txt">Estimate delivery date:</p>
+                            <p id="delivery-date" class="delivery-date"></p>
+                        </div>
+                    </div>
+                    <div class="order-card">
+                        <h4>Your order</h4>
+                        <div class="price">
+                            <p class="product-price">T-shirt:<span id="tshirt-price"></span></p>
+                            <p class="shipping-price">Shipping:<span id="shipping-price"></span></p>
+                            <p class="total-price">Total:<span id="total-price"></span></p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <div id="timer">
