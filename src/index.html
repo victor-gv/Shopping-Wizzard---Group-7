@@ -184,7 +184,7 @@
             <section id="shipping-section" class="shipping">
                 <h2>Shipping</h2>
                 <h4>Shipping type</h4>
-                <form id="shipping-form" >
+                <form id="shipping-form">
                     <input type="radio" id="free" name="shipping" value="free">
                     <label for="free">FREE Shipping (72h)</label><br>
                     <input type="radio" id="extra" name="shipping" value="extra">
@@ -213,77 +213,51 @@
             <section id="finish-section" class="finish">
 
                 <!-- Purchase card -->
+
                 <div class="card">
                     <div id="order-message" class="order-message">
                         <h2>Your order is complete 🎉</h2>
                         <p>Thank You for your order!</p>
                     </div>
-                    <div class="purchase-card">
-                        <h2>Your purchase</h2>
-                        <div class="product-card">
-                            <div id="selected-shirt" class="product-img">
-
+                    <div class="final-product-container">
+                        <div class="purchase-card">
+                            <h2>Your purchase</h2>
+                            <div class="product-card">
+                                <div id="selected-shirt" class="product-img">
+                                </div>
+                                <div class="product-title">
+                                    <h3>T-shirt</h3>
+                                    <p id="selected-size" class="product-size"></p>
+                                    <p id="selected-color" class="product-color"></p>
+                                    <p class="delivery-txt">Estimate delivery date:</p>
+                                    <p id="delivery-date" class="delivery-date"></p>
+                                </div>
                             </div>
-                            <div class="product-title">
-                                <h3>T-shirt</h3>
-                                <p id="selected-size" class="product-size"></p>
-                                <p id="selected-color" class="product-color"></p>
-                                <p class="delivery-txt">Estimate delivery date:</p>
-                                <p id="delivery-date" class="delivery-date"></p>
+                            <div class="conditional-check">
+                                <form id="terms-form">
+                                    <input type="checkbox" id="conditional-box" />
+                                    <label for="conditional-box">I have read and I accept the terms and
+                                        conditionals.</label>
+                                </form>
+                                <p id="error-check" class="error-check">
+                                    Please accept the terms and conditions
+                                </p>
                             </div>
+                            <button id="confirm-btn" class="btn-buy">Confirm</button>
                         </div>
-                        <div class="conditional-check">
-                            <form>
-                                <input type="checkbox" id="conditional-box" />
-                                <label for="conditional-box">I have read and I accept the terms and conditionals.</label>
-                            </form>
-                            <p id="error-check" class="error-check">
-                            Please accept the terms and conditions
-                            </p>
-                        </div>
-                        <button id="confirm-btn" class="btn-buy">Confirm</button>
-                    </div>
-                    <!-- Order card -->
-                    <div class="order-card">
-                        <h4>Your order</h4>
-                        <div class="price">
-                            <p class="product-price">T-shirt:<span id="tshirt-price"></span></p>
-                            <p class="shipping-price">Shipping:<span id="shipping-price"></span></p>
-                            <p class="total-price">Total:<span id="total-price"></span></p>
+                        <!-- Order card -->
+                        <div class="order-card">
+                            <h4>Your order</h4>
+                            <div class="price">
+                                <p class="product-price">T-shirt:<span id="tshirt-price"></span></p>
+                                <p class="shipping-price">Shipping:<span id="shipping-price"></span></p>
+                                <p class="total-price">Total:<span id="total-price"></span></p>
+                            </div>
                         </div>
                     </div>
                     <div id="finish-timer" class="finish-timer"></div>
                 </div>
             </section>
-
-
-
-            <!-- <section id="thank-section" class="thank-section">
-                <div class="purchase-card">
-                <div class="purchase-card">
-                    <h2>Your purchase</h2>
-                    <div class="product-card">
-                        <div id="selected-shirt" class="product-img">
-
-                        </div>
-                        <div class="product-title">
-                            <h3>T-shirt</h3>
-                            <p id="selected-size" class="product-size"></p>
-                            <p id="selected-color" class="product-color"></p>
-                            <p class="delivery-txt">Estimate delivery date:</p>
-                            <p id="delivery-date" class="delivery-date"></p>
-                        </div>
-                    </div>
-                    <div class="order-card">
-                        <h4>Your order</h4>
-                        <div class="price">
-                            <p class="product-price">T-shirt:<span id="tshirt-price"></span></p>
-                            <p class="shipping-price">Shipping:<span id="shipping-price"></span></p>
-                            <p class="total-price">Total:<span id="total-price"></span></p>
-                        </div>
-                    </div>  
-                </div>
-            </section>--> 
 
             <div id="timer" class="timer">
 

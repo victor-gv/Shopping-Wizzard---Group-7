@@ -9,6 +9,7 @@ const addressSection = document.getElementById("address-section");
 const shippingSection = document.getElementById("shipping-section");
 const thankSection = document.getElementById("thank-section");
 const errorCheck = document.getElementById("error-check");
+const termsForm = document.getElementById("terms-form");
 const conditionalBox = document.getElementById("conditional-box");
 const finishSection = document.getElementById("finish-section");
 const orderMessage = document.getElementById("order-message");
@@ -110,26 +111,26 @@ let finishShow = false;
 let thankShow = false;
 let error = false;
 
-  // Getting current date, both for birthday input in address section and for the shipping form. 
-  let datePickUp = new Date();
-  let currentHour = datePickUp.getHours();
-  let currentMinute = datePickUp.getMinutes();
-    if (currentMinute < 10) {
-      currentMinute = "0" + currentMinute;
-    }
-  let currentTime = currentHour + ":" + currentMinute;
-  let currentDay = datePickUp.getDate();
-  let currentMonth = datePickUp.getMonth() + 1;
-  let currentYear = datePickUp.getFullYear();
-  let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
-  let freeOptionDate = [currentDay + 3, currentMonth, currentYear].join("/");
-  let extraOptionDate = [currentDay + 2, currentMonth, currentYear].join("/");
-  let premiumOptionDate = [currentDay + 1, currentMonth, currentYear].join("/");
-  let freeOptionDateMargin = [currentDay + 4, currentMonth, currentYear].join("/");
-  let extraOptionDateMargin = [currentDay + 3, currentMonth, currentYear].join("/");
-  let premiumOptionDateMargin = [currentDay + 2, currentMonth, currentYear].join("/");
-  let fullDate = "";
-  let estimateDeliveryDate = "";
+// Getting current date, both for birthday input in address section and for the shipping form. 
+let datePickUp = new Date();
+let currentHour = datePickUp.getHours();
+let currentMinute = datePickUp.getMinutes();
+if (currentMinute < 10) {
+  currentMinute = "0" + currentMinute;
+}
+let currentTime = currentHour + ":" + currentMinute;
+let currentDay = datePickUp.getDate();
+let currentMonth = datePickUp.getMonth() + 1;
+let currentYear = datePickUp.getFullYear();
+let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
+let freeOptionDate = [currentDay + 3, currentMonth, currentYear].join("/");
+let extraOptionDate = [currentDay + 2, currentMonth, currentYear].join("/");
+let premiumOptionDate = [currentDay + 1, currentMonth, currentYear].join("/");
+let freeOptionDateMargin = [currentDay + 4, currentMonth, currentYear].join("/");
+let extraOptionDateMargin = [currentDay + 3, currentMonth, currentYear].join("/");
+let premiumOptionDateMargin = [currentDay + 2, currentMonth, currentYear].join("/");
+let fullDate = "";
+let estimateDeliveryDate = "";
 
 // Storing user data
 let userData = {};
@@ -148,6 +149,7 @@ minImgYellow.addEventListener("click", changeImgYellow);
 let mainTshirt = document.getElementById("main-tshirt");
 mainTshirt.setAttribute("src", "/assets/front-white-main.jpg");
 let color = "White";
+let selectedShirt;
 
 function changeImgWhite() {
   mainTshirt = document.getElementById("main-tshirt");
@@ -304,7 +306,7 @@ function nextPage() {
     dotFour.style.background = "black";
     shippingShow = false;
     finishShow = true;
-    let selectedShirt = document.createElement("img");
+    selectedShirt = document.createElement("img");
     selectedShirt.src = mainTshirt.src;
     showShirt.appendChild(selectedShirt);
     showSize.textContent = `Size: ${size.value}`;
@@ -334,13 +336,19 @@ function clearFormData() {
   dotTwo.style.background = "white";
   dotThree.style.background = "white";
   dotFour.style.background = "white";
+  estimateDateContainer.style.display = "none";
+  errorCheck.style.display = "none";
   profileShow = false;
   addressShow = false;
   shippingShow = false;
   finishShow = false;
   error = false;
+  free.checked = false;
+  extra.checked = false;
+  premium.checked = false;
   profileForm.reset();
   addressForm.reset();
+  selectedShirt.remove();
   userData = {};
 }
 
@@ -625,7 +633,7 @@ const fiveSeconds = 5000;
 
 let setTimer = setInterval(function () {
   if (profileShow || addressShow || shippingShow || finishShow) {
-    if (countMinutes === 0 ){
+    if (countMinutes === 0) {
       timer.style.display = "block";
       timer.innerHTML = `You start your purchase ${
         countMinutes + 1
@@ -660,12 +668,11 @@ let finalSeconds = 0;
 
 let timerSeconds = setInterval(function () {
   if (profileShow || addressShow || shippingShow || finishShow) {
-  finalSeconds++;
-  if (finalSeconds == 60){
-    finalMinutes++;
-    finalSeconds = 0;
-  }
-  console.log(finalSeconds);
+    finalSeconds++;
+    if (finalSeconds == 60) {
+      finalMinutes++;
+      finalSeconds = 0;
+    }
   }
 }, 1000);
 
@@ -675,19 +682,19 @@ shippingForm.addEventListener("change", shippingType);
 let shippingPrice = 0;
 
 function shippingType() {
-  if (free.checked){
+  if (free.checked) {
     estimateDateContainer.style.display = "block";
     estimateDeliveryDate = estimateDateItem.innerHTML = `Between <b>${freeOptionDate} at ${currentTime}</b> and <b>${freeOptionDateMargin} at ${currentTime}</b>`;
     shippingPrice = 0;
-} else if (extra.checked) {
+  } else if (extra.checked) {
     estimateDateContainer.style.display = "block";
     estimateDeliveryDate = estimateDateItem.innerHTML = `Between <b>${extraOptionDate} at ${currentTime}</b> and <b>${extraOptionDateMargin} at ${currentTime}</b>`;
     shippingPrice = 4.99;
-} else if (premium.checked) {
+  } else if (premium.checked) {
     estimateDateContainer.style.display = "block";
-    estimateDeliveryDate = estimateDateItem.innerHTML = `Between <b> ${premiumOptionDate} </b> at ${currentTime} and <b>${premiumOptionDateMargin} at ${currentTime}</b>`;
+    estimateDeliveryDate = estimateDateItem.innerHTML = `Between <b> ${premiumOptionDate}  at ${currentTime}</b> and <b>${premiumOptionDateMargin} at ${currentTime}</b>`;
     shippingPrice = 9.99;
-}
+  }
 
 }
 
@@ -696,10 +703,10 @@ conditionalBox.addEventListener("click", validateTerms);
 confirmBtn.addEventListener("click", showFinish);
 
 function validateTerms() {
-  if (!conditionalBox.checked){
+  if (!conditionalBox.checked) {
     errorCheck.style.display = "block";
     error = true;
-  } else if (conditionalBox.checked){
+  } else if (conditionalBox.checked) {
     errorCheck.style.display = "none";
     error = false;
   }
@@ -709,23 +716,23 @@ function validateTerms() {
 
 
 function showFinish() {
-  if (!conditionalBox.checked){
+  if (!conditionalBox.checked) {
     errorCheck.style.display = "block";
     error = true;
   }
 
-  if (finishShow && !error){
-  finishTimer.innerHTML = "Your registration took: " + finalMinutes + " minutes and " + finalSeconds + " seconds.";
-  orderMessage.style.display = "block";
-  clearInterval(setTimer);
-  clearInterval(timerSeconds);
-  headerProgress.style.display = "block";
-  firstFoot.style.display = "block";
-  secondFoot.style.display = "none";
-  finishTimer.style.display = "block";
-  errorCheck.style.display = "none";
-  confirmBtn.style.display = "none";
-  conditionalBox.style.display = "none";
-}
+  if (finishShow && !error) {
+    finishTimer.innerHTML = "Your registration took:<b> &nbsp; " + finalMinutes + " minutes and " + finalSeconds + " seconds.</b>";
+    orderMessage.style.display = "block";
+    clearInterval(setTimer);
+    clearInterval(timerSeconds);
+    headerProgress.style.display = "block";
+    firstFoot.style.display = "flex";
+    secondFoot.style.display = "none";
+    finishTimer.style.display = "flex";
+    errorCheck.style.display = "none";
+    confirmBtn.style.display = "none";
+    termsForm.style.display = "none";
+  }
 }
 console.log(userData);

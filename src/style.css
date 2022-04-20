@@ -1,5 +1,5 @@
-
-html, body {
+html,
+body {
   position: absolute;
   box-sizing: border-box;
   height: 100%;
@@ -7,6 +7,7 @@ html, body {
   padding: 0;
   background-color: rgb(255, 251, 251);
   font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1.2rem;
 }
 
 /* HEADER-MAIN */
@@ -217,6 +218,7 @@ header {
   right: 15rem;
   height: 110px;
   width: 200px;
+  font-size: 1rem;
   border: 1px solid rgb(0, 0, 0);
   background-color: #f8f4f4;
   padding: 1rem;
@@ -319,19 +321,44 @@ header {
 
 .finish {
   display: none;
-}
-
-.order-message {
-  padding: 2em 5rem;
-  line-height: 2;
+  margin-top: 5rem;
 }
 
 .card {
   display: flex;
-  gap: 30px;
+  flex-direction: column;
   padding: 0em 5rem;
   margin: auto 0;
 }
+
+.final-product-container {
+  display: flex;
+}
+
+.order-message {
+  display: flex;
+  padding: 2em 5rem;
+  line-height: 2;
+}
+
+.finish-timer {
+  display: flex;
+  justify-content: center;
+  padding: 50px 15px 50px 80px;
+  width: 100vw;
+  height: min-content;
+  font-size: 30px;
+}
+
+.total-price {
+  font-size: 1.5rem;
+}
+
+#total-price {
+  font-weight: bold;
+}
+
+
 
 /* PURCHASE CARD */
 .purchase-card {
@@ -369,7 +396,17 @@ header {
 }
 
 .btn-buy {
+  background-color: rgb(49, 49, 49);
+  color: white;
+  border: 2px solid black;
+  font-weight: bold;
+  font-size: 1.1rem;
   padding: 4px 15px;
+}
+
+.btn-buy:hover {
+  color: black;
+  background-color: #dbd9d9;
 }
 
 /* ORDER CARD */
@@ -418,7 +455,7 @@ footer {
   border: 2px solid black;
   font-size: 1.1rem;
   font-weight: bold;
-  width: 14vw;
+  width: auto;
   padding: 10px;
 }
 
@@ -436,14 +473,11 @@ footer {
   border: 2px solid black;
   font-weight: bold;
   font-size: 1.1rem;
-  width: 9vw;
+  width: auto;
   padding: 10px;
 }
 
 /* Thank section  */
-.thank-section {
-  display: none;
-}
 
 .order-message {
   display: none;
