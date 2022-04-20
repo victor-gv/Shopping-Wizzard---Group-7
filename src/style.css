@@ -8,6 +8,7 @@ body {
   background-color: rgb(255, 251, 251);
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 1.2rem;
+  overflow-x: hidden;
 }
 
 /* HEADER-MAIN */
@@ -443,7 +444,6 @@ footer {
   margin-right: 5rem;
   padding: 30px;
   background-color: #dfd3d3;
-  width: 100vw;
   height: min-content;
 }
 
