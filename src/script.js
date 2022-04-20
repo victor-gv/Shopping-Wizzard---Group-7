@@ -626,13 +626,13 @@ setInterval(function () {
       timer.style.display = "block";
       timer.innerHTML = `You start your purchase ${
         countTimer + 1
-      } minute ago, <b> Hurry up! </b> The limit is 5 minutes `;
+      } minute ago. <b> Hurry up! </b> The limit is 5 minutes. `;
       countTimer++;
     } else {
       timer.style.display = "block";
       timer.innerHTML = `You start your purchase ${
         countTimer + 1
-      } minutes ago, <b> Hurry up! </b> The limit is 5 minutes `;
+      } minutes ago. <b> Hurry up! </b> The limit is 5 minutes. `;
       countTimer++;
     }
 
