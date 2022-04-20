@@ -624,6 +624,9 @@ const fiveSeconds = 5000;
 
 let setTimer = setInterval(function () {
   if (profileShow || addressShow || shippingShow || finishShow) {
+    setInterval(function () {
+      countSeconds++;
+    }, 1000);
     if (countMinutes === 0 ){
       timer.style.display = "block";
       timer.innerHTML = `You start your purchase ${
@@ -700,12 +703,15 @@ function showFinish() {
   }
 
   if (finishShow && !error){
+  finishTimer.innerHTML = "Your registration took:" + countMinutes + "minutes and" + countSeconds + "seconds.";
+  orderMessage.style.display = "block";
+  console.log(countMinutes , countSeconds);
+  console.log(typeof(finishTimer));
   clearInterval(setTimer);
   headerProgress.style.display = "block";
   firstFoot.style.display = "block";
   secondFoot.style.display = "none";
   finishTimer.style.display = "block";
-  orderMessage.style.display = "block";
   errorCheck.style.display = "none";
   confirmBtn.style.display = "none";
   conditionalBox.style.display = "none";
