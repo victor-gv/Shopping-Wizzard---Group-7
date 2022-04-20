@@ -7,7 +7,17 @@ const mainSection = document.getElementById("main-section");
 const profileSection = document.getElementById("profile-section");
 const addressSection = document.getElementById("address-section");
 const shippingSection = document.getElementById("shipping-section");
+const thankSection = document.getElementById("thank-section");
+const errorCheck = document.getElementById("error-check");
+const conditionalBox = document.getElementById("conditional-box");
 const finishSection = document.getElementById("finish-section");
+let showShirt = document.getElementById("selected-shirt");
+let showSize = document.getElementById("selected-size");
+let showColor = document.getElementById("selected-color");
+let showDeliveryDate = document.getElementById("delivery-date");
+let showShirtPrice = document.getElementById("tshirt-price");
+let showShippingPrice = document.getElementById("shipping-price");
+let showTotalPrice = document.getElementById("total-price");
 const headerMain = document.getElementById("header-main");
 const headerProgress = document.getElementById("header-progress");
 const firstFoot = document.getElementById("first-foot");
@@ -75,31 +85,191 @@ const errorCountry = document.getElementById("country-error");
 let phone = document.getElementById("phone");
 const phoneError = document.getElementById("phone-error");
 
-//
+// Timers
+const timer = document.getElementById("timer");
+
+// Shipping Elements
+const shippingForm = document.getElementById("shipping-form"); 
+const estimateDateContainer = document.getElementById("estimate-date-container");
+const estimateDateItem = document.getElementById("estimate-date-item");
+const freeShipping = document.getElementById("free");
+const extraShipping = document.getElementById("extra");
+const premiumShipping = document.getElementById("premium");
+
+//Finish Elements
+const confirmBtn = document.getElementById("confirm-btn");
+
 
 //Global variables
 let profileShow = false;
 let addressShow = false;
 let shippingShow = false;
 let finishShow = false;
+let thankShow = false;
 let error = false;
+
+  // Getting current date, both for birthday input in address section and for the shipping form. 
+  let datePickUp = new Date();
+  let currentHour = datePickUp.getHours();
+  let currentMinute = datePickUp.getMinutes();
+    if (currentMinute < 10) {
+      currentMinute = "0" + currentMinute;
+    }
+  let currentTime = currentHour + ":" + currentMinute;
+  let currentDay = datePickUp.getDate();
+  let currentMonth = datePickUp.getMonth() + 1;
+  let currentYear = datePickUp.getFullYear();
+  let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
+  let freeOptionDate = [currentDay + 3, currentMonth, currentYear].join("/");
+  let extraOptionDate = [currentDay + 2, currentMonth, currentYear].join("/");
+  let premiumOptionDate = [currentDay + 1, currentMonth, currentYear].join("/");
+  let freeOptionDateMargin = [currentDay + 4, currentMonth, currentYear].join("/");
+  let extraOptionDateMargin = [currentDay + 3, currentMonth, currentYear].join("/");
+  let premiumOptionDateMargin = [currentDay + 2, currentMonth, currentYear].join("/");
+  let fullDate = "";
+  let estimateDeliveryDate = "";
 
 // Storing user data
 let userData = {};
 // ----------------------------
-// * EVENTS
+
 // ----------------------------
+
+
+//Main page function
+minImgWhite.addEventListener("click", changeImgWhite);
+minImgBlack.addEventListener("click", changeImgBlack);
+minImgPurple.addEventListener("click", changeImgPurple);
+minImgBlue.addEventListener("click", changeImgBlue);
+minImgRed.addEventListener("click", changeImgRed);
+minImgYellow.addEventListener("click", changeImgYellow);
+let mainTshirt = document.getElementById("main-tshirt");
+mainTshirt.setAttribute("src", "/assets/front-white-main.jpg");
+let color = "White";
+
+function changeImgWhite() {
+  mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-white-main.jpg");
+  color = "White";
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind.jpg");
+}
+
+function changeImgBlack() {
+  mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-black-main.jpg");
+  color = "Black";
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-black.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-black.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-black.jpg");
+}
+
+function changeImgPurple() {
+  mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-purple-main.jpg");
+  color = "Purple";
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-purple.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-purple.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-purple.jpg");
+}
+
+function changeImgBlue() {
+  mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-light-blue-main.jpg");
+  color = "Blue";
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-light-blue.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-light-blue.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-light-blue.jpg");
+}
+
+function changeImgRed() {
+  mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-red-main.jpg");
+  color = "Red";
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-red.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-red.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-red.jpg");
+}
+
+function changeImgYellow() {
+  mainTshirt = document.getElementById("main-tshirt");
+  mainTshirt.setAttribute("src", "/assets/front-yellow-main.jpg");
+  color = "Yellow";
+
+  let frontTshirt = document.getElementById("front");
+  frontTshirt.setAttribute("src", "/assets/front-yellow.jpg");
+
+  let turnTshirt = document.getElementById("turn");
+  turnTshirt.setAttribute("src", "/assets/turn-yellow.jpg");
+
+  let behindTshirt = document.getElementById("behind");
+  behindTshirt.setAttribute("src", "/assets/behind-yellow.jpg");
+}
+
+size.addEventListener("change", changePrice);
+let tshirtPrice = 20;
+
+function changePrice() {
+  if (size.value == "XS") {
+    price.textContent = "20.00$";
+    tshirtPrice = 20;
+  } else if (size.value == "S") {
+    price.textContent = "25.00$";
+    tshirtPrice = 25;
+  } else if (size.value == "M") {
+    price.textContent = "27.00$";
+    tshirtPrice = 27;
+  } else if (size.value == "L") {
+    price.textContent = "30.00$";
+    tshirtPrice = 30;
+  } else if (size.value == "XL") {
+    price.textContent = "35.00$";
+    tshirtPrice = 35;
+  }
+}
 
 // Main page events
 btnBuy.addEventListener("click", showProfile);
 
 function showProfile() {
   mainSection.style.display = "none";
-  profileSection.style.display = "flex";
+  profileSection.style.display = "block";
   headerMain.style.display = "none";
   headerProgress.style.display = "block";
   firstFoot.style.display = "none";
   secondFoot.style.display = "flex";
+  profileShow = true;
 }
 
 nextButton.addEventListener("click", nextPage);
@@ -107,26 +277,41 @@ nextButton.addEventListener("click", nextPage);
 function nextPage() {
   console.log(userData);
   console.log(Object.values(userData).length);
-  if (!profileShow && Object.values(userData).length === 3 && !error) {
+  if (profileShow && Object.values(userData).length === 3 && !error) {
     profileSection.style.display = "none";
-    addressSection.style.display = "flex";
+    addressSection.style.display = "block";
     dotTwo.style.background = "black";
-    profileShow = true;
+    profileShow = false;
+    addressShow = true;
   } else if (
-    profileShow &&
+    !profileShow &&
     Object.values(userData).length === 11 &&
-    !addressShow &&
+    addressShow &&
     !error
   ) {
     addressSection.style.display = "none";
-    shippingSection.style.display = "flex";
+    shippingSection.style.display = "block";
     dotThree.style.background = "black";
-    addressShow = true;
-  } else if (profileShow && addressShow && !shippingShow) {
+    addressShow = false;
+    shippingShow = true;
+  } else if (!profileShow && !addressShow && shippingShow && (free.checked || extra.checked || premium.checked)) {
+    secondFoot.style.display = "none";
     shippingSection.style.display = "none";
     finishSection.style.display = "flex";
     dotFour.style.background = "black";
-    shippingShow = true;
+    shippingShow = false;
+    finishShow = true;
+    let selectedShirt = document.createElement("img");
+    selectedShirt.src = mainTshirt.src;
+    showShirt.appendChild(selectedShirt);
+    showSize.textContent = `Size: ${size.value}`;
+    showColor.textContent = `Color: ${color}`;
+    showShirtPrice.textContent = ` ${tshirtPrice}.00$`;
+    showShippingPrice.textContent = ` ${shippingPrice}$`;
+    showDeliveryDate.innerHTML = estimateDeliveryDate;
+    let totalPrice = 0;
+    totalPrice = tshirtPrice + shippingPrice;
+    showTotalPrice.innerHTML = " " + totalPrice.toFixed(2) + "$";
   }
 }
 
@@ -202,113 +387,6 @@ birthday.addEventListener("blur", validateAddress);
 // PENDING, it´s not mandatory
 function changeStyle() {}
 
-//Main page function
-minImgWhite.addEventListener("click", changeImgWhite);
-minImgBlack.addEventListener("click", changeImgBlack);
-minImgPurple.addEventListener("click", changeImgPurple);
-minImgBlue.addEventListener("click", changeImgBlue);
-minImgRed.addEventListener("click", changeImgRed);
-minImgYellow.addEventListener("click", changeImgYellow);
-
-function changeImgWhite() {
-  let mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front.jpg");
-
-  let frontTshirt = document.getElementById("front");
-  frontTshirt.setAttribute("src", "/assets/front.jpg");
-
-  let turnTshirt = document.getElementById("turn");
-  turnTshirt.setAttribute("src", "/assets/turn.jpg");
-
-  let behindTshirt = document.getElementById("behind");
-  behindTshirt.setAttribute("src", "/assets/behind.jpg");
-}
-
-function changeImgBlack() {
-  let mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-black.jpg");
-
-  let frontTshirt = document.getElementById("front");
-  frontTshirt.setAttribute("src", "/assets/front-black.jpg");
-
-  let turnTshirt = document.getElementById("turn");
-  turnTshirt.setAttribute("src", "/assets/turn-black.jpg");
-
-  let behindTshirt = document.getElementById("behind");
-  behindTshirt.setAttribute("src", "/assets/behind-black.jpg");
-}
-
-function changeImgPurple() {
-  let mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-purple.jpg");
-
-  let frontTshirt = document.getElementById("front");
-  frontTshirt.setAttribute("src", "/assets/front-purple.jpg");
-
-  let turnTshirt = document.getElementById("turn");
-  turnTshirt.setAttribute("src", "/assets/turn-purple.jpg");
-
-  let behindTshirt = document.getElementById("behind");
-  behindTshirt.setAttribute("src", "/assets/behind-purple.jpg");
-}
-
-function changeImgBlue() {
-  let mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-light-blue.jpg");
-
-  let frontTshirt = document.getElementById("front");
-  frontTshirt.setAttribute("src", "/assets/front-light-blue.jpg");
-
-  let turnTshirt = document.getElementById("turn");
-  turnTshirt.setAttribute("src", "/assets/turn-light-blue.jpg");
-
-  let behindTshirt = document.getElementById("behind");
-  behindTshirt.setAttribute("src", "/assets/behind-light-blue.jpg");
-}
-
-function changeImgRed() {
-  let mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-red.jpg");
-
-  let frontTshirt = document.getElementById("front");
-  frontTshirt.setAttribute("src", "/assets/front-red.jpg");
-
-  let turnTshirt = document.getElementById("turn");
-  turnTshirt.setAttribute("src", "/assets/turn-red.jpg");
-
-  let behindTshirt = document.getElementById("behind");
-  behindTshirt.setAttribute("src", "/assets/behind-red.jpg");
-}
-
-function changeImgYellow() {
-  let mainTshirt = document.getElementById("main-tshirt");
-  mainTshirt.setAttribute("src", "/assets/front-yellow.jpg");
-
-  let frontTshirt = document.getElementById("front");
-  frontTshirt.setAttribute("src", "/assets/front-yellow.jpg");
-
-  let turnTshirt = document.getElementById("turn");
-  turnTshirt.setAttribute("src", "/assets/turn-yellow.jpg");
-
-  let behindTshirt = document.getElementById("behind");
-  behindTshirt.setAttribute("src", "/assets/behind-yellow.jpg");
-}
-
-size.addEventListener("change", changePrice);
-
-function changePrice() {
-  if (size.value == "XS") {
-    price.textContent = "20.00$";
-  } else if (size.value == "S") {
-    price.textContent = "25.00$";
-  } else if (size.value == "M") {
-    price.textContent = "27.00$";
-  } else if (size.value == "L") {
-    price.textContent = "30.00$";
-  } else if (size.value == "XL") {
-    price.textContent = "35.00$";
-  }
-}
 
 // validating data from Profile Page
 function validateProfile() {
@@ -507,13 +585,6 @@ function validateAddress() {
   // Birthday Event
   birthday.addEventListener("change", getUserBirth);
 
-  // Getting current date in order to avoid the Match between "birthday selected" and "current date"
-  let datePickUp = new Date();
-  let currentDay = datePickUp.getDate();
-  let currentMonth = datePickUp.getMonth() + 1;
-  let currentYear = datePickUp.getFullYear();
-  let fullCurrentDate = [currentDay, currentMonth, currentYear].join("/");
-
   //Getting user birthday
   function getUserBirth() {
     let getBirthValue = birthday.value;
@@ -540,4 +611,99 @@ function validateAddress() {
   }
 }
 
+// Timers
+let countTimer = 0;
+
+const oneMinute = 60000;
+const fiveSeconds = 5000;
+
+setInterval(function () {
+  if (profileShow || addressShow || shippingShow || finishShow) {
+    if (countTimer === 0) {
+      timer.style.display = "block";
+      timer.innerHTML = `You start your purchase ${
+        countTimer + 1
+      } minute ago. <b> Hurry up! </b> The limit is 5 minutes. `;
+      countTimer++;
+    } else {
+      timer.style.display = "block";
+      timer.innerHTML = `You start your purchase ${
+        countTimer + 1
+      } minutes ago. <b> Hurry up! </b> The limit is 5 minutes. `;
+      countTimer++;
+    }
+
+    setTimeout(function () {
+      timer.style.display = "none";
+    }, fiveSeconds);
+  }
+  if (countTimer === 5) {
+    timer.textContent = `The maximum date for your purchase expired, you are going to be redirect to the main page in 5 seconds`;
+    setTimeout(function () {
+      timer.style.display = "none";
+      clearFormData();
+      countTimer = 0;
+    }, fiveSeconds);
+  }
+}, oneMinute);
+
+
+
+//Shipping form function
+
+shippingForm.addEventListener("change", shippingType);
+let shippingPrice = 0;
+
+function shippingType() {
+  if (free.checked){
+    estimateDateContainer.style.display = "block";
+    estimateDeliveryDate = estimateDateItem.innerHTML = `Between <b>${freeOptionDate} at ${currentTime}</b> and <b>${freeOptionDateMargin} at ${currentTime}</b>`;
+    shippingPrice = 0;
+} else if (extra.checked) {
+    estimateDateContainer.style.display = "block";
+    estimateDeliveryDate = estimateDateItem.innerHTML = `Between <b>${extraOptionDate} at ${currentTime}</b> and <b>${extraOptionDateMargin} at ${currentTime}</b>`;
+    shippingPrice = 4.99;
+} else if (premium.checked) {
+    estimateDateContainer.style.display = "block";
+    estimateDeliveryDate = estimateDateItem.innerHTML = `Between <b> ${premiumOptionDate} </b> at ${currentTime} and <b>${premiumOptionDateMargin} at ${currentTime}</b>`;
+    shippingPrice = 9.99;
+}
+
+}
+
+//Finish Section validation
+conditionalBox.addEventListener("click", validateTerms);
+confirmBtn.addEventListener("click", showFinish);
+
+function validateTerms() {
+  if (!conditionalBox.checked){
+    errorCheck.style.display = "block";
+    error = true;
+  } else if (conditionalBox.checked){
+    errorCheck.style.display = "none";
+    error = false;
+  }
+}
+
+//Confirm function
+
+
+function showFinish() {
+  if (!conditionalBox.checked){
+    errorCheck.style.display = "block";
+    error = true;
+  } 
+
+  if (finishShow && !error){
+  mainSection.style.display = "none";
+  profileSection.style.display = "none";
+  headerMain.style.display = "none";
+  headerProgress.style.display = "block";
+  firstFoot.style.display = "none";
+  secondFoot.style.display = "none";
+  finishSection.style.display = "none";
+  thankSection.style.display = "block";
+  thankShow = true;
+}
+}
 console.log(userData);
