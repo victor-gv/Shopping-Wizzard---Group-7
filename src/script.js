@@ -11,6 +11,8 @@ const thankSection = document.getElementById("thank-section");
 const errorCheck = document.getElementById("error-check");
 const conditionalBox = document.getElementById("conditional-box");
 const finishSection = document.getElementById("finish-section");
+const orderMessage = document.getElementById("order-message");
+const finishTimer = document.getElementById("finish-timer");
 let showShirt = document.getElementById("selected-shirt");
 let showSize = document.getElementById("selected-size");
 let showColor = document.getElementById("selected-color");
@@ -89,7 +91,7 @@ const phoneError = document.getElementById("phone-error");
 const timer = document.getElementById("timer");
 
 // Shipping Elements
-const shippingForm = document.getElementById("shipping-form"); 
+const shippingForm = document.getElementById("shipping-form");
 const estimateDateContainer = document.getElementById("estimate-date-container");
 const estimateDateItem = document.getElementById("estimate-date-item");
 const freeShipping = document.getElementById("free");
@@ -614,37 +616,38 @@ function validateAddress() {
 }
 
 // Timers
-let countTimer = 0;
+let countMinutes = 0;
+let countSeconds = 0;
 
 const oneMinute = 60000;
 const fiveSeconds = 5000;
 
-setInterval(function () {
+let setTimer = setInterval(function () {
   if (profileShow || addressShow || shippingShow || finishShow) {
-    if (countTimer === 0) {
+    if (countMinutes === 0 ){
       timer.style.display = "block";
       timer.innerHTML = `You start your purchase ${
-        countTimer + 1
+        countMinutes + 1
       } minute ago. <b> Hurry up! </b> The limit is 5 minutes. `;
-      countTimer++;
+      countMinutes++;
     } else {
       timer.style.display = "block";
       timer.innerHTML = `You start your purchase ${
-        countTimer + 1
+        countMinutes + 1
       } minutes ago. <b> Hurry up! </b> The limit is 5 minutes. `;
-      countTimer++;
+      countMinutes++;
     }
 
     setTimeout(function () {
       timer.style.display = "none";
     }, fiveSeconds);
   }
-  if (countTimer === 5) {
+  if (countMinutes === 5) {
     timer.textContent = `The maximum date for your purchase expired, you are going to be redirect to the main page in 5 seconds`;
     setTimeout(function () {
       timer.style.display = "none";
       clearFormData();
-      countTimer = 0;
+      countMinutes = 0;
     }, fiveSeconds);
   }
 }, oneMinute);
@@ -694,18 +697,18 @@ function showFinish() {
   if (!conditionalBox.checked){
     errorCheck.style.display = "block";
     error = true;
-  } 
+  }
 
   if (finishShow && !error){
-  mainSection.style.display = "none";
-  profileSection.style.display = "none";
-  headerMain.style.display = "none";
+  clearInterval(setTimer);
   headerProgress.style.display = "block";
-  firstFoot.style.display = "none";
+  firstFoot.style.display = "block";
   secondFoot.style.display = "none";
-  finishSection.style.display = "none";
-  thankSection.style.display = "block";
-  thankShow = true;
+  finishTimer.style.display = "block";
+  orderMessage.style.display = "block";
+  errorCheck.style.display = "none";
+  confirmBtn.style.display = "none";
+  conditionalBox.style.display = "none";
 }
 }
 console.log(userData);

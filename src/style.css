@@ -444,3 +444,11 @@ footer {
 .thank-section {
   display: none;
 }
+
+.order-message {
+  display: none;
+}
+
+.finish-timer {
+  display: none;
+}
