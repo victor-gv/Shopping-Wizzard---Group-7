@@ -659,7 +659,7 @@ let setTimer = setInterval(function () {
       countMinutes = 0;
     }, fiveSeconds);
   }
-}, 10000);
+}, oneMinute);
 
 
 
