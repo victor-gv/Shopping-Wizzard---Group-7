@@ -343,9 +343,7 @@ function clearFormData() {
   premium.checked = false;
   profileForm.reset();
   addressForm.reset();
-  if (selectedShirt == Object) {
-    selectedShirt.remove();
-  }
+  selectedShirt.remove();
   userData = {};
 }
 
