@@ -1,6 +1,6 @@
 "use strict";
 
-// * DOM ELEMENTS
+// DOM ELEMENTS
 
 //Pages navigation
 const mainSection = document.getElementById("main-section");
@@ -134,9 +134,6 @@ let estimateDeliveryDate = "";
 
 // Storing user data
 let userData = {};
-// ----------------------------
-
-// ----------------------------
 
 
 //Main page function
@@ -280,8 +277,6 @@ function showProfile() {
 nextButton.addEventListener("click", nextPage);
 
 function nextPage() {
-  console.log(userData);
-  console.log(Object.values(userData).length);
   if (profileShow && Object.values(userData).length === 3 && !error) {
     profileSection.style.display = "none";
     addressSection.style.display = "block";
@@ -348,55 +343,32 @@ function clearFormData() {
   premium.checked = false;
   profileForm.reset();
   addressForm.reset();
-  selectedShirt.remove();
+  if (selectedShirt == Object) {
+    selectedShirt.remove();
+  }
   userData = {};
 }
 
 // Profile Events
 
-userName.addEventListener("focus", changeStyle);
 userName.addEventListener("blur", validateProfile);
-
-userEmail.addEventListener("focus", changeStyle);
 userEmail.addEventListener("blur", validateProfile);
-
-userPassword.addEventListener("focus", changeStyle);
 userPassword.addEventListener("blur", validateProfile);
-
-confirmPassword.addEventListener("focus", changeStyle);
 confirmPassword.addEventListener("blur", validateProfile);
 
 // ----------------------------
 // Address Events
-firstName.addEventListener("focus", changeStyle);
 firstName.addEventListener("blur", validateAddress);
-
-lastName.addEventListener("focus", changeStyle);
 lastName.addEventListener("blur", validateAddress);
-
-address_1.addEventListener("focus", changeStyle);
 address_1.addEventListener("blur", validateAddress);
-
-address_2.addEventListener("focus", changeStyle);
 address_2.addEventListener("blur", validateAddress);
-
-postalCode.addEventListener("focus", changeStyle);
 postalCode.addEventListener("blur", validateAddress);
-
-phone.addEventListener("focus", changeStyle);
 phone.addEventListener("blur", validateAddress);
-
-country.addEventListener("focus", changeStyle);
 country.addEventListener("blur", validateAddress);
-
-phone.addEventListener("focus", changeStyle);
 phone.addEventListener("blur", validateAddress);
-
-birthday.addEventListener("focus", changeStyle);
 birthday.addEventListener("blur", validateAddress);
 
-// PENDING, it´s not mandatory
-function changeStyle() {}
+
 
 
 // validating data from Profile Page
@@ -625,42 +597,46 @@ function validateAddress() {
 }
 
 // Timers
+let setTimer;
 let countMinutes = 0;
-
-
+btnBuy.addEventListener("click", startTimer);
 const oneMinute = 60000;
 const fiveSeconds = 5000;
 
-let setTimer = setInterval(function () {
-  if (profileShow || addressShow || shippingShow || finishShow) {
-    if (countMinutes === 0) {
-      timer.style.display = "block";
-      timer.innerHTML = `You start your purchase ${
+function startTimer() {
+  setTimer = setInterval(function () {
+    if (profileShow || addressShow || shippingShow || finishShow) {
+      if (countMinutes === 0) {
+        timer.style.display = "block";
+        timer.innerHTML = `You start your purchase ${
         countMinutes + 1
       } minute ago. <b> Hurry up! </b> The limit is 5 minutes. `;
-      countMinutes++;
-    } else {
-      timer.style.display = "block";
-      timer.innerHTML = `You start your purchase ${
+        countMinutes++;
+      } else {
+        timer.style.display = "block";
+        timer.innerHTML = `You start your purchase ${
         countMinutes + 1
       } minutes ago. <b> Hurry up! </b> The limit is 5 minutes. `;
-      countMinutes++;
+        countMinutes++;
+      }
+
+      setTimeout(function () {
+        timer.style.display = "none";
+      }, fiveSeconds);
     }
-
-    setTimeout(function () {
-      timer.style.display = "none";
-    }, fiveSeconds);
-  }
-  if (countMinutes === 5) {
-    timer.textContent = `The maximum date for your purchase expired, you are going to be redirect to the main page in 5 seconds`;
-    setTimeout(function () {
-      timer.style.display = "none";
-      clearFormData();
-      countMinutes = 0;
-    }, fiveSeconds);
-  }
-}, oneMinute);
-
+    if (countMinutes === 5) {
+      timer.textContent = `The maximum date for your purchase expired, you are going to be redirect to the main page in 5 seconds`;
+      setTimeout(function () {
+        timer.style.display = "none";
+        countMinutes = 0;
+        finalMinutes = 0;
+        finalSeconds = 0;
+        clearFormData();
+        clearInterval(setTimer);
+      }, fiveSeconds);
+    }
+  }, oneMinute);
+}
 
 
 let finalMinutes = 0;
@@ -676,8 +652,9 @@ let timerSeconds = setInterval(function () {
   }
 }, 1000);
 
-//Shipping form function
 
+
+//Shipping form function
 shippingForm.addEventListener("change", shippingType);
 let shippingPrice = 0;
 
@@ -712,9 +689,9 @@ function validateTerms() {
   }
 }
 
+
+
 //Confirm function
-
-
 function showFinish() {
   if (!conditionalBox.checked) {
     errorCheck.style.display = "block";
