@@ -264,6 +264,7 @@ function changePrice() {
 // Main page events
 btnBuy.addEventListener("click", showProfile);
 
+
 function showProfile() {
   mainSection.style.display = "none";
   profileSection.style.display = "block";
@@ -617,16 +618,13 @@ function validateAddress() {
 
 // Timers
 let countMinutes = 0;
-let countSeconds = 0;
+
 
 const oneMinute = 60000;
 const fiveSeconds = 5000;
 
 let setTimer = setInterval(function () {
   if (profileShow || addressShow || shippingShow || finishShow) {
-    setInterval(function () {
-      countSeconds++;
-    }, 1000);
     if (countMinutes === 0 ){
       timer.style.display = "block";
       timer.innerHTML = `You start your purchase ${
@@ -653,9 +651,23 @@ let setTimer = setInterval(function () {
       countMinutes = 0;
     }, fiveSeconds);
   }
-}, oneMinute);
+}, 10000);
 
 
+
+let finalMinutes = 0;
+let finalSeconds = 0;
+
+let timerSeconds = setInterval(function () {
+  if (profileShow || addressShow || shippingShow || finishShow) {
+  finalSeconds++;
+  if (finalSeconds == 60){
+    finalMinutes++;
+    finalSeconds = 0;
+  }
+  console.log(finalSeconds);
+  }
+}, 1000);
 
 //Shipping form function
 
@@ -703,11 +715,10 @@ function showFinish() {
   }
 
   if (finishShow && !error){
-  finishTimer.innerHTML = "Your registration took:" + countMinutes + "minutes and" + countSeconds + "seconds.";
+  finishTimer.innerHTML = "Your registration took: " + finalMinutes + " minutes and " + finalSeconds + " seconds.";
   orderMessage.style.display = "block";
-  console.log(countMinutes , countSeconds);
-  console.log(typeof(finishTimer));
   clearInterval(setTimer);
+  clearInterval(timerSeconds);
   headerProgress.style.display = "block";
   firstFoot.style.display = "block";
   secondFoot.style.display = "none";
