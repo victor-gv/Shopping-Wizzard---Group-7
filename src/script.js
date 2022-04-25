@@ -420,6 +420,7 @@ function validateProfile() {
     error = true;
   } else {
     errorPassword.style.display = "none";
+    errorPassword.textContent = "";
     error = false;
   }
 
